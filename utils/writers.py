@@ -3,44 +3,77 @@ import os
 from devices import ssi
 
 
-def createDirs():
-    path = './servicedata/output/'
+def clear_output():
+    output_path = './servicedata/output/'
+    switch_path = 'ПРК/'
+    device_path = 'ОБОРУД/'
+    config_path = 'КОНФИГУРАЦИЯ/'
+    plan_path = 'ПЛАНЫ/'
+    measure_path = 'ИЗМЕРЕНИЯ/'
     try:
-        os.mkdir(path)
-        os.mkdir(path + 'switch/')
-        os.mkdir(path + 'device/')
-        os.mkdir(path + 'config/')
-        os.mkdir(path + 'plan/')
-        os.mkdir(path + 'measure/')
+        for i in os.listdir(output_path):
+            try:
+                for dir_file in os.listdir(output_path + '/' + i):
+                    os.remove(output_path + i + '/' + dir_file)
+                    print('Объект - внутренний файл: удаляем')
+            except:
+                print('Объект - файл: удаляем')
+                os.remove(output_path + i)
+        for d in os.listdir(output_path):
+            os.rmdir(output_path + '/' + d)
+        os.rmdir(output_path)
+    except:
+        print('Папки output не существует')
+
+
+def createDirs():
+    output_path = './servicedata/output/'
+    switch_path = 'ПРК/'
+    device_path = 'ОБОРУД/'
+    config_path = 'КОНФИГУРАЦИЯ/'
+    plan_path = 'ПЛАНЫ/'
+    measure_path = 'ИЗМЕРЕНИЯ/'
+    try:
+        os.mkdir(output_path)
+        os.mkdir(output_path + switch_path)
+        os.mkdir(output_path + device_path)
+        os.mkdir(output_path + config_path)
+        os.mkdir(output_path + plan_path)
+        os.mkdir(output_path + measure_path)
+        print('Папки созданы')
     except FileExistsError:
         pass
 
 
 def writeCG(s: ssi.SSI, CGType: str, isUnicode=True):
+    output_path = './servicedata/output/'
+    switch_path = 'ПРК/'
+    device_path = 'ОБОРУД/'
+    config_path = 'КОНФИГУРАЦИЯ/'
+    measure_path = 'ИЗМЕРЕНИЯ/'
     createDirs()
-    path = './servicedata/output/'
     if CGType == 'sw':
         name = s.nameForSwitch
-        path += 'switch/'
+        output_path += switch_path
         strToWrite = s.getFullCGStrSwitch()
     if CGType == 'dev':
         name = s.nameForDevice
-        path += 'device/'
+        output_path += device_path
         strToWrite = s.getFullCGStrDEV()
     if CGType == 'conf':
         name = s.nameForConfigDevice
-        path += 'config/'
+        output_path += config_path
         strToWrite = s.getFullCGStrConfigDevice()
     if CGType == 'all':
         name = s.nameForAll
         strToWrite = s.getFullCGStr()
     if CGType == 'meas':
         name = s.nameForMeasure
-        path += 'measure/'
+        output_path += measure_path
         strToWrite = s.getFullCGStrMeasure()
 
     if strToWrite is not None:
-        with open(path + name + '.ci', 'wb') as writeFile:
+        with open(output_path + name + '.ci', 'wb') as writeFile:
             if isUnicode:
                 strToWrite = strToWrite.encode()
                 writeFile.write(strToWrite)
@@ -53,8 +86,9 @@ def writeCG(s: ssi.SSI, CGType: str, isUnicode=True):
 
 
 def writePlan(planString):
+    plan_path = 'ПЛАНЫ/'
     createDirs()
-    path = './servicedata/output/plan/'
+    path = './servicedata/output/' + plan_path
     if planString['planstr'] is not None:
         planString['planstr'] += '\n'
         with open(path + planString['filename'] + '.pla', 'ab') as writeFile:
