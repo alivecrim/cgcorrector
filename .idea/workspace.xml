@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc34aa6a-c8c6-4cf6-bce1-68aa9645c990" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devices/dtp.py" beforeDir="false" afterPath="$PROJECT_DIR$/devices/dtp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devices/lna.py" beforeDir="false" afterPath="$PROJECT_DIR$/devices/lna.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devices/ssi.py" beforeDir="false" afterPath="$PROJECT_DIR$/devices/ssi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measure/measure.py" beforeDir="false" afterPath="$PROJECT_DIR$/measure/measure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_1.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_1.ci" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_10.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_10.ci" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_100.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_100.ci" afterDir="false" />
@@ -268,64 +263,125 @@
       <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_18740_KKA_11570_MLO_01_DTP_-320G-26_0101010110.ci" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5800.0G30.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5800.0G40.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C064_C151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C064_C151.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_C151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_C151.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_C179.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_C179.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_C238.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_C238.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O3_C350.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O3_C350.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O4_C351.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O4_C351.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C274.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C274.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C290.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C290.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C292.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C292.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C066_C151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C066_C151.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_WU5.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_WU5.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_C065_C151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_C065_C151.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_WU5.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_WU5.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_C062_C150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_C062_C150.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_WU6.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_WU6.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C061_C150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C061_C150.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_C150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_C150.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_W3CN2_C177.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_W3CN2_C177.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C063_C150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C063_C150.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_WU6.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_WU6.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_C077_C397.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_C077_C397.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_WU7.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_WU7.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C076_C397.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C076_C397.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_C397.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_C397.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_C191.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_C191.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_C240.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_C240.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C267.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C267.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C286.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C286.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C288.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C288.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_W5CN4_WIM1-O2_C348.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_W5CN4_WIM1-O2_C348.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J59_W4CN1-J22_W5CN6_WIM2-O2_C354.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J59_W4CN1-J22_W5CN6_WIM2-O2_C354.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C078_C397.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C078_C397.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_WU7.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_WU7.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA3-J09_C077_W3CN9_C191.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA3-J09_C077_W3CN9_C191.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_C074_C396.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_C074_C396.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_WU8.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_WU8.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C073_C396.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C073_C396.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_C396.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_C396.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_W3CN8_C189.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_W3CN8_C189.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C075_C396.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C075_C396.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_WU8.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_WU8.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA3-J03_WU8.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA3-J03_WU8.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C070_C395.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C070_C395.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_C395.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_C395.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_C187.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_C187.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J29_C236.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J29_C236.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J59_W4CN1-J12_W5CN5_WIM1-O4_C351.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J59_W4CN1-J12_W5CN5_WIM1-O4_C351.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C072_C395.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C072_C395.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_WU9.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_WU9.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_C071_C395.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_C071_C395.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_WU9.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_WU9.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C067_C394.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C067_C394.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_C394.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_C394.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_W3CN6_C185.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_W3CN6_C185.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C069_C394.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C069_C394.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_WU10.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_WU10.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_C068_C394.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_C068_C394.ci" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_WU10.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_WU10.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C113_W2CN1_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C113_W2CN1_C062_W3CN1_C175.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C113_W2CN1_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C113_W2CN1_C077_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C115_W2CN2_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C115_W2CN2_C062_W3CN1_WDTP1-J18_WDTP1-J19_C234.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C115_W2CN2_C062_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C117_W2CN3_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C117_W2CN3_C065_W3CN3_C179.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_C392.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_W3CN4_C181.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J39_W4CN2-J12_C260.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J39_W4CN2-J12_C282.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J39_W4CN2-J12_C284.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J49_C240.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J49_W4CN2-J22_W5CN4_WIM2-O1_C352.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J49_W4CN2-J22_W5CN4_WIM2-O1_W6CN1_C368_C371.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J49_W4CN2-J22_W5CN4_WIM2-O1_W6CN3_C368_C373.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C121_W2CN5_C083_C393.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C121_W2CN5_C083_W3CN5_C183.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C123_W2CN6_C068_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C123_W2CN6_C068_W3CN6_C185.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C123_W2CN6_C068_W3CN6_WDTP1-J68_WDTP1-J19_W4CN3-J12_C253.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C123_W2CN6_C068_W3CN6_WDTP1-J68_WDTP1-J69_C244.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C123_W2CN6_C068_W3CN6_WDTP1-J68_WDTP1-J69_W4CN1-J22_C274.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C125_W2CN7_C071_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C125_W2CN7_C071_W3CN7_C187.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C127_W2CN8_C074_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C127_W2CN8_C074_W3CN8_C189.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C127_W2CN8_C074_W3CN8_WDTP1-J88_WDTP1-J29_W4CN3-J22_W5CN1_WIM1-O1_C347.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C127_W2CN8_C074_W3CN8_WDTP1-J88_WDTP1-J39_C238.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C129_W2CN9_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C129_W2CN9_C077_W3CN10_WDTP1-J108_WDTP1-J59_C242.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C129_W2CN9_C077_W3CN9_C191.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C131_W2CN10_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C131_W2CN10_C077_W3CN10_C193.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C083_C393.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C083_W3CN5_C183.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J29_W4CN3-J22_C253.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J29_W4CN3-J22_C278.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J29_W4CN3-J22_C280.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J59_C242.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J59_W4CN1-J12_W5CN5_WIM2-O2_C353.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J69_W4CN1-J12_W5CN5_WIM2-O2_W6CN2_C367_C369.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN1_C085_C393.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C382_W1CN3_C083_C393.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C383_W1CN2_C079_C392.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C383_W1CN2_C079_W3CN4_C181.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C383_W1CN2_C081_C392.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C383_W1CN3_C079_C392.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C384_W1CN3_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C384_W1CN4_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C384_W1CN4_C065_W3CN3_C179.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C385_W1CN1_C062_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C385_W1CN3_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C385_W1CN5_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C385_W1CN5_C062_W3CN1_WDTP1-J108_WDTP1-J69_W4CN3-J12_C274_W5CN2_WIM2-O2_C348.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C385_W1CN5_C062_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C385_W1CN5_C062_W3CN2_WDTP1-J28_WDTP1-J29_C236.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C385_W1CN5_C062_W3CN2_WDTP1-J28_WDTP1-J29_W4CN3-J22_W5CN2_WIM1-O1_C349.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_C385_W1CN5_C062_W3CN2_WDTP1-J28_WDTP1-J29_W4CN3-J22_W5CN2_WIM1-O2_C348.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C064_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_C179.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_C238.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O3_C350.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O4_C351.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C274.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C290.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C292.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C066_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_WU5.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_WU5.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_WU6.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C061_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C063_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_WU6.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_WU7.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C076_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_C191.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_C240.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C267.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C286.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C288.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_W5CN4_WIM1-O2_C348.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J59_W4CN1-J22_W5CN6_WIM2-O2_C354.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C078_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_WU7.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA3-J09_C077_W3CN9_C191.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_C074_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_WU8.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C073_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_W3CN8_C189.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C075_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_WU8.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA3-J03_WU8.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C070_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_C187.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J29_C236.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J59_W4CN1-J12_W5CN5_WIM1-O4_C351.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C072_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_WU9.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_C071_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_WU9.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C067_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_W3CN6_C185.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C069_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_WU10.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_C068_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_WU10.ci" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_13750.0_250.0_-57.0L_.ci" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_13750.0_750.0_-30.0H_.ci" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_13750.0_750.0_-57.0L_.ci" beforeDir="false" />
@@ -343,13 +399,132 @@
       <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_6095.0_250.0_-71.0L_.ci" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_6095.0_80.0_-71.0L_.ci" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_6475.0_250.0_-71.0L_.ci" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК.pla" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК1.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК1.pla" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК2.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК2.pla" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК3.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК3.pla" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК4.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК4.pla" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК5.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК5.pla" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/writers.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/writers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК.pla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК1.pla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК2.pla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК3.pla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК4.pla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК5.pla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C113_W2CN1_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C113_W2CN1_C062_W3CN1_C175.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C113_W2CN1_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C113_W2CN1_C077_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C115_W2CN2_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C115_W2CN2_C062_W3CN1_WDTP1-J18_WDTP1-J19_C234.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C115_W2CN2_C062_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C117_W2CN3_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C117_W2CN3_C065_W3CN3_C179.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_C392.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_W3CN4_C181.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J39_W4CN2-J12_C260.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J39_W4CN2-J12_C282.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J39_W4CN2-J12_C284.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J49_C240.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J49_W4CN2-J22_W5CN4_WIM2-O1_C352.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J49_W4CN2-J22_W5CN4_WIM2-O1_W6CN1_C368_C371.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C119_W2CN4_C079_W3CN4_WDTP1-J48_WDTP1-J49_W4CN2-J22_W5CN4_WIM2-O1_W6CN3_C368_C373.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C121_W2CN5_C083_C393.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C121_W2CN5_C083_W3CN5_C183.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C123_W2CN6_C068_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C123_W2CN6_C068_W3CN6_C185.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C123_W2CN6_C068_W3CN6_WDTP1-J68_WDTP1-J19_W4CN3-J12_C253.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C123_W2CN6_C068_W3CN6_WDTP1-J68_WDTP1-J69_C244.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C123_W2CN6_C068_W3CN6_WDTP1-J68_WDTP1-J69_W4CN1-J22_C274.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C125_W2CN7_C071_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C125_W2CN7_C071_W3CN7_C187.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C127_W2CN8_C074_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C127_W2CN8_C074_W3CN8_C189.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C127_W2CN8_C074_W3CN8_WDTP1-J88_WDTP1-J29_W4CN3-J22_W5CN1_WIM1-O1_C347.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C127_W2CN8_C074_W3CN8_WDTP1-J88_WDTP1-J39_C238.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C129_W2CN9_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C129_W2CN9_C077_W3CN10_WDTP1-J108_WDTP1-J59_C242.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C129_W2CN9_C077_W3CN9_C191.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C131_W2CN10_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C131_W2CN10_C077_W3CN10_C193.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C379_C260.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C083_C393.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C083_W3CN5_C183.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J29_W4CN3-J22_C253.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J29_W4CN3-J22_C278.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J29_W4CN3-J22_C280.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J59_C242.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J59_W4CN1-J12_W5CN5_WIM2-O2_C353.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C083_W3CN5_WDTP1-J58_WDTP1-J69_W4CN1-J12_W5CN5_WIM2-O2_W6CN2_C367_C369.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN1_C085_C393.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C382_W1CN3_C083_C393.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C383_W1CN2_C079_C392.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C383_W1CN2_C079_W3CN4_C181.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C383_W1CN2_C081_C392.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C383_W1CN3_C079_C392.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C384_W1CN3_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C384_W1CN4_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C384_W1CN4_C065_W3CN3_C179.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C385_W1CN1_C062_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C385_W1CN3_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C385_W1CN5_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C385_W1CN5_C062_W3CN1_WDTP1-J108_WDTP1-J69_W4CN3-J12_C274_W5CN2_WIM2-O2_C348.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C385_W1CN5_C062_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C385_W1CN5_C062_W3CN2_WDTP1-J28_WDTP1-J29_C236.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C385_W1CN5_C062_W3CN2_WDTP1-J28_WDTP1-J29_W4CN3-J22_W5CN2_WIM1-O1_C349.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_C385_W1CN5_C062_W3CN2_WDTP1-J28_WDTP1-J29_W4CN3-J22_W5CN2_WIM1-O2_C348.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C064_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C065_W3CN3_C179.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_C238.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O3_C350.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O4_C351.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C274.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C290.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C292.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_C066_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J03_WU5.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J06_C065_C151.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC1_WLNA1-J06_WU5.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC2_WLNA1-J06_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC2_WLNA1-J06_WU6.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC2_WLNA1-J09_C061_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC2_WLNA1-J09_C062_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC2_WLNA1-J09_C062_W3CN2_C177.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC2_WLNA1-J09_C063_C150.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC2_WLNA1-J09_WU6.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J03_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J03_WU7.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C076_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C077_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C077_W3CN9_C191.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_C240.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C267.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C286.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C288.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_W5CN4_WIM1-O2_C348.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J59_W4CN1-J22_W5CN6_WIM2-O2_C354.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_C078_C397.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA2-J06_WU7.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC3_WLNA3-J09_C077_W3CN9_C191.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC4_WLNA2-J03_C074_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC4_WLNA2-J03_WU8.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC4_WLNA2-J09_C073_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC4_WLNA2-J09_C074_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC4_WLNA2-J09_C074_W3CN8_C189.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC4_WLNA2-J09_C075_C396.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC4_WLNA2-J09_WU8.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC4_WLNA3-J03_WU8.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J03_C070_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J03_C071_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J03_C071_W3CN7_C187.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J29_C236.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J59_W4CN1-J12_W5CN5_WIM1-O4_C351.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J03_C072_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J03_WU9.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J09_C071_C395.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC5_WLNA3-J09_WU9.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC6_WLNA3-J06_C067_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC6_WLNA3-J06_C068_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC6_WLNA3-J06_C068_W3CN6_C185.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC6_WLNA3-J06_C069_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC6_WLNA3-J06_WU10.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC6_WLNA3-J09_C068_C394.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/switch/763_БСК1_ПРК_WIC6_WLNA3-J09_WU10.ci" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -367,6 +542,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Pavel Bolsunovskiy &lt;alivecrim@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="NamedScopeManager">
@@ -390,10 +570,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/devices" />
       <recent name="$PROJECT_DIR$/ssis" />
       <recent name="$PROJECT_DIR$/measure" />
-      <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -465,7 +645,59 @@
       <option name="presentableId" value="Default" />
       <updated>1581040761207</updated>
     </task>
+    <task id="LOCAL-00001" summary="Все готово">
+      <created>1582079186016</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582079186016</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Все готово+">
+      <created>1582097521337</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582097521337</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Все готово+">
+      <created>1582097741971</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1582097741971</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="Все готово" />
+    <MESSAGE value="Все готово+" />
+    <option name="LAST_COMMIT_MESSAGE" value="Все готово+" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="445" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581495693445">
@@ -488,21 +720,33 @@
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state x="693" y="270" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581500924506" />
+    <state x="819" y="445" width="325" height="224" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog" timestamp="1582087961718">
+      <screen x="54" y="27" width="1866" height="1053" />
+    </state>
+    <state x="819" y="445" width="325" height="224" key="#com.jetbrains.python.refactoring.move.PyMoveModuleMembersDialog/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582087961718" />
     <state x="2032" y="405" width="1638" height="495" key="#xdebugger.XInspectDialog" timestamp="1582020319228">
       <screen x="1920" y="116" width="1920" height="1080" />
     </state>
     <state x="2032" y="405" key="#xdebugger.XInspectDialog/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020319228" />
     <state x="163" y="309" width="1638" height="495" key="#xdebugger.XInspectDialog/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581052326723" />
+    <state x="381" y="95" width="1202" height="924" key="CommitChangelistDialog2" timestamp="1582097741884">
+      <screen x="54" y="27" width="1866" height="1053" />
+    </state>
+    <state x="381" y="95" width="1202" height="924" key="CommitChangelistDialog2/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097741884" />
     <state width="933" height="466" key="DebuggerActiveHint" timestamp="1581500296301">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="933" height="466" key="DebuggerActiveHint/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581500296301" />
+    <state x="154" y="127" width="1666" height="853" key="DiffContextDialog" timestamp="1582097646055">
+      <screen x="54" y="27" width="1866" height="1053" />
+    </state>
+    <state x="154" y="127" width="1666" height="853" key="DiffContextDialog/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097646055" />
     <state x="2652" y="413" width="424" height="491" key="FileChooserDialogImpl" timestamp="1582013260705">
       <screen x="1920" y="116" width="1920" height="1080" />
     </state>
     <state x="2652" y="413" key="FileChooserDialogImpl/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582013260705" />
     <state x="765" y="317" width="424" height="491" key="FileChooserDialogImpl/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581040864885" />
-    <state width="1843" height="257" key="GridCell.Tab.0.bottom" timestamp="1582079047646">
+    <state width="1843" height="257" key="GridCell.Tab.0.bottom" timestamp="1582097290798">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1581493993922">
@@ -510,8 +754,8 @@
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.bottom.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
     <state width="1897" height="257" key="GridCell.Tab.0.bottom/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582022374943" />
-    <state width="1843" height="257" key="GridCell.Tab.0.bottom/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582079047646" />
-    <state width="1843" height="257" key="GridCell.Tab.0.center" timestamp="1582079047646">
+    <state width="1843" height="257" key="GridCell.Tab.0.bottom/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097290798" />
+    <state width="1843" height="257" key="GridCell.Tab.0.center" timestamp="1582097290798">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1581493993922">
@@ -519,8 +763,8 @@
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.center.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
     <state width="1897" height="257" key="GridCell.Tab.0.center/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582022374943" />
-    <state width="1843" height="257" key="GridCell.Tab.0.center/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582079047646" />
-    <state width="1843" height="257" key="GridCell.Tab.0.left" timestamp="1582079047646">
+    <state width="1843" height="257" key="GridCell.Tab.0.center/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097290798" />
+    <state width="1843" height="257" key="GridCell.Tab.0.left" timestamp="1582097290798">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1581493993922">
@@ -528,8 +772,8 @@
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.left.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
     <state width="1897" height="257" key="GridCell.Tab.0.left/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582022374943" />
-    <state width="1843" height="257" key="GridCell.Tab.0.left/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582079047646" />
-    <state width="1843" height="257" key="GridCell.Tab.0.right" timestamp="1582079047646">
+    <state width="1843" height="257" key="GridCell.Tab.0.left/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097290798" />
+    <state width="1843" height="257" key="GridCell.Tab.0.right" timestamp="1582097290798">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1581493993922">
@@ -537,8 +781,8 @@
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.right.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
     <state width="1897" height="257" key="GridCell.Tab.0.right/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582022374943" />
-    <state width="1843" height="257" key="GridCell.Tab.0.right/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582079047646" />
-    <state width="1843" height="249" key="GridCell.Tab.1.bottom" timestamp="1582078378574">
+    <state width="1843" height="257" key="GridCell.Tab.0.right/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097290798" />
+    <state width="1843" height="249" key="GridCell.Tab.1.bottom" timestamp="1582097045536">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.bottom.inPresentationMode" timestamp="1581493993922">
@@ -546,8 +790,8 @@
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.bottom.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
     <state width="1897" height="258" key="GridCell.Tab.1.bottom/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020864095" />
-    <state width="1843" height="249" key="GridCell.Tab.1.bottom/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582078378574" />
-    <state width="1843" height="249" key="GridCell.Tab.1.center" timestamp="1582078378574">
+    <state width="1843" height="249" key="GridCell.Tab.1.bottom/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097045536" />
+    <state width="1843" height="249" key="GridCell.Tab.1.center" timestamp="1582097045536">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.center.inPresentationMode" timestamp="1581493993922">
@@ -555,8 +799,8 @@
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.center.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
     <state width="1897" height="258" key="GridCell.Tab.1.center/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020864095" />
-    <state width="1843" height="249" key="GridCell.Tab.1.center/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582078378574" />
-    <state width="1843" height="249" key="GridCell.Tab.1.left" timestamp="1582078378574">
+    <state width="1843" height="249" key="GridCell.Tab.1.center/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097045536" />
+    <state width="1843" height="249" key="GridCell.Tab.1.left" timestamp="1582097045536">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.left.inPresentationMode" timestamp="1581493993922">
@@ -564,8 +808,8 @@
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.left.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
     <state width="1897" height="258" key="GridCell.Tab.1.left/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020864095" />
-    <state width="1843" height="249" key="GridCell.Tab.1.left/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582078378574" />
-    <state width="1843" height="249" key="GridCell.Tab.1.right" timestamp="1582078378574">
+    <state width="1843" height="249" key="GridCell.Tab.1.left/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097045536" />
+    <state width="1843" height="249" key="GridCell.Tab.1.right" timestamp="1582097045536">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.right.inPresentationMode" timestamp="1581493993922">
@@ -573,7 +817,7 @@
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.right.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
     <state width="1897" height="258" key="GridCell.Tab.1.right/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020864095" />
-    <state width="1843" height="249" key="GridCell.Tab.1.right/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582078378574" />
+    <state width="1843" height="249" key="GridCell.Tab.1.right/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097045536" />
     <state x="476" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1581494827115">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
@@ -583,6 +827,10 @@
     </state>
     <state width="1588" height="540" key="XDebugger.FullValuePopup/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582021417832" />
     <state width="1543" height="526" key="XDebugger.FullValuePopup/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581045800837" />
+    <state x="154" y="127" width="1666" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1582097622230">
+      <screen x="54" y="27" width="1866" height="1053" />
+    </state>
+    <state x="154" y="127" width="1666" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582097622230" />
     <state x="731" y="197" width="501" height="720" key="refactoring.ChangeSignatureDialog" timestamp="1581056873891">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
@@ -595,24 +843,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <condition expression="s.config_id==167" language="Python" />
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>17</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/measure/measure.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/devices/lna.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
