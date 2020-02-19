@@ -188,7 +188,7 @@ class SSI:
                 return True
         return False
 
-    def _getPlan(self) -> str:
+    def getPlan(self) -> str:
         if self.config['id'] < 126:
             filename = '763_ВХСЕК1'
         elif self.config['id'] < 162:
