@@ -1,7 +1,356 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc34aa6a-c8c6-4cf6-bce1-68aa9645c990" name="Default Changelist" comment="" />
+    <list default="true" id="bc34aa6a-c8c6-4cf6-bce1-68aa9645c990" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devices/dtp.py" beforeDir="false" afterPath="$PROJECT_DIR$/devices/dtp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devices/lna.py" beforeDir="false" afterPath="$PROJECT_DIR$/devices/lna.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devices/ssi.py" beforeDir="false" afterPath="$PROJECT_DIR$/devices/ssi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/measure/measure.py" beforeDir="false" afterPath="$PROJECT_DIR$/measure/measure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_1.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_1.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_10.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_10.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_100.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_100.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_101.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_101.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_102.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_102.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_103.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_103.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_104.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_104.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_105.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_105.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_106.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_106.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_107.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_107.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_108.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_108.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_109.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_109.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_11.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_11.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_110.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_110.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_111.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_111.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_112.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_112.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_113.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_113.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_114.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_114.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_115.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_115.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_116.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_116.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_117.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_117.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_118.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_118.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_119.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_119.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_12.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_12.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_120.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_120.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_121.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_121.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_122.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_122.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_123.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_123.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_124.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_124.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_125.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_125.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_126.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_126.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_127.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_127.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_128.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_128.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_129.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_129.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_13.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_13.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_130.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_130.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_131.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_131.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_132.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_132.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_133.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_133.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_134.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_134.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_135.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_135.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_136.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_136.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_137.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_137.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_138.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_138.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_139.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_139.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_14.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_14.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_140.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_140.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_141.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_141.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_142.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_142.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_143.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_143.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_144.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_144.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_145.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_145.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_146.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_146.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_147.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_147.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_148.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_148.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_149.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_149.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_15.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_15.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_150.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_151.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_152.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_152.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_153.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_153.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_154.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_154.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_155.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_155.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_156.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_156.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_157.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_157.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_158.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_158.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_159.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_159.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_16.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_16.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_160.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_160.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_161.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_161.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_162.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_162.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_163.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_163.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_164.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_164.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_165.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_165.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_166.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_166.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_167.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_167.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_168.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_168.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_169.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_169.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_17.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_17.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_170.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_170.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_171.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_171.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_172.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_172.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_173.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_173.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_174.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_174.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_175.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_175.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_176.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_176.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_177.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_177.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_178.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_178.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_179.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_179.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_18.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_18.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_180.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_180.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_181.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_181.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_182.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_182.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_183.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_183.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_184.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_184.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_185.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_185.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_186.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_186.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_187.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_187.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_188.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_188.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_189.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_189.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_19.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_19.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_190.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_190.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_191.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_191.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_192.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_192.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_193.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_193.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_194.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_194.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_195.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_195.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_196.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_196.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_197.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_197.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_198.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_198.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_199.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_199.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_2.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_2.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_20.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_20.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_200.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_200.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_201.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_201.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_202.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_202.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_203.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_203.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_204.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_204.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_205.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_205.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_206.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_206.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_207.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_207.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_208.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_208.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_209.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_209.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_21.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_21.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_22.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_22.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_23.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_23.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_24.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_24.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_25.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_25.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_26.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_26.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_27.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_27.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_28.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_28.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_29.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_29.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_3.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_3.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_30.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_30.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_31.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_31.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_32.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_32.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_33.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_33.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_34.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_34.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_35.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_35.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_36.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_36.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_37.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_37.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_38.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_38.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_39.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_39.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_4.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_4.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_40.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_40.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_41.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_41.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_42.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_42.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_43.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_43.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_44.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_44.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_45.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_45.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_46.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_46.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_47.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_47.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_48.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_48.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_49.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_49.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_5.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_5.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_50.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_50.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_51.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_51.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_52.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_52.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_53.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_53.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_54.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_54.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_55.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_55.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_56.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_56.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_57.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_57.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_58.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_58.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_59.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_59.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_6.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_6.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_60.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_60.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_61.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_61.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_62.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_62.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_63.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_63.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_64.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_64.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_65.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_65.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_66.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_66.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_67.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_67.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_68.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_68.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_69.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_69.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_7.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_7.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_70.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_70.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_71.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_71.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_72.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_72.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_73.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_73.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_74.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_74.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_75.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_75.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_76.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_76.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_77.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_77.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_78.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_78.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_79.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_79.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_8.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_8.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_80.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_80.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_81.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_81.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_82.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_82.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_83.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_83.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_84.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_84.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_85.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_85.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_86.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_86.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_87.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_87.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_88.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_88.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_89.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_89.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_9.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_9.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_90.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_90.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_91.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_91.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_92.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_92.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_93.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_93.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_94.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_94.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_95.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_95.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_96.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_96.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_97.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_97.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_98.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_98.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_99.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/763_БСК1_ВХ_99.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5050.0G30.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5050.0G40.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5300.0G30.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5300.0G40.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G30.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G30.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_0110101010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_0_KKA_0_MLO_01_DTP_-320G-26_0011010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_0_KKA_0_MLO_01_DTP_-320G-26_0110010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_0_KKA_0_MLO_01_DTP_-320G-26_1001011010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_0011010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_0011011010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1001100110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1010101010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_18040_KKA_0_MLO_01_DTP_-155G-26_1010010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_18080_KKA_0_MLO_10_DTP_-320G-26_1001101010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_18140_KKA_0_MLO_10_DTP_-160G-26_0101100110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_18200_KKA_0_MLO_01_DTP_-315G-26_0101011010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_18220_KKA_0_MLO_10_DTP_-320G-26_0110010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_18300_KKA_0_MLO_01_DTP_-320G-26_1010101010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5420.0G40.0_SKA_18740_KKA_0_MLO_10_DTP_-320G-26_0110011010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_01_DTP_-320G-26_0110010111.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_01_DTP_-320G-26_1010010111.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_0110010111.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_0110011011.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1010010111.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1010011011.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1100101001.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1100101011.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_17980_KKA_0_MLO_10_DTP_-320G-26_0101011011.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_18000_KKA_0_MLO_10_DTP_-320G-26_0101010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_18460_KKA_0_MLO_01_DTP_-320G-26_1100010111.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_18460_KKA_11840_MLO_01_DTP_-320G-26_0011011011.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G30.0_SKA_18460_KKA_11840_MLO_10_DTP_-320G-26_0011100111.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_0_KKA_0_MLO_01_DTP_-320G-26_1100010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_0101101011.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1010101010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1100010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1100011010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_0_KKA_0_MLO_10_DTP_-320G-26_1100101010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_17980_KKA_0_MLO_01_DTP_-320G-26_1010010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_18000_KKA_0_MLO_01_DTP_-320G-26_0101011010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_18020_KKA_0_MLO_10_DTP_-320G-26_0101100110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_18100_KKA_0_MLO_10_DTP_-320G-26_0101010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_18740_KKA_0_MLO_10_DTP_-320G-26_1100101000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_18740_KKA_0_MLO_10_DTP_-320G-26_1100101010.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5550.0G40.0_SKA_18740_KKA_11570_MLO_01_DTP_-320G-26_0101010110.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5800.0G30.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/config/763_БСК1_КНФ_CIF_-5800.0G40.0_SKA_0_KKA_0_MLO_00_DTP_0G0_0000000000.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C064_C151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C064_C151.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_C151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_C151.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_C179.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_C179.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_C238.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_C238.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O3_C350.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O3_C350.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O4_C351.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J39_W4CN2-J12_W5CN3_WIM1-O4_C351.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C274.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C274.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C290.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C290.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C292.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C065_W3CN3_WDTP1-J38_WDTP1-J59_W4CN1-J12_C292.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C066_C151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_C066_C151.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_WU5.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J03_WU5.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_C065_C151.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_C065_C151.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_WU5.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC1_WLNA1-J06_WU5.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_C062_C150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_C062_C150.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_WU6.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J06_WU6.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C061_C150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C061_C150.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_C150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_C150.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_W3CN2_C177.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C062_W3CN2_C177.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C063_C150.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_C063_C150.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_WU6.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC2_WLNA1-J09_WU6.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_C077_C397.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_C077_C397.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_WU7.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J03_WU7.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C076_C397.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C076_C397.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_C397.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_C397.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_C191.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_C191.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_C240.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_C240.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C267.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C267.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C286.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C286.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C288.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_C288.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_W5CN4_WIM1-O2_C348.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J49_W4CN2-J22_W5CN4_WIM1-O2_C348.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J59_W4CN1-J22_W5CN6_WIM2-O2_C354.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C077_W3CN9_WDTP1-J98_WDTP1-J59_W4CN1-J22_W5CN6_WIM2-O2_C354.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C078_C397.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_C078_C397.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_WU7.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA2-J06_WU7.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA3-J09_C077_W3CN9_C191.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC3_WLNA3-J09_C077_W3CN9_C191.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_C074_C396.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_C074_C396.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_WU8.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J03_WU8.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C073_C396.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C073_C396.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_C396.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_C396.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_W3CN8_C189.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C074_W3CN8_C189.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C075_C396.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_C075_C396.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_WU8.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA2-J09_WU8.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA3-J03_WU8.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC4_WLNA3-J03_WU8.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C070_C395.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C070_C395.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_C395.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_C395.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_C187.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_C187.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J29_C236.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J29_C236.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J59_W4CN1-J12_W5CN5_WIM1-O4_C351.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C071_W3CN7_WDTP1-J78_WDTP1-J59_W4CN1-J12_W5CN5_WIM1-O4_C351.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C072_C395.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_C072_C395.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_WU9.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J03_WU9.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_C071_C395.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_C071_C395.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_WU9.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC5_WLNA3-J09_WU9.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C067_C394.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C067_C394.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_C394.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_C394.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_W3CN6_C185.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C068_W3CN6_C185.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C069_C394.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_C069_C394.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_WU10.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J06_WU10.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_C068_C394.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_C068_C394.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_WU10.ci" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/device/763_БСК1_ПРБ_WIC6_WLNA3-J09_WU10.ci" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_13750.0_250.0_-57.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_13750.0_750.0_-30.0H_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_13750.0_750.0_-57.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_14000.0_250.0_-57.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_14250.0_250.0_-57.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_1625.0_250.0_-57.5L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_1625.0_750.0_-57.5L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_1875.0_250.0_-57.5L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_2125.0_250.0_-57.5L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_2396.0_4.0_-17.0H_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_2396.0_4.0_-19.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_5725.0_1000.0_-45.0H_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_5725.0_1000.0_-71.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_5725.0_250.0_-71.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_6095.0_250.0_-71.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_6095.0_80.0_-71.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/measure/763_БСК1_ИЗМЕР_6475.0_250.0_-71.0L_.ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК.pla" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК1.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК1.pla" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК2.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК2.pla" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК3.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК3.pla" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК4.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК4.pla" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК5.pla" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/output/plan/763_ВХСЕК5.pla" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/writers.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/writers.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,17 +366,23 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="NamedScopeManager">
     <scope name="loc" pattern="" />
   </component>
   <component name="ProjectId" id="1XSY3D2eyC7gxpFbGzR5B6lUMsX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="full.screen.before.presentation.mode" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/main.py" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -133,114 +488,129 @@
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state x="693" y="270" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581500924506" />
-    <state x="163" y="309" width="1638" height="495" key="#xdebugger.XInspectDialog" timestamp="1581052326723">
-      <screen x="54" y="27" width="1866" height="1053" />
+    <state x="2032" y="405" width="1638" height="495" key="#xdebugger.XInspectDialog" timestamp="1582020319228">
+      <screen x="1920" y="116" width="1920" height="1080" />
     </state>
+    <state x="2032" y="405" key="#xdebugger.XInspectDialog/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020319228" />
     <state x="163" y="309" width="1638" height="495" key="#xdebugger.XInspectDialog/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581052326723" />
     <state width="933" height="466" key="DebuggerActiveHint" timestamp="1581500296301">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="933" height="466" key="DebuggerActiveHint/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581500296301" />
-    <state x="765" y="317" width="424" height="491" key="FileChooserDialogImpl" timestamp="1581040864885">
-      <screen x="54" y="27" width="1866" height="1053" />
-    </state>
-    <state x="765" y="317" width="424" height="491" key="FileChooserDialogImpl/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581040864885" />
-    <state width="1897" height="534" key="GridCell.Tab.0.bottom" timestamp="1582004818145">
+    <state x="2652" y="413" width="424" height="491" key="FileChooserDialogImpl" timestamp="1582013260705">
       <screen x="1920" y="116" width="1920" height="1080" />
+    </state>
+    <state x="2652" y="413" key="FileChooserDialogImpl/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582013260705" />
+    <state x="765" y="317" width="424" height="491" key="FileChooserDialogImpl/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581040864885" />
+    <state width="1843" height="257" key="GridCell.Tab.0.bottom" timestamp="1582079047646">
+      <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1581493993922">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.bottom.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
-    <state width="1897" height="534" key="GridCell.Tab.0.bottom/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582004818145" />
-    <state width="1843" height="518" key="GridCell.Tab.0.bottom/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582004288036" />
-    <state width="1897" height="534" key="GridCell.Tab.0.center" timestamp="1582004818145">
-      <screen x="1920" y="116" width="1920" height="1080" />
+    <state width="1897" height="257" key="GridCell.Tab.0.bottom/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582022374943" />
+    <state width="1843" height="257" key="GridCell.Tab.0.bottom/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582079047646" />
+    <state width="1843" height="257" key="GridCell.Tab.0.center" timestamp="1582079047646">
+      <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1581493993922">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.center.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
-    <state width="1897" height="534" key="GridCell.Tab.0.center/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582004818145" />
-    <state width="1843" height="518" key="GridCell.Tab.0.center/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582004288036" />
-    <state width="1897" height="534" key="GridCell.Tab.0.left" timestamp="1582004818145">
-      <screen x="1920" y="116" width="1920" height="1080" />
+    <state width="1897" height="257" key="GridCell.Tab.0.center/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582022374943" />
+    <state width="1843" height="257" key="GridCell.Tab.0.center/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582079047646" />
+    <state width="1843" height="257" key="GridCell.Tab.0.left" timestamp="1582079047646">
+      <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1581493993922">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.left.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
-    <state width="1897" height="534" key="GridCell.Tab.0.left/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582004818145" />
-    <state width="1843" height="518" key="GridCell.Tab.0.left/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582004288036" />
-    <state width="1897" height="534" key="GridCell.Tab.0.right" timestamp="1582004818145">
-      <screen x="1920" y="116" width="1920" height="1080" />
+    <state width="1897" height="257" key="GridCell.Tab.0.left/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582022374943" />
+    <state width="1843" height="257" key="GridCell.Tab.0.left/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582079047646" />
+    <state width="1843" height="257" key="GridCell.Tab.0.right" timestamp="1582079047646">
+      <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1581493993922">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.0.right.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
-    <state width="1897" height="534" key="GridCell.Tab.0.right/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582004818145" />
-    <state width="1843" height="518" key="GridCell.Tab.0.right/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582004288036" />
-    <state width="1897" height="534" key="GridCell.Tab.1.bottom" timestamp="1582004818689">
-      <screen x="1920" y="116" width="1920" height="1080" />
+    <state width="1897" height="257" key="GridCell.Tab.0.right/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582022374943" />
+    <state width="1843" height="257" key="GridCell.Tab.0.right/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582079047646" />
+    <state width="1843" height="249" key="GridCell.Tab.1.bottom" timestamp="1582078378574">
+      <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.bottom.inPresentationMode" timestamp="1581493993922">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.bottom.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
-    <state width="1897" height="534" key="GridCell.Tab.1.bottom/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582004818689" />
-    <state width="1843" height="518" key="GridCell.Tab.1.bottom/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582004288036" />
-    <state width="1897" height="534" key="GridCell.Tab.1.center" timestamp="1582004818689">
-      <screen x="1920" y="116" width="1920" height="1080" />
+    <state width="1897" height="258" key="GridCell.Tab.1.bottom/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020864095" />
+    <state width="1843" height="249" key="GridCell.Tab.1.bottom/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582078378574" />
+    <state width="1843" height="249" key="GridCell.Tab.1.center" timestamp="1582078378574">
+      <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.center.inPresentationMode" timestamp="1581493993922">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.center.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
-    <state width="1897" height="534" key="GridCell.Tab.1.center/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582004818689" />
-    <state width="1843" height="518" key="GridCell.Tab.1.center/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582004288036" />
-    <state width="1897" height="534" key="GridCell.Tab.1.left" timestamp="1582004818689">
-      <screen x="1920" y="116" width="1920" height="1080" />
+    <state width="1897" height="258" key="GridCell.Tab.1.center/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020864095" />
+    <state width="1843" height="249" key="GridCell.Tab.1.center/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582078378574" />
+    <state width="1843" height="249" key="GridCell.Tab.1.left" timestamp="1582078378574">
+      <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.left.inPresentationMode" timestamp="1581493993922">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.left.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
-    <state width="1897" height="534" key="GridCell.Tab.1.left/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582004818689" />
-    <state width="1843" height="518" key="GridCell.Tab.1.left/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582004288036" />
-    <state width="1897" height="534" key="GridCell.Tab.1.right" timestamp="1582004818689">
-      <screen x="1920" y="116" width="1920" height="1080" />
+    <state width="1897" height="258" key="GridCell.Tab.1.left/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020864095" />
+    <state width="1843" height="249" key="GridCell.Tab.1.left/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582078378574" />
+    <state width="1843" height="249" key="GridCell.Tab.1.right" timestamp="1582078378574">
+      <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.right.inPresentationMode" timestamp="1581493993922">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state width="1920" height="242" key="GridCell.Tab.1.right.inPresentationMode/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581493993922" />
-    <state width="1897" height="534" key="GridCell.Tab.1.right/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582004818689" />
-    <state width="1843" height="518" key="GridCell.Tab.1.right/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582004288036" />
+    <state width="1897" height="258" key="GridCell.Tab.1.right/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020864095" />
+    <state width="1843" height="249" key="GridCell.Tab.1.right/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1582078378574" />
     <state x="476" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1581494827115">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state x="476" y="188" width="1022" height="737" key="SettingsEditor/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581494827115" />
-    <state width="1543" height="526" key="XDebugger.FullValuePopup" timestamp="1581045800837">
-      <screen x="54" y="27" width="1866" height="1053" />
+    <state width="1588" height="540" key="XDebugger.FullValuePopup" timestamp="1582021417832">
+      <screen x="1920" y="116" width="1920" height="1080" />
     </state>
+    <state width="1588" height="540" key="XDebugger.FullValuePopup/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582021417832" />
     <state width="1543" height="526" key="XDebugger.FullValuePopup/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581045800837" />
     <state x="731" y="197" width="501" height="720" key="refactoring.ChangeSignatureDialog" timestamp="1581056873891">
       <screen x="54" y="27" width="1866" height="1053" />
     </state>
     <state x="731" y="197" width="501" height="720" key="refactoring.ChangeSignatureDialog/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581056873891" />
-    <state x="623" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1581499454260">
-      <screen x="54" y="27" width="1866" height="1053" />
+    <state x="2505" y="305" width="692" height="696" key="search.everywhere.popup" timestamp="1582020887871">
+      <screen x="1920" y="116" width="1920" height="1080" />
     </state>
+    <state x="2505" y="305" width="692" height="696" key="search.everywhere.popup/54.27.1866.1053/1920.116.1920.1080@1920.116.1920.1080" timestamp="1582020887871" />
     <state x="623" y="211" width="672" height="678" key="search.everywhere.popup/54.27.1866.1053/1920.116.1920.1080@54.27.1866.1053" timestamp="1581499454260" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <condition expression="s.config_id==167" language="Python" />
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/measure/measure.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="6" />
+          <line>42</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/devices/lna.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -253,11 +623,7 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="self.frequencyInCenter" language="Python" />
-        <watch expression="self.frequencyOutCenter" language="Python" />
-        <watch expression="self.bw" language="Python" />
-        <watch expression="self.config['dtp']['INV'] == 1" language="Python" />
-        <watch expression="self.calibrationFileNameMain" language="Python" />
+        <watch expression="strToWrite" language="Python" />
       </configuration>
     </watches-manager>
   </component>

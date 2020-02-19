@@ -47,6 +47,7 @@ def writeCG(s: ssi.SSI, CGType: str, isUnicode=True):
             else:
                 ss = strToWrite.encode(encoding='cp1251')
                 ss = ss.replace(b'READY', b'\x00')
+                # ss = ss.replace(b'READY', b'')
                 ss = ss.replace(b'\n', b'\r\n')
                 writeFile.write(ss)
 

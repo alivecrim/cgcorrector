@@ -8,14 +8,21 @@ class LNA:
         self._type: str = 'LNA'
         self._fillData()
 
-    def _fillData(self):
-        self._setNum()
-
     def _setNum(self):
-        self._num = int(u.splitByDigit(self._definition[0])[1])
+        self._num = int(u.splitByDigit(self._definition[0])[1]) * 10
+        inner_num = int(self._definition[1][-1:] + self._definition[2][-1:])
+        if inner_num == 23:
+            self._num += 1
+        if inner_num == 56:
+            self._num += 2
+        if inner_num == 89:
+            self._num += 3
 
     def getNum(self):
         return self._num
+
+    def _fillData(self):
+        self._setNum()
 
     def __repr__(self):
         return f'{self._type}{self._num}'

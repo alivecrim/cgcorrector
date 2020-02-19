@@ -1,11 +1,11 @@
+import re
+
+import devices.cn as cn
 import devices.dtp as dp
 import devices.lna as ln
 import devices.mlo as ml
 import devices.switch as sw
 import utils.splitters as u
-import devices.cn as cn
-import re
-
 from measure.measure import Measure
 
 
@@ -19,14 +19,27 @@ class SSI:
         self.fullDeviceList = []
         self.nameForSwitch = '763_БСК1_ПРК_' + self.config['route_short_name']
         self.nameForDevice = '763_БСК1_ПРБ_' + self.config['route_short_name']
+        self.configurationNameFormat()
 
-        self.nameForConfigDevice = "763_БСК1_КНФ_" + ('CIF' + self.config['config_name'].split('CIF')[1]).replace('@',
-                                                                                                                  '_')
-        self.nameForMeasure = "763_БСК1_ИЗМЕР_" + (self.config['config_name'].split('CIF')[0]).replace('@', '_')
         self.nameForAll = "763_БСК1_ВХ_" + str(id_config)
         self._fillData()
         self.isInverted = self.config['dtp']['INV'] == 1
+        self.nameForMeasure = "763_БСК1_ИЗМЕР_" + str(id_config)
         self.measure = Measure(self.config, self.nameForMeasure, self)
+
+    def configurationNameFormat(self):
+        self.nameForConfigDevice = "763_БСК1_КНФ_" + ('CIF' + self.config['config_name'].split('CIF')[1]).replace('@',
+                                                                                                                  '_')
+        self.nameForConfigDevice = self.nameForConfigDevice.replace('CIF_-', '')
+        self.nameForConfigDevice = self.nameForConfigDevice.replace('_SKA_', '_')
+        self.nameForConfigDevice = self.nameForConfigDevice.replace('_KKA_', '_')
+        self.nameForConfigDevice = self.nameForConfigDevice.replace('_MLO_00_', '_M0')
+        self.nameForConfigDevice = self.nameForConfigDevice.replace('_MLO_10_', '_M1')
+        self.nameForConfigDevice = self.nameForConfigDevice.replace('_MLO_01_', '_M2')
+        self.nameForConfigDevice = self.nameForConfigDevice.replace('DTP_', '_D')
+        self.nameForConfigDevice = self.nameForConfigDevice.replace('.0', '')
+        self.nameForConfigDevice = self.nameForConfigDevice[:len(self.nameForConfigDevice) - 10] + str(
+            int(self.nameForConfigDevice[-10:], 2))
 
     def _fillData(self):
         self.Mlo = ml.MLO(self.config['mlo'])
@@ -191,3 +204,6 @@ class SSI:
         return {'filename': filename,
                 'planstr': f'Конфигурация {self.config_id}={self.nameForAll}.ci'
                 }
+
+    def __str__(self):
+        return str(self.config_id) + ' ' + self.config['route_short_name']

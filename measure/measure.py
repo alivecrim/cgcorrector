@@ -40,16 +40,10 @@ class Measure:
         return self.calibrationFileNameMain.replace('@MEAS@', measureName) + suf
 
     def getCGStr(self):
+        config_name = self.config['file_name'].replace('@', '').replace('#', '_')
         return f'О|1   |          |ПРОГРАМ     |     |{self.nameOfCg}|               |        ||READY\n' + \
                f'О|2   |          |ВЫЧИСЛ      |     |               |               |        ||\n' + \
-               f' |    |          |         SSI|  =  |EMPTY|               |        ||\n' + \
-               f' |    |          |       SSI_1|  =  |               |               |        |МШУ|\n' + \
-               f' |    |          |       SSI_2|  =  |       21      |               |        |CN1|\n' + \
-               f' |    |          |       SSI_3|  =  |       A       |               |        |CN2|\n' + \
-               f' |    |          |       SSI_4|  =  |      043      |               |        |CN3|\n' + \
-               f' |    |          |       SSI_5|  =  |       20      |               |        |CN4|\n' + \
-               f' |    |          |       SSI_6|  =  |       20      |               |        |CN4|\n' + \
-               f' |    |          |       SSI_7|  =  |       20      |               |        |CN4|\n' + \
+               f' |    |          |         SSI|  =  |{self.nameOfCg}|               |        ||\n' + \
                f'О|3   |          |ПОВТ        |     |       1       |     32000     |        ||\n' + \
                f'К|Общие для всех измерений ключи\n' + \
                f'О|4   |          |ВЫЧИСЛ      |     |               |               |        ||\n' + \

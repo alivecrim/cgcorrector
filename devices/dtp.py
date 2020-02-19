@@ -1,9 +1,7 @@
-import math as m
-
-
 def calcGain(reqGain, alc, bw) -> int:
     if alc:
-        return round((reqGain + 103.725 - 10 * m.log10(bw)) / 0.0625)
+        # return round((reqGain + 103.725 - 10 * m.log10(bw)) / 0.0625)
+        return 100
     return 0
 
 
@@ -57,8 +55,8 @@ class DTP:
         row += f"К|Включение канала {d['ch']}|          |            |     |               |               |        |               ||\n"
         row += f"К|Входной порт:{d['input']}, Выходной порт:{d['output']}|          |            |     |               |               |        |               ||\n"
         row += f"К|Полоса:{self._bw} МГц|          |            |     |               |               |        |               ||\n"
-        row += f"К|Начальная частота: ВХОД-{d['ifStart'] * 0.3125 + 500} МГц|          |            |     |               |               |        |               ||\n"
-        row += f"К|Начальная частота: ВЫХОД-{d['ofStart'] * 0.3125 + 400} МГц|          |            |     |               |               |        |               ||\n"
+        row += f"К|Начальная частота: ВХОД-{d['ifStart'] * 0.3125 + 675} МГц|          |            |     |               |               |        |               ||\n"
+        row += f"К|Начальная частота: ВЫХОД-{d['ofStart'] * 0.3125 + 355.0} МГц|          |            |     |               |               |        |               ||\n"
         row += f"К|Режим работы: {alcfgm(d['alc'])}|          |            |     |               |               |        |               ||\n"
         row += f"К|Режим создания: {createmode(d['chmod'])}|          |            |     |               |               |        |               ||\n"
 
@@ -78,16 +76,37 @@ class DTP:
         num += 1
         row += f'О|   {num + 1}|          |       ПАУЗА|     |       1       |               |        |               ||\n'
 
+        num += 2
+        row += f"О|{num}|          |ВЫДАТЬ      |      |M_KPI_PAR    |||||\n"
+        row += f' |         |          |КПИ_ИД_ПАР  |      |"ВЫХПОРТ"    |||||\n'
+        row += f" |         |          |КПИ_ЗНАЧЕНИЕ|      |{d['output']}|||||\n"
         num += 1
-        cg_name = 'Debug_R15167_ПАРАМ'
-        row += f"О|   {num + 1}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n"
-        row += f" |    |          |            |  &1 |              {d['output']}|               |        |               ||\n"
-        row += f" |    |          |            |  &2 |              {d['ch']}|               |        |               ||\n"
-        row += f" |    |          |            |  &3 |              {d['input']}|               |        |               ||\n"
-        row += f" |    |          |            |  &4 |              {d['ifStart']}|               |        |               ||\n"
-        row += f" |    |          |            |  &5 |              {d['ofStart']}|               |        |               ||\n"
-        row += f" |    |          |            |  &6 |              {d['bw']}|               |        |               ||\n"
-        row += f" |    |          |            |  &7 |              {d['gain']}|               |        |               ||\n"
+        row += f"О|{num}|          |ВЫДАТЬ      |      |M_KPI_PAR    |||||\n"
+        row += f' |         |          |КПИ_ИД_ПАР  |      |"НОМКАНАЛ"    |||||\n'
+        row += f" |         |          |КПИ_ЗНАЧЕНИЕ|      |{d['ch']}|||||\n"
+        num += 1
+        row += f"О|{num}|          |ВЫДАТЬ      |      |M_KPI_PAR    |||||\n"
+        row += f' |         |          |КПИ_ИД_ПАР  |      |"ВХПОРТ"    |||||\n'
+        row += f" |         |          |КПИ_ЗНАЧЕНИЕ|      |{d['input']}|||||\n"
+        num += 1
+        row += f"О|{num}|          |ВЫДАТЬ      |      |M_KPI_PAR    |||||\n"
+        row += f' |         |          |КПИ_ИД_ПАР  |      |"ВХЧАСТ"    |||||\n'
+        row += f" |         |          |КПИ_ЗНАЧЕНИЕ|      |{d['ifStart']}|||||\n"
+        num += 1
+        row += f"О|{num}|          |ВЫДАТЬ      |      |M_KPI_PAR    |||||\n"
+        row += f' |         |          |КПИ_ИД_ПАР  |      |"ВЫХЧАСТ"    |||||\n'
+        row += f" |         |          |КПИ_ЗНАЧЕНИЕ|      |{d['ofStart']}|||||\n"
+        num += 1
+        row += f"О|{num}|          |ВЫДАТЬ      |      |M_KPI_PAR    |||||\n"
+        row += f' |         |          |КПИ_ИД_ПАР  |      |"ПОЛОСА"    |||||\n'
+        row += f" |         |          |КПИ_ЗНАЧЕНИЕ|      |{d['bw']}|||||\n"
+        num += 1
+        row += f"О|{num}|          |ВЫДАТЬ      |      |M_KPI_PAR    |||||\n"
+        row += f' |         |          |КПИ_ИД_ПАР  |      |"УРУСИЛ"    |||||\n'
+        row += f" |         |          |КПИ_ЗНАЧЕНИЕ|      |{d['gain']}|||||\n"
+
+        num += 1
+        row += f"О|{num}|          |ВЫДАТЬ      |      |R15167    |||||\n"
 
         row += f"К|ЗАПУСК ОПРОСА ТМИ|          |            |     |               |               |        |               ||\n"
         num += 1
@@ -122,9 +141,57 @@ class DTP:
             if d['output'] == s[1]:
                 if d['ch'] in s[2]:
                     cmd = 'R' + str(s[0])
-        row += f"О|   {num + 1}|          |     ВЫДАТЬ|     |               |{cmd}|        |               ||\n"
+
+        if d['ch'] + 1 < 10:
+            ch = '0' + str(d['ch'] + 1)
+        else:
+            ch = str(d['ch'] + 1)
+        op = str(d['output'])
+        ip = str(d['input'])
+        cs = str(d['chmod'])
+        bw = str(d['bw'])
+        if str(d['alc']):
+            gm = 0
+        else:
+            gm = 1
+        inF = str(d['ifStart'])
+        outF = str(d['ofStart'])
+        gl = str(d['gain'])
+
+        row += f"О|   {num}|          |     ВЫДАТЬ|     |               |{cmd}|        |               ||\n"
         num += 1
-        row += f'О|   {num + 1}|          |       ПАУЗА|     |       1       |               |        |               ||\n'
+        row += f'О|   {num}|          |      ПАУЗА|     |       1       |               |        |               ||\n'
+
+        num += 1
+        row += f'О| {num} |          | ЕСЛИТО                |     |                 |         |      |                        ||\n'
+        row += f' |  | |DTPN|     |        1        |         |      |                        ||\n'
+        num += 1
+        row += f"О| {num}  |          |      ЖДАТЬ            |     |       60        |         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}IP_N|     |{ip}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}CS_N|     |{cs}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}GM_N|     |{int(gm)}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}IF_N|     |{inF}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}OF_N|     |{outF}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}BW_N|     |{bw}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}GL_N|     |{gl}|         |      |                        ||\n"
+        num += 1
+        row += f'О| {num} |           | КЕСЛИТО                |     |                 |         |      |                        ||\n'
+
+        num += 1
+        row += f'О| {num} |          | ЕСЛИТО                |     |                 |         |      |                        ||\n'
+        row += f' |  | |DTPR|     |        1        |         |      |                        ||\n'
+        num += 1
+        row += f"О|{num}|          |      ЖДАТЬ            |     |       60        |         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}IP_R|     |{ip}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}CS_R|     |{cs}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}GM_R|     |{int(gm)}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}IF_R|     |{inF}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}OF_R|     |{outF}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}BW_R|     |{bw}|         |      |                        ||\n"
+        row += f" |  |          |OP{op}CH{ch}GL_R|     |{gl}|         |      |                        ||\n"
+        num += 1
+        row += f'О| {num} |           | КЕСЛИТО                |     |                 |         |      |                        ||\n'
+
         return [row, num + 1]
 
     def getCGStrConfig(self, num) -> []:
