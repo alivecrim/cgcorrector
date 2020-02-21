@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Dict
 
-from cg_creator.enums import Op, CMD, KPI
+from cg_creator.enums import Op, CMD, KPI, DtpCmd, DtpKPI, Align
 
 
 def getCGStrFormat(operation=None,
@@ -9,7 +9,7 @@ def getCGStrFormat(operation=None,
                    command=None,
                    sign=None,
                    value=None,
-                   nameOfCg=None):
+                   nameOfCgOrValue2=None):
     col = []
     for c in range(0, 9):
         col.append(None)
@@ -18,7 +18,7 @@ def getCGStrFormat(operation=None,
     col[3] = command
     col[4] = sign
     col[5] = value
-    col[6] = nameOfCg
+    col[6] = nameOfCgOrValue2
 
     full_str = ''
 
@@ -33,13 +33,20 @@ def getCGStrFormat(operation=None,
                15]
 
     for idx, c in enumerate(col):
-        full_str += extender(c, col_len[idx], idx)
+        align = Align.RIGHT
+        if idx == 1:
+            align = Align.RIGHT
+        if idx in [4, 5, 6]:
+            align = Align.CENTER
+        if idx == 3 and (col[0] is None):
+            align = Align.LEFT
+        full_str += extender(c, col_len[idx], idx, align)
 
     full_str += '|\n'
     return full_str
 
 
-def extender(s, needed_width, idx):
+def extender(s, needed_width, idx, align):
     if s is None:
         s = ' ' * needed_width
         s += '|'
@@ -47,9 +54,9 @@ def extender(s, needed_width, idx):
 
     if isinstance(s, (int, float)):
         s = str(s)
-    if isinstance(s, (Op, CMD, KPI)):
+    if isinstance(s, (Op, CMD, KPI, DtpCmd, DtpKPI)):
         s = s.value
-    if idx in [4, 5, 6]:
+    if align == Align.CENTER:
         diff = needed_width - len(s)
         if diff > 0:
             left_space = round(diff / 2)
@@ -58,9 +65,12 @@ def extender(s, needed_width, idx):
                 s = ' ' + s
             for i in range(0, right_space):
                 s = s + ' '
-    else:
+    elif align == Align.RIGHT:
         for i in range(len(s), needed_width):
             s = ' ' + s
+    else:
+        for i in range(len(s), needed_width):
+            s = s + ' '
     s += '|'
     return s
 
@@ -101,7 +111,7 @@ class CallCreate(Translator, ABC):
     def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.CALL,
-                                   nameOfCg=params['call'])
+                                   nameOfCgOrValue2=params['call'])
         for i, p in enumerate(params['call_params']):
             full_line += getCGStrFormat(sign=f'&{i + 1}', value=p)
         return full_line
@@ -144,7 +154,7 @@ class RepeatCreate(Translator, ABC):
         min_v = params['repeat_params'][0]
         max_v = params['repeat_params'][1]
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.REPEAT, value=min_v,
-                                   nameOfCg=max_v)
+                                   nameOfCgOrValue2=max_v)
         return full_line
 
 
@@ -214,13 +224,21 @@ class ProgramEndCreate(Translator, ABC):
         return full_line
 
 
+class MenuCreate(Translator, ABC):
+
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
+        idx.inc()
+        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.MENU, value='+ВЧИ')
+        for menu_item in params['menu_params']:
+            full_line += getCGStrFormat(operation=Op.F, numOrComment=menu_item)
+        return full_line
+
+
 class SelectCreate(Translator, ABC):
 
     def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.SELECT, value='#ЛМЕН')
-        for menu_item in params['select_params']:
-            full_line += getCGStrFormat(operation=Op.F, numOrComment=menu_item)
         return full_line
 
 
@@ -301,8 +319,11 @@ class CycleGramGenerator:
     def program_end(self):
         return self.create_cg_block(CMD.PROGRAM_END, {})
 
-    def select_(self, params):
-        return self.create_cg_block(CMD.SELECT, {'select_params': params})
+    def menu(self, params):
+        return self.create_cg_block(CMD.MENU, {'menu_params': params})
+
+    def select_(self):
+        return self.create_cg_block(CMD.SELECT, {})
 
     def select_var(self, num):
         return self.create_cg_block(CMD.SELECT_VAR, {'select_var': num})
@@ -328,6 +349,7 @@ class CycleGramGenerator:
             CMD.IF: IfCreate(),
             CMD.IF_END: IfEndCreate(),
             CMD.COMMENT: CommentCreate(),
+            CMD.MENU: MenuCreate(),
             CMD.SELECT: SelectCreate(),
             CMD.SELECT_VAR: SelectVarCreate(),
             CMD.SELECT_END: SelectEndCreate(),

@@ -1,5 +1,5 @@
 from cg_creator.cg_form import CycleGramGenerator
-from cg_creator.enums import KPI
+from cg_creator.enums import KPI, DtpCmd, DtpKPI
 
 
 def calcGain(reqGain, alc, bw) -> int:
@@ -25,8 +25,8 @@ class DTP:
 
         self._fill_data()
 
-    def getNum(self):
-        return self._num
+    def _fill_data(self):
+        self._makeDtpNotation()
 
     def _makeDtpNotation(self):
         self.dtpNotation = [
@@ -43,51 +43,48 @@ class DTP:
             },
         ]
 
-    def _fill_data(self):
-        self._makeDtpNotation()
-
     def _getNum(self):
         pass
 
-    def _createCh(self, d, num):
+    def _createCh(self, dtpNotationItem, num):
         alc_fgm = lambda x: 'АРУ' if x else 'ФРУ'
         create_mode = lambda x: '<без маршрутизации>' if (x == 0) else (
             "<маршрутизация с удалением>" if (x == 1) else "<маршрутизация без удаления>")
 
         cg = CycleGramGenerator(num)
         cg.comment([
-            f'Включение канала {d["ch"]}',
-            f'Входной порт:{d["input"]}, Выходной порт:{d["output"]}',
+            f'Включение канала {dtpNotationItem["ch"]}',
+            f'Входной порт:{dtpNotationItem["input"]}, Выходной порт:{dtpNotationItem["output"]}',
             f'Полоса:{self._bw} МГц',
-            f'Начальная частота: ВХОД-{d["ifStart"] * 0.3125 + 675} МГц',
-            f'Начальная частота: ВЫХОД-{d["ofStart"] * 0.3125 + 355.0} МГц',
-            f'Режим работы: {alc_fgm(d["alc"])}',
-            f'Режим создания: {create_mode(d["chmod"])}',
+            f'Начальная частота: ВХОД-{dtpNotationItem["ifStart"] * 0.3125 + 675} МГц',
+            f'Начальная частота: ВЫХОД-{dtpNotationItem["ofStart"] * 0.3125 + 355.0} МГц',
+            f'Режим работы: {alc_fgm(dtpNotationItem["alc"])}',
+            f'Режим создания: {create_mode(dtpNotationItem["chmod"])}',
         ])
 
-        if d['alc']:
-            cg.send('R15173')
+        if dtpNotationItem['alc']:
+            cg.send(DtpCmd.ALC)
         else:
-            cg.send('R15174')
+            cg.send(DtpCmd.FGM)
         cg.pause(1)
 
-        if d['chmod'] == 0:
-            cg.send('R15170')
-        elif d['chmod'] == 1:
-            cg.send('R15171')
-        elif d['chmod'] == 2:
-            cg.send('R15172')
+        if dtpNotationItem['chmod'] == 0:
+            cg.send(DtpCmd.CreateInMemory)
+        elif dtpNotationItem['chmod'] == 1:
+            cg.send(DtpCmd.CreateWithDelete)
+        elif dtpNotationItem['chmod'] == 2:
+            cg.send(DtpCmd.CreateWithoutDelete)
         cg.pause(1)
 
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"НОМКАНАЛ"'], [KPI.VAL, d['ch']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ВХПОРТ"'], [KPI.VAL, d['input']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ВЫХПОРТ"'], [KPI.VAL, d['output']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ПОЛОСА"'], [KPI.VAL, d['bw']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ВХЧАСТ"'], [KPI.VAL, d['ifStart']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ВЫХЧАСТ"'], [KPI.VAL, d['ofStart']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"УРУСИЛ"'], [KPI.VAL, d['gain']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.chNum], [KPI.VAL, dtpNotationItem['ch']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.inputPort], [KPI.VAL, dtpNotationItem['input']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.outputPort], [KPI.VAL, dtpNotationItem['output']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.bandwidth], [KPI.VAL, dtpNotationItem['bw']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.input_frequency], [KPI.VAL, dtpNotationItem['ifStart']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.output_frequency], [KPI.VAL, dtpNotationItem['ofStart']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.gain], [KPI.VAL, dtpNotationItem['gain']]])
 
-        cg.send('R15167')
+        cg.send(DtpCmd.CreateChannel)
 
         cg.comment('ЗАПУСК ОПРОСА ТМИ')
         row = cg.all_data
@@ -120,25 +117,25 @@ class DTP:
         cmd = ''
 
         for s in reqTm:
-            if d['output'] == s[1]:
-                if d['ch'] in s[2]:
+            if dtpNotationItem['output'] == s[1]:
+                if dtpNotationItem['ch'] in s[2]:
                     cmd = 'R' + str(s[0])
 
-        if d['ch'] + 1 < 10:
-            ch = '0' + str(d['ch'] + 1)
+        if dtpNotationItem['ch'] + 1 < 10:
+            ch = '0' + str(dtpNotationItem['ch'] + 1)
         else:
-            ch = str(d['ch'] + 1)
-        op = str(d['output'])
-        ip = str(d['input'])
-        cs = str(d['chmod'])
-        bw = str(d['bw'])
-        if str(d['alc']):
+            ch = str(dtpNotationItem['ch'] + 1)
+        op = str(dtpNotationItem['output'])
+        ip = str(dtpNotationItem['input'])
+        cs = str(dtpNotationItem['chmod'])
+        bw = str(dtpNotationItem['bw'])
+        if str(dtpNotationItem['alc']):
             gm = 0
         else:
             gm = 1
-        inF = str(d['ifStart'])
-        outF = str(d['ofStart'])
-        gl = str(d['gain'])
+        inF = str(dtpNotationItem['ifStart'])
+        outF = str(dtpNotationItem['ofStart'])
+        gl = str(dtpNotationItem['gain'])
 
         cg.send(cmd)
         cg.pause(1)
@@ -171,9 +168,9 @@ class DTP:
     def getCGStrConfig(self, num) -> []:
         row = ''
         for dtpConfig in self.dtpNotation:
-            tmp = self._createCh(dtpConfig, num)
-            row += tmp[0]
-            num = tmp[1]
+            dtp_create_ch_result = self._createCh(dtpConfig, num)
+            row += dtp_create_ch_result[0]
+            num = dtp_create_ch_result[1]
         return [row, num]
 
     def getCGStrOn(self, num) -> []:
@@ -188,9 +185,13 @@ class DTP:
         cg.call_(cg_name)
         return [cg.all_data, cg.idx.get_value()]
 
-    def getCGStrSwitch(self, num) -> []:
-        row = ''
-        return [row, num]
+    @staticmethod
+    def getCGStrSwitch(num) -> []:
+        return ['', num]
 
-    def isDevice(self):
+    @staticmethod
+    def isDevice():
         return True
+
+    def getNum(self):
+        return self._num

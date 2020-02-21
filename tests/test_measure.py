@@ -1,6 +1,7 @@
-from unittest import TestCase
 import unittest
+from unittest import TestCase
 
+from cg_creator.cg_form import CycleGramGenerator
 from measure.measure import Measure
 
 config2 = {
@@ -675,10 +676,9 @@ class TestMeasure(TestCase):
         self.m_config1 = Measure(config1)
         self.m_config2 = Measure(config2)
 
-    def test_getMeasureName(self):
-        self.assertEqual('WIC1_5725_6725_@MEAS@_L', self.m_config1.calibrationFileNameMain)
-        self.assertEqual('WIC3_6225_20350_250_@MEAS@_L', self.m_config2.calibrationFileNameMain)
-
+    def test__measure_insert(self):
+        cg = CycleGramGenerator(0)
 
 if __name__ == '__main__':
     unittest.main()
+

@@ -21,7 +21,3 @@ for s in SSIList:
 
 for i in range(1, 6):
     writers.writePlan({'filename': f'763_ВХСЕК', 'planstr': f'Входная секция {i} = @763_ВХСЕК{i}.pla'})
-
-# # Генератор ключей
-# startKeyGenerator = False
-# if startKeyGenerator:
