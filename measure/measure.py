@@ -1,7 +1,7 @@
 import re
 
-
 # from devices.ssi import SSI
+from cg_creator.cg_form import CycleGramGenerator
 
 
 class Measure:
@@ -42,68 +42,77 @@ class Measure:
 
     def getCGStr(self):
         # config_name = self.config['file_name'].replace('@', '').replace('#', '_')
-        return f'О|1   |          |ПРОГРАМ     |     |{self.nameOfCg}|               |        |||READY\n' + \
-               f'О|2   |          |ВЫЧИСЛ      |     |               |               |        |||\n' + \
-               f' |    |          |         SSI|  =  |{self.nameOfCg}|               |        |||\n' + \
-               f'О|3   |          |ПОВТ        |     |       1       |     32000     |        |||\n' + \
-               f'К|Общие для всех измерений ключи\n' + \
-               f'О|4   |          |ВЫЧИСЛ      |     |               |               |        |||\n' + \
-               f' |    |          |    FRINCENT|  =  |     {self.frequencyInCenter}     |               |        |||\n' + \
-               f' |    |          |       POWIN|  =  |     {self._powerIn_coma}     |               |        |||\n' + \
-               f' |    |          |   FROUTCENT|  =  |     {self.frequencyOutCenter}     |               |        |||\n' + \
-               f' |    |          |      POWOUT|  =  |      -20      |               |        |||\n' + \
-               f'К|Выбор измерения\n' + \
-               f'О|5   |          |МЕНЮ        |     |      +ВЧИ     |               |        |||\n' + \
-               f'Ф|Измерение АЧХ\n' + \
-               f'Ф|Измерение НГВЗ\n' + \
-               f'Ф|Измерение ИМ_3\n' + \
-               f'Ф|Выход\n' + \
-               f'О|6   |          |ВЫБОР       |     |     #ЛМЕН     |               |        |||\n' + \
-               f'О|7   |          |ВАРИАНТ     |     |       1       |               |        |||\n' + \
-               f'К|персональные ключи для АЧХ\n' + \
-               f'О|8   |          |ВЫЧИСЛ      |     |               |               |        |||\n' + \
-               f' |    |          |     CSANAME|  =  |{self._getCalibrationFileNameMeasure("AFC")}|               |        |||\n' + \
-               f' |    |          |  AVERNUMPNA|  =  |       5       |               |        |||\n' + \
-               f' |    |          |     IFBWPNA|  =  |      1000     |               |        |||\n' + \
-               f' |    |          |      MDELAY|  =  |       0       |               |        |||\n' + \
-               f' |    |          | POINTNUMPNA|  =  |{self._numberOfMeasurePoints}      |               |        ||\n' + \
-               f' |    |          |   SMOOTHNUM|  =  |       2       |               |        |||\n' + \
-               f' |    |          |    ISQRANGE|  =  |       1       |               |        |||\n' + \
-               f' |    |          |     SPANPNA|  =  |      {self.bw}      |               |        |||\n' + \
-               f'О|9   |          |ВЫЗВАТЬ     |     |               |      АЧХ      |        |||\n' + \
-               f'О|10  |          |ВАРИАНТ     |     |       2       |               |        |||\n' + \
-               f'К|персональные ключи для НГВЗ\n' + \
-               f'О|11  |          |ВЫЧИСЛ      |     |               |               |        |||\n' + \
-               f' |    |          |     CSANAME|  =  |{self._getCalibrationFileNameMeasure("GD")}|               |        |||\n' + \
-               f' |    |          |  AVERNUMPNA|  =  |       5       |               |        |||\n' + \
-               f' |    |          |     IFBWPNA|  =  |      1000     |               |        |||\n' + \
-               f' |    |          |      MDELAY|  =  |       0       |               |        |||\n' + \
-               f' |    |          | POINTNUMPNA|  =  |      {self._numberOfMeasurePoints}      |               |        |||\n' + \
-               f' |    |          |   SMOOTHNUM|  =  |       2       |               |        |||\n' + \
-               f' |    |          |    ISQRANGE|  =  |       1       |               |        |||\n' + \
-               f' |    |          |     SPANPNA|  =  |      {self.bw}      |               |        |||\n' + \
-               f'О|12  |          |ВЫЗВАТЬ     |     |               |      НГВЗ     |        |||\n' + \
-               f'К|И З М Е Р Е Н И Е  - НГВЗ\n' + \
-               f'О|13  |          |ВАРИАНТ     |     |       3       |               |        |||\n' + \
-               f'К|персональные ключи для ИМ_3\n' + \
-               f'О|14  |          |ВЫЧИСЛ      |     |               |               |        |||\n' + \
-               f' |    |          |     CSANAME|  =  |{self._getCalibrationFileNameMeasure("IMD")}|               |        |||\n' + \
-               f' |    |          |  AVERNUMPNA|  =  |       5       |               |        |||\n' + \
-               f' |    |          |     FIXDELF|  =  |       1       |               |        |||\n' + \
-               f' |    |          |      IFBMMT|  =  |     10000     |               |        |||\n' + \
-               f' |    |          |      IFBWIM|  =  |     10000     |               |        |||\n' + \
-               f' |    |          |     IFBWPNA|  =  |      1000     |               |        |||\n' + \
-               f' |    |          |      IM3OR5|  =  |       0       |               |        |||\n' + \
-               f' |    |          |      MDELAY|  =  |       2       |               |        |||\n' + \
-               f' |    |          | POINTNUMPNA|  =  |       41      |               |        |||\n' + \
-               f' |    |          |   SMOOTHNUM|  =  |       5       |               |        |||\n' + \
-               f' |    |          |    ISQRANGE|  =  |       1       |               |        |||\n' + \
-               f' |    |          |     SPANPNA|  =  |       24      |               |        |||\n' + \
-               f'О|15  |          |ВЫЗВАТЬ     |     |               |      ИМ_3     |        |||\n' + \
-               f'К|И З М Е Р Е Н И Е  - ИМ_3\n' + \
-               f'К|ВЫХОД ИЗ ЦГ\n' + \
-               f'О|16  |          |ВАРИАНТ     |     |       4       |               |        |||\n' + \
-               f'О|17  |          |ВЫХОД       |     |               |               |        |||\n' + \
-               f'О|18  |          |КВЫБОР      |     |               |               |        |||\n' + \
-               f'О|19  |          |КПОВТ       |     |               |               |        |||\n' + \
-               f'О|20  |          |КПРОГРАМ    |     |               |               |        |||\n'
+        cg = CycleGramGenerator(0)
+        cg.program(self.nameOfCg)
+        cg.compute([
+            ['SSI', '=', f'"{self.nameOfCg}"']
+        ])
+        cg.repeat(1, 32000)
+        cg.comment('Общие для всех измерений ключи')
+        cg.compute([
+            ['FRINCENT', '=', self.frequencyInCenter],
+            ['POWIN', '=', self._powerIn_coma],
+            ['FROUTCENT', '=', self.frequencyOutCenter],
+            ['POWOUT', '=', -20],
+        ])
+        cg.comment('Выбор измерения')
+
+        cg.select_([
+            'Измерение АЧХ',
+            'Измерение НГВЗ',
+            'Измерение ИМ_3',
+            'Выход',
+        ])
+
+        cg.select_var(1)
+        cg.comment('персональные ключи для АЧХ')
+        cg.compute([
+            ['CSANAME', '=', f'"{self._getCalibrationFileNameMeasure("AFC")}"'],
+            ['AVERNUMPNA', '=', 5],
+            ['IFBWPNA', '=', 1000],
+            ['MDELAY', '=', 0],
+            ['POINTNUMPNA', '=', self._numberOfMeasurePoints],
+            ['SMOOTHNUM', '=', 2],
+            ['ISQRANGE', '=', 1],
+            ['SPANPNA', '=', self.bw],
+        ])
+        cg.call_('АЧХ')
+
+        cg.select_var(2)
+        cg.comment('персональные ключи для НГВЗ')
+        cg.compute([
+            ['CSANAME', '=', f'"{self._getCalibrationFileNameMeasure("GD")}"'],
+            ['AVERNUMPNA', '=', 5],
+            ['IFBWPNA', '=', 1000],
+            ['MDELAY', '=', 0],
+            ['POINTNUMPNA', '=', self._numberOfMeasurePoints],
+            ['SMOOTHNUM', '=', 2],
+            ['ISQRANGE', '=', 1],
+            ['SPANPNA', '=', self.bw],
+        ])
+        cg.call_('НГВЗ')
+
+        cg.select_var(3)
+        cg.comment('персональные ключи для ИМ3')
+        cg.compute([
+            ['CSANAME', '=', f'"{self._getCalibrationFileNameMeasure("IMD")}"'],
+            ['AVERNUMPNA', '=', 5],
+            ['FIXDELF', '=', 1],
+            ['IFBMMT', '=', 10000],
+            ['IFBWIM', '=', 10000],
+            ['IFBWPNA', '=', 1000],
+            ['IM3OR5', '=', 0],
+            ['POINTNUMPNA', '=', 41],
+            ['SMOOTHNUM', '=', 5],
+            ['ISQRANGE', '=', 1],
+            ['SPANPNA', '=', 24],
+        ])
+        cg.call_('ИМ_3')
+
+        cg.select_var(4)
+        cg.exit()
+        cg.select_end()
+        cg.repeat_end()
+        cg.program_end()
+
+        return cg.all_data

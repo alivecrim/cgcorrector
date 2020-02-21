@@ -6,10 +6,6 @@ class Op(Enum):
     K = 'К'
     F = 'Ф'
     E = 'Н'
-    o = 'О'
-    k = 'К'
-    f = 'Ф'
-    e = 'Н'
 
 
 class CMD(Enum):
@@ -35,7 +31,9 @@ class CMD(Enum):
     COMMENT = ''
 
     SELECT = 'ВЫБОР'
+    SELECT_VAR = 'ВАРИАНТ'
     SELECT_END = 'КВЫБОР'
+    EXIT = 'ВЫХОД'
 
 
 class KPI(Enum):

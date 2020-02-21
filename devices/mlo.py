@@ -29,12 +29,10 @@ class MLO:
         return []
 
     def getCGStrSwitch(self, num) -> []:
-        row = ''
-        return [row, num]
+        return ['', num]
 
     def getCGStrOn(self, num) -> []:
         if not (self._num == 0):
-            cg_name = '763_БСК1_MLO_ВКЛ'
             cg = CycleGramGenerator(num)
             cg.comment(f'Включение MLO {self._num}')
             cg.call_('763_БСК1_MLO_ВКЛ', [self._num])
