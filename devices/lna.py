@@ -1,4 +1,5 @@
 import utils.splitters as u
+from utils.cg_form import CycleGramGenerator
 
 
 class LNA:
@@ -28,25 +29,27 @@ class LNA:
         return f'{self._type}{self._num}'
 
     def getCGStrOn(self, num) -> []:
-        cg_name = '763_БСК1_МШУ_ВКЛ'
-        row = ''
 
-        row += f'К|Включение МШУ {self._num}|          |            |     |               |               |        |               ||\n'
-        row += f'О|   {num + 1}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
-        row += f' |    |          |            |  &1 |              {self._num}|               |        |               ||\n'
-        row += f'О|   {num + 2}|          |       ПАУЗА|     |       1       |               |        |               ||\n'
-        return [row, num + 2]
+        cg = CycleGramGenerator(num)
+        cg.comment([f'Включение МШУ {self._num}'])
+        cg.call_('763_БСК1_МШУ_ВКЛ', [self._num])
+        cg.pause(1)
+        return [cg.all_data, cg.idx.get_value()]
 
-    def getCGStrSwitch(self, num) -> []:
-        row = ''
-        return [row, num]
-
-    def getCGStrConfig(self, num) -> []:
+    @staticmethod
+    def getCGStrSwitch(num) -> []:
         row = ''
         return [row, num]
 
-    def isConfigurable(self):
+    @staticmethod
+    def getCGStrConfig(num) -> []:
+        row = ''
+        return [row, num]
+
+    @staticmethod
+    def isConfigurable():
         return False
 
-    def isDevice(self):
+    @staticmethod
+    def isDevice():
         return True

@@ -1,3 +1,6 @@
+from utils.cg_form import CycleGramGenerator
+
+
 class CN:
 
     def __init__(self, definition: list, config: list):
@@ -72,37 +75,35 @@ class CN:
         return [row, num]
 
     def _switchOn(self, num) -> []:
-        cg_name = '763_БСК1_КНВ_ВКЛ'
-        row = ''
-
-        row += f'К|Включение КНВ W{self.firstNum}CN{self.secondNum}|          |            |     |               |               |        |               ||\n'
-        row += f'О|   {num + 1}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
-        row += f' |    |          |            |  &1 |              {self._num}|               |        |               ||\n'
-        row += f'О|   {num + 2}|          |       ПАУЗА|     |       1       |               |        |               ||\n'
-        return [row, num + 2]
+        cg = CycleGramGenerator(num)
+        cg.comment(f'Включение КНВ W{self.firstNum}CN{self.secondNum}')
+        cg.call_('763_БСК1_КНВ_ВКЛ', [self._num])
+        cg.pause(1)
+        return [cg.all_data, cg.idx.get_value()]
 
     def _setLo(self, num) -> []:
         row = ''
         if self._type in ['CIF', 'KKa', 'SKa']:
-            cg_name = '763_БСК1_КНВ_УСТ_ЧАСТ'
-            row += f'К|Установка частоты переноса КНВ W{self.firstNum}CN{self.secondNum}|          |            |     |               |               |        |               ||\n'
-            row += f'О|   {num + 1}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
-            row += f' |    |          |            |  &1 |              {self._num}|               |        |               ||\n'
-            row += f' |    |          |            |  &2 |              {int(abs(self._lo))}|               |        |               ||\n'
-            row += f'О|   {num + 2}|          |       ПАУЗА|     |       1       |               |        |               ||\n'
-            return [row, num + 2]
+            cg = CycleGramGenerator(num)
+            cg.comment(f'Установка частоты переноса КНВ W{self.firstNum}CN{self.secondNum}')
+            cg.call_('763_БСК1_КНВ_УСТ_ЧАСТ', [self._num,
+                                               int(abs(self._lo))
+                                               ])
+            cg.pause(1)
+            return [cg.all_data, cg.idx.get_value()]
         return [row, num]
 
     def _setGain(self, num) -> []:
         row = ''
         if self._type in ['CIF']:
-            cg_name = '763_БСК1_КНВ_УСТ_ШАГ'
-            row += f'К|Установка усиления КНВ W{self.firstNum}CN{self.secondNum}|          |            |     |               |               |        |               ||\n'
-            row += f'О|   {num + 1}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
-            row += f' |    |          |            |  &1 |              {self._num}|               |        |               ||\n'
-            row += f' |    |          |            |  &2 |              {int(self._gain)}|               |        |               ||\n'
-            row += f'О|   {num + 2}|          |       ПАУЗА|     |       1       |               |        |               ||\n'
-            return [row, num + 2]
+            cg = CycleGramGenerator(num)
+            cg.comment(f'Установка усиления КНВ W{self.firstNum}CN{self.secondNum}')
+            cg.call_('763_БСК1_КНВ_УСТ_ШАГ', [
+                self._num,
+                int(self._gain)
+            ])
+            cg.pause(1)
+            return [cg.all_data, cg.idx.get_value()]
         return [row, num]
 
     def isConfigurable(self):
