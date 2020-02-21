@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List, Dict
 
-from utils.enums import Op, CMD, KPI
+from cg_creator.enums import Op, CMD, KPI
 
 
 def getCGStrFormat(operation=None,
@@ -77,16 +77,19 @@ class Counter:
     def get_value(self):
         return self._value
 
+    def set_value(self, val):
+        self._value = val
+
 
 class Translator(ABC):
     @abstractmethod
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         pass
 
 
 class PauseCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.PAUSE,
                                    value=params['pause'])
@@ -95,9 +98,10 @@ class PauseCreate(Translator, ABC):
 
 class CallCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
-        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), nameOfCg=params['call'])
+        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.CALL,
+                                   nameOfCg=params['call'])
         for i, p in enumerate(params['call_params']):
             full_line += getCGStrFormat(sign=f'&{i + 1}', value=p)
         return full_line
@@ -105,9 +109,9 @@ class CallCreate(Translator, ABC):
 
 class SendCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
-        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=params['send'])
+        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.SEND, value=params['send'])
         for i, p in enumerate(params['send_params']):
             full_line += getCGStrFormat(command=p[0], value=p[1])
         return full_line
@@ -115,7 +119,7 @@ class SendCreate(Translator, ABC):
 
 class WaitCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.WAIT, value=params['wait'])
         for i, p in enumerate(params['wait_params']):
@@ -125,23 +129,23 @@ class WaitCreate(Translator, ABC):
 
 class MessageCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.MESSAGE)
-        for i, p in enumerate(params['message_params']):
+        for p in params['message_params']:
             full_line += getCGStrFormat(operation=Op.F, numOrComment=p)
         return full_line
 
 
 class RepeatCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         pass
 
 
 class RepeatEndCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.REPEAT_END)
         return full_line
@@ -149,7 +153,7 @@ class RepeatEndCreate(Translator, ABC):
 
 class IfCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.IF)
         for i, p in enumerate(params['if_params']):
@@ -159,7 +163,7 @@ class IfCreate(Translator, ABC):
 
 class IfEndCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.IF_END)
         return full_line
@@ -167,7 +171,7 @@ class IfEndCreate(Translator, ABC):
 
 class CommentCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         full_line = ''
         for c in params['comment']:
             full_line += getCGStrFormat(operation=Op.K, numOrComment=c)
@@ -176,7 +180,7 @@ class CommentCreate(Translator, ABC):
 
 class ComputeCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         idx.inc()
         full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.COMPUTE)
         for compute_value in params['compute_params']:
@@ -185,19 +189,31 @@ class ComputeCreate(Translator, ABC):
 
 
 class ProgramCreate(Translator, ABC):
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
-        pass
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
+        idx.inc()
+        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.PROGRAM,
+                                   value=params['program'])
+        full_line.replace('\n', 'READY\n')
+        return full_line
 
 
 class ProgramEndCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
-        pass
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
+        idx.inc()
+        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.PROGRAM_END)
+        return full_line
 
 
 class SelectCreate(Translator, ABC):
 
-    def get_cg_line(self, idx: 'Counter', params: Dict) -> str:
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
+        pass
+
+
+class SelectEndCreate(Translator, ABC):
+
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
         pass
 
 
@@ -211,6 +227,9 @@ class CycleGramGenerator:
         self.idx = Counter(id_start)
         self.all_data = ''
 
+    def wait(self, time_to_wait, wait_params):
+        return self.create_cg_block(CMD.WAIT, {'wait': time_to_wait, 'wait_params': wait_params})
+
     def comment(self, comment_list):
         if isinstance(comment_list, str):
             comment_list = [comment_list]
@@ -219,11 +238,14 @@ class CycleGramGenerator:
     def pause(self, pause_value: int):
         return self.create_cg_block(CMD.PAUSE, {'pause': pause_value})
 
-    def send(self, send_str: str, send_params: List):
+    def message(self, message_params):
+        return self.create_cg_block(CMD.MESSAGE, {'message_params': [message_params]})
+
+    def send(self, send_str: str, send_params: List = {}):
         return self.create_cg_block(CMD.SEND, {'send': send_str,
                                                'send_params': send_params})
 
-    def call_(self, call_str: str, call_params: List):
+    def call_(self, call_str: str, call_params: List = {}):
         return self.create_cg_block(CMD.CALL, {'call': call_str,
                                                'call_params': call_params})
 
@@ -236,14 +258,20 @@ class CycleGramGenerator:
     def if_end(self):
         return self.create_cg_block(CMD.IF_END, {})
 
+    def repeat(self, repeat_params: List):
+        return self.create_cg_block(CMD.REPEAT, {'repeat_params': repeat_params})
+
     def repeat_end(self):
         return self.create_cg_block(CMD.REPEAT_END, {})
 
-    def message(self, message_params):
-        return self.create_cg_block(CMD.MESSAGE, message_params)
+    def program(self, program):
+        return self.create_cg_block(CMD.PROGRAM, {'program': program})
 
-    def create_cg_block(self, t: CMD, params: Dict) -> str:
-        cmd = {
+    def program_end(self):
+        return self.create_cg_block(CMD.PROGRAM_END, {})
+
+    def create_cg_block(self, cmd_type: CMD, params: Dict) -> str:
+        strategy_class = {
             CMD.CALL: CallCreate(),
             CMD.SEND: SendCreate(),
             CMD.PAUSE: PauseCreate(),
@@ -258,11 +286,12 @@ class CycleGramGenerator:
             CMD.IF_END: IfEndCreate(),
             CMD.COMMENT: CommentCreate(),
             CMD.SELECT: SelectCreate(),
+            CMD.SELECT_END: SelectEndCreate(),
         }
 
-        self.strategy = cmd[t]
+        self.strategy = strategy_class[cmd_type]
 
-        current_block = self.strategy.get_cg_line(self.idx, params)
+        current_block = self.strategy.get_str(self.idx, params)
         self.all_data += current_block
         return current_block
 

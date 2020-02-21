@@ -1,4 +1,4 @@
-from utils.cg_form import CycleGramGenerator
+from cg_creator.cg_form import CycleGramGenerator
 
 
 class CN:

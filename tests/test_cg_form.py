@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from utils.cg_form import getCGStrFormat, extender
+from cg_creator.cg_form import getCGStrFormat, extender
 
 
 class Test(TestCase):

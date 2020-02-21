@@ -1,4 +1,5 @@
 import utils.splitters as u
+from cg_creator.cg_form import CycleGramGenerator
 
 
 def _checkPosition(position: str, checkedStr: str) -> bool:
@@ -35,11 +36,11 @@ class Switch:
                 self._position = 0
 
         if self._type == 'T':
-            if _checkPosition(position, '14') or _checkPosition(position, '32'):
+            if _checkPosition(position, '12') or _checkPosition(position, '34'):
                 self._position = 1
-            elif _checkPosition(position, '12') or _checkPosition(position, '34'):
-                self._position = 2
             elif _checkPosition(position, '13') or _checkPosition(position, '24'):
+                self._position = 2
+            elif _checkPosition(position, '14') or _checkPosition(position, '23'):
                 self._position = 3
             else:
                 self._position = 0
@@ -82,11 +83,10 @@ class Switch:
         if self._type == "T":
             cg_name = '763_БСК1_ПРК_T_WST_ПОЗ'
         row = ''
-        row += f'К|Установка переключателя WS{self._type}{self._num} в позицию {self._position}|          |            |     |               |               |        |               ||\n'
-        row += f'О|   {num + 1}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
-        row += f' |    |          |            |  &1 |              {self._num}|               |        |               ||\n'
-        row += f' |    |          |            |  &2 |              {self._position}|               |        |               ||\n'
-        return [row, num + 1]
+        cg = CycleGramGenerator(num)
+        cg.comment(f'Установка переключателя WS{self._type}{self._num} в позицию {self._position}')
+        cg.call_(cg_name, [self._num, self._position])
+        return [cg.all_data, cg.idx.get_value()]
 
     def getCGStrConfig(self, num) -> []:
         row = ''

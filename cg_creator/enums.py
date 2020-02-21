@@ -35,8 +35,10 @@ class CMD(Enum):
     COMMENT = ''
 
     SELECT = 'ВЫБОР'
+    SELECT_END = 'КВЫБОР'
 
 
 class KPI(Enum):
     PAR = 'КПИ_ИД_ПАР'
     VAL = 'КПИ_ЗНАЧЕНИЕ'
+    KPI_CMD = 'M_KPI_PAR'

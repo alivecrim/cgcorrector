@@ -1,3 +1,6 @@
+from cg_creator.cg_form import CycleGramGenerator
+
+
 class MLO:
     def __init__(self, config: list):
         self._num: int = 0
@@ -17,6 +20,7 @@ class MLO:
 
     def getNum(self):
         return self._num
+
     def _getSwitchDef(self):
         if self._num == 1:
             return [['WSCT1', 'J1', 'J2'], ['WSCT2', 'J1', 'J4']]
@@ -29,15 +33,14 @@ class MLO:
         return [row, num]
 
     def getCGStrOn(self, num) -> []:
-        row = ''
         if not (self._num == 0):
             cg_name = '763_БСК1_MLO_ВКЛ'
-            row += f'К|Включение MLO {self._num}|          |            |     |               |               |        |               ||\n'
-            row += f'О|   {num + 1}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
-            row += f' |    |          |            |  &1 |              {self._num}|               |        |               ||\n'
-            row += f'О|   {num + 2}|          |       ПАУЗА|     |       1       |               |        |               ||\n'
-            return [row, num + 2]
-        return [row, num]
+            cg = CycleGramGenerator(num)
+            cg.comment(f'Включение MLO {self._num}')
+            cg.call_('763_БСК1_MLO_ВКЛ', [self._num])
+            cg.pause(1)
+            return [cg.all_data, cg.idx.get_value()]
+        return ['', num]
 
     def getCGStrConfig(self, num) -> []:
         row = ''

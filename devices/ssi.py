@@ -6,6 +6,7 @@ import devices.lna as ln
 import devices.mlo as ml
 import devices.switch as sw
 import utils.splitters as u
+from cg_creator.cg_form import CycleGramGenerator
 from measure.measure import Measure
 
 
@@ -79,59 +80,46 @@ class SSI:
         raise NotImplementedError
 
     def getFullCGStrSwitch(self) -> str:
-        current_num = 0
-        fullStr: str = f'О|   {current_num + 1}|          |     ПРОГРАМ|     |{self.nameForSwitch}|               |        |               ||READY\n'
-        current_num += 1
+        cg = CycleGramGenerator(0)
+        cg.program(self.nameForSwitch)
+
         for item in self.fullDeviceList:
-            res = item.getCGStrSwitch(current_num)
+            res = item.getCGStrSwitch(cg.idx.get_value())
             if res != '':
-                fullStr += res[0]
-                current_num = res[1]
+                cg.add_to_all_data(res[0])
+                cg.idx.set_value(res[1])
 
-        current_num += 1
-        fullStr += \
-            f'О|  {current_num}|          |      ДИРЕКТ|     |               |               |        |               ||\n' + \
-            f'Ф| Оператору проверить установку переключателей переключатели\n'
-
-        fullStr += f'О|   {current_num + 1}|          |    КПРОГРАМ|     |               |               |        |               ||\n'
-        return fullStr
+        cg.message('Оператору проверить установку переключателей переключатели')
+        cg.program_end()
+        return cg.all_data
 
     def getFullCGStrDEV(self) -> str:
-        current_num = 0
+        cg = CycleGramGenerator(0)
         if self._isDevice():
-            fullStr: str = f'О|   {current_num + 1}|          |     ПРОГРАМ|     |{self.nameForDevice}|               |        |               ||READY\n'
-            current_num += 1
+            cg.program(self.nameForDevice)
             for item in self.fullDeviceList:
-                res = item.getCGStrOn(current_num)
+                res = item.getCGStrOn(cg.idx.get_value())
                 if res != '':
-                    fullStr += res[0]
-                    current_num = res[1]
+                    cg.add_to_all_data(res[0])
+                    cg.idx.set_value(res[1])
 
-            current_num += 1
-            fullStr += \
-                f'О|  {current_num}|          |      ДИРЕКТ|     |               |               |        |               ||\n' + \
-                f'Ф| Оператору проверить включенное оборудование\n'
-            fullStr += f'О|   {current_num + 1}|          |    КПРОГРАМ|     |               |               |        |               ||\n'
-            return fullStr
+            cg.message('Оператору проверить включенное оборудование')
+            cg.program_end()
+            return cg.all_data
         return None
 
     def getFullCGStrConfigDevice(self) -> str:
-        current_num = 0
+        cg = CycleGramGenerator(0)
         if self._isExistConfigDevice():
-            fullStr: str = f'О|   {current_num + 1}|          |     ПРОГРАМ|     |{self.nameForConfigDevice}|               |        |               ||READY\n'
-            current_num += 1
+            cg.program(self.nameForConfigDevice)
             for item in self.fullDeviceList:
-                res = item.getCGStrConfig(current_num)
+                res = item.getCGStrConfig(cg.idx.get_value())
                 if res != '':
-                    fullStr += res[0]
-                    current_num = res[1]
-
-            current_num += 1
-            fullStr += \
-                f'О|  {current_num}|          |      ДИРЕКТ|     |               |               |        |               ||\n' + \
-                f'Ф| Оператору проверить установленную конфигурацию оборудования\n'
-            fullStr += f'О|   {current_num + 1}|          |    КПРОГРАМ|     |               |               |        |               ||\n'
-            return fullStr
+                    cg.add_to_all_data(res[0])
+                    cg.idx.set_value(res[1])
+            cg.message('Оператору проверить установленную конфигурацию оборудования')
+            cg.program_end()
+            return cg.all_data
         return None
 
     def getFullCGStrMeasure(self) -> str:
@@ -139,34 +127,24 @@ class SSI:
         return self.measure.getCGStr()
 
     def getFullCGStr(self) -> str:
-        current_num = 1
-        fullStr: str = f'О|   {current_num}|          |     ПРОГРАМ|     |{self.nameForAll}|               |        |               ||READY\n'
+        cg = CycleGramGenerator(0)
+        cg.program(self.nameForAll)
 
         # Call CG for switch
-        cg_name = self.nameForSwitch
-        current_num += 1
-        fullStr += f'О|   {current_num}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
+        cg.call_(self.nameForSwitch)
 
         # Call CG for device On
         if self._isDevice():
-            cg_name = self.nameForDevice
-            current_num += 1
-            fullStr += f'О|   {current_num}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
+            cg.call_(self.nameForDevice)
 
         # Call CG for device config
         if self._isExistConfigDevice():
-            cg_name = self.nameForConfigDevice
-            current_num += 1
-            fullStr += f'О|   {current_num}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
+            cg.call_(self.nameForConfigDevice)
+
         # Call CG for measures
-
-        cg_name = self.nameForMeasure
-        current_num += 1
-        fullStr += f'О|   {current_num}|          |     ВЫЗВАТЬ|     |               |{cg_name}|        |               ||\n'
-
-        current_num += 1
-        fullStr += f'О|   {current_num}|          |    КПРОГРАМ|     |               |               |        |               ||\n'
-        return fullStr
+        cg.call_(self.nameForMeasure)
+        cg.program_end()
+        return cg.all_data
 
     def _makeFullDeviceList(self):
         self.fullDeviceList.extend(self.switch_List)

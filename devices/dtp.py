@@ -1,5 +1,5 @@
-from utils.cg_form import getCGStrFormat
-from utils.enums import Op, CMD, KPI
+from cg_creator.cg_form import CycleGramGenerator
+from cg_creator.enums import KPI
 
 
 def calcGain(reqGain, alc, bw) -> int:
@@ -50,79 +50,47 @@ class DTP:
         pass
 
     def _createCh(self, d, num):
-        alcfgm = lambda x: 'АРУ' if x else 'ФРУ'
-
-        createmode = lambda x: '<без маршрутизации>' if (x == 0) else (
+        alc_fgm = lambda x: 'АРУ' if x else 'ФРУ'
+        create_mode = lambda x: '<без маршрутизации>' if (x == 0) else (
             "<маршрутизация с удалением>" if (x == 1) else "<маршрутизация без удаления>")
 
-        row = ''
-        # cg =
-        row += getCGStrFormat(operation=Op.k, numOrComment=f'Включение канала {d["ch"]}')
-        row += getCGStrFormat(operation=Op.k, numOrComment=f'Входной порт:{d["input"]}, Выходной порт:{d["output"]}')
-        row += getCGStrFormat(operation=Op.k, numOrComment=f'Полоса:{self._bw} МГц')
-        row += getCGStrFormat(operation=Op.k, numOrComment=f'Начальная частота: ВХОД-{d["ifStart"] * 0.3125 + 675} МГц')
-        row += getCGStrFormat(operation=Op.k,
-                              numOrComment=f'Начальная частота: ВЫХОД-{d["ofStart"] * 0.3125 + 355.0} МГц')
-        row += getCGStrFormat(operation=Op.k, numOrComment=f'Режим работы: {alcfgm(d["alc"])}')
-        row += getCGStrFormat(operation=Op.k, numOrComment=f'Режим создания: {createmode(d["chmod"])}')
+        cg = CycleGramGenerator(num)
+        cg.comment([
+            f'Включение канала {d["ch"]}',
+            f'Входной порт:{d["input"]}, Выходной порт:{d["output"]}',
+            f'Полоса:{self._bw} МГц',
+            f'Начальная частота: ВХОД-{d["ifStart"] * 0.3125 + 675} МГц',
+            f'Начальная частота: ВЫХОД-{d["ofStart"] * 0.3125 + 355.0} МГц',
+            f'Режим работы: {alc_fgm(d["alc"])}',
+            f'Режим создания: {create_mode(d["chmod"])}',
+        ])
 
         if d['alc']:
-            row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='R15173')
+            cg.send('R15173')
         else:
-            row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='R15174')
-        num += 1
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.PAUSE, value=1)
-        num += 1
+            cg.send('R15174')
+        cg.pause(1)
 
         if d['chmod'] == 0:
-            row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='R15170')
+            cg.send('R15170')
         elif d['chmod'] == 1:
-            row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='R15171')
+            cg.send('R15171')
         elif d['chmod'] == 2:
-            row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='R15172')
-        num += 1
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.PAUSE, value=1)
-        num += 1
+            cg.send('R15172')
+        cg.pause(1)
 
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='M_KPI_PAR')
-        row += getCGStrFormat(command=KPI.PAR, value='"ВЫХПОРТ"')
-        row += getCGStrFormat(command=KPI.VAL, value=d['output'])
-        num += 1
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"НОМКАНАЛ"'], [KPI.VAL, d['ch']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ВХПОРТ"'], [KPI.VAL, d['input']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ВЫХПОРТ"'], [KPI.VAL, d['output']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ПОЛОСА"'], [KPI.VAL, d['bw']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ВХЧАСТ"'], [KPI.VAL, d['ifStart']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"ВЫХЧАСТ"'], [KPI.VAL, d['ofStart']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, '"УРУСИЛ"'], [KPI.VAL, d['gain']]])
 
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='M_KPI_PAR')
-        row += getCGStrFormat(command=KPI.PAR, value='"НОМКАНАЛ"')
-        row += getCGStrFormat(command=KPI.VAL, value=d['ch'])
-        num += 1
+        cg.send('R15167')
 
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='M_KPI_PAR')
-        row += getCGStrFormat(command=KPI.PAR, value='"ВХПОРТ"')
-        row += getCGStrFormat(command=KPI.VAL, value=d['input'])
-        num += 1
-
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='M_KPI_PAR')
-        row += getCGStrFormat(command=KPI.PAR, value='"ВХЧАСТ"')
-        row += getCGStrFormat(command=KPI.VAL, value=d['ifStart'])
-        num += 1
-
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='M_KPI_PAR')
-        row += getCGStrFormat(command=KPI.PAR, value='"ВЫХЧАСТ"')
-        row += getCGStrFormat(command=KPI.VAL, value=d['ofStart'])
-        num += 1
-
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='M_KPI_PAR')
-        row += getCGStrFormat(command=KPI.PAR, value='"ПОЛОСА"')
-        row += getCGStrFormat(command=KPI.VAL, value=d['bw'])
-        num += 1
-
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='M_KPI_PAR')
-        row += getCGStrFormat(command=KPI.PAR, value='"УРУСИЛ"')
-        row += getCGStrFormat(command=KPI.VAL, value=d['gain'])
-        num += 1
-
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value='R15167')
-        num += 1
-
-        row += getCGStrFormat(operation=Op.k, numOrComment='ЗАПУСК ОПРОСА ТМИ')
+        cg.comment('ЗАПУСК ОПРОСА ТМИ')
+        row = cg.all_data
         reqTm = [
             [15016, 0, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]],
             [15017, 0,
@@ -172,45 +140,33 @@ class DTP:
         outF = str(d['ofStart'])
         gl = str(d['gain'])
 
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.SEND, value=cmd)
-        num += 1
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.PAUSE, value=1)
-        num += 1
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.IF)
-        num += 1
-        row += getCGStrFormat(command='DTPN', value=1)
+        cg.send(cmd)
+        cg.pause(1)
 
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.WAIT, value=60)
-        num += 1
-        row += getCGStrFormat(command=f'OP{op}CH{ch}IP_N', value=ip)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}CS_N', value=cs)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}GM_N', value=int(gm))
-        row += getCGStrFormat(command=f'OP{op}CH{ch}IF_N', value=inF)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}OF_N', value=outF)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}BW_N', value=bw)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}GL_N', value=gl)
+        cg.if_([['DTPN', 1]])
+        cg.wait(60, [
+            [f'OP{op}CH{ch}IP_N', ip],
+            [f'OP{op}CH{ch}CS_N', cs],
+            [f'OP{op}CH{ch}GM_N', int(gm)],
+            [f'OP{op}CH{ch}IF_N', inF],
+            [f'OP{op}CH{ch}OF_N', outF],
+            [f'OP{op}CH{ch}BW_N', bw],
+            [f'OP{op}CH{ch}GL_N', gl],
+        ])
+        cg.if_end()
 
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.IF_END)
-        num += 1
-
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.IF)
-        num += 1
-        row += getCGStrFormat(command='DTPR', value=1)
-
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.WAIT, value=60)
-        num += 1
-        row += getCGStrFormat(command=f'OP{op}CH{ch}IP_R', value=ip)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}CS_R', value=cs)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}GM_R', value=int(gm))
-        row += getCGStrFormat(command=f'OP{op}CH{ch}IF_R', value=inF)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}OF_R', value=outF)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}BW_R', value=bw)
-        row += getCGStrFormat(command=f'OP{op}CH{ch}GL_R', value=gl)
-
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.IF_END)
-        num += 1
-
-        return [row, num + 1]
+        cg.if_([['DTPR', 1]])
+        cg.wait(60, [
+            [f'OP{op}CH{ch}IP_R', ip],
+            [f'OP{op}CH{ch}CS_R', cs],
+            [f'OP{op}CH{ch}GM_R', int(gm)],
+            [f'OP{op}CH{ch}IF_R', inF],
+            [f'OP{op}CH{ch}OF_R', outF],
+            [f'OP{op}CH{ch}BW_R', bw],
+            [f'OP{op}CH{ch}GL_R', gl],
+        ])
+        cg.if_end()
+        return [cg.all_data, cg.idx.get_value()]
 
     def getCGStrConfig(self, num) -> []:
         row = ''
@@ -221,17 +177,16 @@ class DTP:
         return [row, num]
 
     def getCGStrOn(self, num) -> []:
-        row = ''
         if self._config['dtp']['TC_N'] == 1:
             cg_name = '763_БСК1_DTP_О_ВКЛ'
         elif self._config['dtp']['TC_R'] == 1:
             cg_name = '763_БСК1_DTP_Р_ВКЛ'
         else:
-            return [row, num]
-        row += getCGStrFormat(operation=Op.k, numOrComment='Включение DTP')
-        row += getCGStrFormat(operation=Op.o, numOrComment=num, command=CMD.CALL, nameOfCg=cg_name)
-        num += 1
-        return [row, num]
+            return ['', num]
+        cg = CycleGramGenerator(num)
+        cg.comment('Включение DTP')
+        cg.call_(cg_name)
+        return [cg.all_data, cg.idx.get_value()]
 
     def getCGStrSwitch(self, num) -> []:
         row = ''
