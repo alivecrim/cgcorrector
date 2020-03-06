@@ -33,6 +33,7 @@ def createDirs():
     config_path = 'КОНФИГУРАЦИЯ/'
     plan_path = 'ПЛАНЫ/'
     measure_path = 'ИЗМЕРЕНИЯ/'
+    device_path_off = 'ОБОРУД/ОТКЛ/'
     try:
         os.mkdir(output_path)
         os.mkdir(output_path + switch_path)
@@ -40,6 +41,7 @@ def createDirs():
         os.mkdir(output_path + config_path)
         os.mkdir(output_path + plan_path)
         os.mkdir(output_path + measure_path)
+        os.mkdir(output_path + device_path_off)
         print('Папки созданы')
     except FileExistsError:
         pass
@@ -51,6 +53,7 @@ def writeCG(s: ssi.SSI, CGType: str, isUnicode=True):
     device_path = 'ОБОРУД/'
     config_path = 'КОНФИГУРАЦИЯ/'
     measure_path = 'ИЗМЕРЕНИЯ/'
+    device_path_off = 'ОБОРУД/ОТКЛ/'
     createDirs()
     if CGType == 'sw':
         name = s.nameForSwitch
@@ -60,6 +63,12 @@ def writeCG(s: ssi.SSI, CGType: str, isUnicode=True):
         name = s.nameForDevice
         output_path += device_path
         strToWrite = s.getFullCGStrDEV()
+
+    if CGType == 'dev_off':
+        name = s.nameForDeviceOff
+        output_path += device_path_off
+        strToWrite = s.getFullCGStrDEV_off()
+
     if CGType == 'conf':
         name = s.nameForConfigDevice
         output_path += config_path

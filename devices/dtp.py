@@ -1,11 +1,16 @@
+import math
+
 from cg_creator.cg_form import CycleGramGenerator
 from cg_creator.enums import KPI, DtpCmd, DtpKPI
 
 
 def calcGain(reqGain, alc, bw) -> int:
     if alc:
-        # return round((reqGain + 103.725 - 10 * m.log10(bw)) / 0.0625)
-        return 100
+        numberOfElementary = bw / 0.3125
+        powerPerElementary = reqGain - 10 * math.log10(numberOfElementary)
+        return round(((powerPerElementary + 103.7125) * 8))
+    else:
+        return round(((reqGain + 86) * 8))
     return 0
 
 
@@ -13,8 +18,29 @@ class DTP:
     def __init__(self, route, config):
         self._config = config
         self._num = 1
-        self._inputPort = int(route[1][1])
+        nom = ''
+        if self._config['dtp']['TC_N'] == 1:
+            nom = 'N'
+        if self._config['dtp']['TC_R'] == 1:
+            nom = 'R'
+        self.name = 'D' + nom
+        if len(route[1]) == 3:
+            self._inputPort = int(route[1][1:2])
+        else:
+            self._inputPort = int(route[1][1])
         self._outputPort = int(route[2][1])
+
+        if self._outputPort in [2, 3, 4, 5, 6]:
+            self._outputPort -= 1
+        else:
+            self._outputPort = 0
+
+        if self._inputPort in [2, 3, 4, 5, 6, 7, 8, 9]:
+            self._inputPort -= 1
+        elif self._inputPort == 1:
+            self._inputPort = 1
+        elif self._inputPort == 10:
+            self._inputPort = 8
 
         self._bw = self._config['bw']
         self._alc = self._config['dtp']['ALC'] == 1
@@ -33,11 +59,11 @@ class DTP:
             {
                 'ch': 0,
                 'chmod': 1,
-                'input': self._inputPort - 1,
-                'output': self._outputPort - 1,
+                'input': self._inputPort,
+                'output': self._outputPort,
                 'alc': self._alc,
                 'bw': round(self._bw / 0.3125) - 1,
-                'gain': calcGain(self._gain, self._alc, round(self._bw / 0.3125)),
+                'gain': calcGain(self._gain, self._alc, self._bw),
                 'ifStart': 0,
                 'ofStart': 0,
             },
@@ -62,6 +88,18 @@ class DTP:
             f'Режим создания: {create_mode(dtpNotationItem["chmod"])}',
         ])
 
+        # noinspection PyTypeChecker
+        cg.print_to_file(
+            f'M:\\Архив РВ\\ВЧ КПА\\ОТЧЕТЫ\\',
+            [f'{dtpNotationItem["ch"]} ; '
+             f'{dtpNotationItem["input"]} ; '
+             f'{dtpNotationItem["output"]} ;'
+             f'{dtpNotationItem["ifStart"]} ;'
+             f'{dtpNotationItem["ofStart"]} ;'
+             f'{dtpNotationItem["alc"]} ;'
+             f'{dtpNotationItem["gain"]}'
+             ])
+
         if dtpNotationItem['alc']:
             cg.send(DtpCmd.ALC)
         else:
@@ -77,8 +115,8 @@ class DTP:
         cg.pause(1)
 
         cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.chNum], [KPI.VAL, dtpNotationItem['ch']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.inputPort], [KPI.VAL, dtpNotationItem['input']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.outputPort], [KPI.VAL, dtpNotationItem['output']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.inputPort], [KPI.VAL, dtpNotationItem['input'] - 1]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.outputPort], [KPI.VAL, dtpNotationItem['output'] - 1]])
         cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.bandwidth], [KPI.VAL, dtpNotationItem['bw']]])
         cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.input_frequency], [KPI.VAL, dtpNotationItem['ifStart']]])
         cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.output_frequency], [KPI.VAL, dtpNotationItem['ofStart']]])
@@ -117,7 +155,7 @@ class DTP:
         cmd = ''
 
         for s in reqTm:
-            if dtpNotationItem['output'] == s[1]:
+            if (dtpNotationItem['output'] - 1) == s[1]:
                 if dtpNotationItem['ch'] in s[2]:
                     cmd = 'R' + str(s[0])
 
@@ -126,8 +164,9 @@ class DTP:
         else:
             ch = str(dtpNotationItem['ch'] + 1)
         op = str(dtpNotationItem['output'])
-        ip = str(dtpNotationItem['input'])
-        cs = str(dtpNotationItem['chmod'])
+        ip = str(dtpNotationItem['input'] - 1)
+        # cs = str(dtpNotationItem['chmod'])
+        cs = str(3)
         bw = str(dtpNotationItem['bw'])
         if str(dtpNotationItem['alc']):
             gm = 0
@@ -135,10 +174,10 @@ class DTP:
             gm = 1
         inF = str(dtpNotationItem['ifStart'])
         outF = str(dtpNotationItem['ofStart'])
-        gl = str(dtpNotationItem['gain'])
+        gl = str(dtpNotationItem['gain'] * 2)
 
         cg.send(cmd)
-        cg.pause(1)
+        cg.pause(20)
 
         cg.if_([['DTPN', 1]])
         cg.wait(60, [
@@ -182,6 +221,18 @@ class DTP:
             return ['', num]
         cg = CycleGramGenerator(num)
         cg.comment('Включение DTP')
+        cg.call_(cg_name)
+        return [cg.all_data, cg.idx.get_value()]
+
+    def getCGStrOff(self, num) -> []:
+        if self._config['dtp']['TC_N'] == 1:
+            cg_name = '763_БСК1_DTP_О_ОТКЛ'
+        elif self._config['dtp']['TC_R'] == 1:
+            cg_name = '763_БСК1_DTP_Р_ОТКЛ'
+        else:
+            return ['', num]
+        cg = CycleGramGenerator(num)
+        cg.comment('Отключение DTP')
         cg.call_(cg_name)
         return [cg.all_data, cg.idx.get_value()]
 

@@ -266,6 +266,17 @@ class ExitCreate(Translator, ABC):
         return full_line
 
 
+class PrintCreate(Translator, ABC):
+
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
+        idx.inc()
+        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.PRINT,
+                                   value=params['file_to_print'])
+        for p in params['print_params']:
+            full_line += getCGStrFormat(operation=Op.F, numOrComment=p)
+        return full_line
+
+
 class CycleGramGenerator:
     strategy: 'Translator'
     idx: 'Counter'
@@ -293,6 +304,10 @@ class CycleGramGenerator:
     def send(self, send_str: str, send_params: List = {}):
         return self.create_cg_block(CMD.SEND, {'send': send_str,
                                                'send_params': send_params})
+
+    def print_to_file(self, file_to_send: str, send_params: List = {}):
+        return self.create_cg_block(CMD.PRINT, {'file_to_print': file_to_send,
+                                                'print_params': send_params})
 
     def call_(self, call_str: str, call_params: List = {}):
         return self.create_cg_block(CMD.CALL, {'call': call_str,
@@ -338,6 +353,7 @@ class CycleGramGenerator:
         strategy_class = {
             CMD.CALL: CallCreate(),
             CMD.SEND: SendCreate(),
+            CMD.PRINT: PrintCreate(),
             CMD.PAUSE: PauseCreate(),
             CMD.MESSAGE: MessageCreate(),
             CMD.REPEAT: RepeatCreate(),

@@ -4,6 +4,12 @@ from typing import Dict
 from cg_creator.cg_form import CycleGramGenerator
 
 
+def cable_maker(s: str):
+    if s[0].isdigit():
+        return 'C' + s
+    return s
+
+
 def get_im3_keys(CSANAME=None, AVERNUMPNA=None, FIXDELF=None, IFBMMT=None, IFBWIM=None, IFBWPNA=None, IM3OR5=None,
                  POINTNUMPNA=None, SMOOTHNUM=None, ISQRANGE=None, SPANPNA=None):
     return {
@@ -43,8 +49,8 @@ class Measure:
         self._powerIn = self.config['power_in']
         self._powerIn_coma = str(self._powerIn).replace('.', ',')
         self.bw = int(self.config['bw'])
-        self.frequencyInCenter = int((self.config['route_in_bands'][0] + self.config['route_in_bands'][1]) / 2)
-        self.frequencyOutCenter = int((self.config['route_out_bands'][2] + self.config['route_out_bands'][3]) / 2)
+        self.frequencyInCenter = int(self.config['calc_set_config']['frequency_start'] + (self.bw / 2))
+        self.frequencyOutCenter = int(self.frequencyInCenter + ssi.get_outFreq())
         self.powerLevel = self.config['power_level']
         self.calibrationFileNameMain = self._getCalibrationFileName()
         self.nameOfCg = nameOfCg
@@ -56,13 +62,28 @@ class Measure:
             return False
 
     def _getCalibrationFileName(self) -> str:
-        if not self._isConverted:
-            return f"{self.config['route_in'][0]}_{int(self.config['route_in_bands'][0])}_{int(self.config['route_in_bands'][1])}_@MEAS@_{self.config['power_level']}"
-        else:
-            return f"{self.config['route_in'][0]}_" \
-                   f"{self.frequencyInCenter}_" \
-                   f"{self.frequencyOutCenter}_" \
-                   f"{int(self.config['bw'])}_@MEAS@_{self.powerLevel}"
+
+        stage = {
+            self.config['id'] < 72: "Input_section_1\\",
+            72 <= self.config['id'] < 162: "Input_section_2\\",
+            162 <= self.config['id'] < 172: "Input_section_3\\",
+            172 <= self.config['id'] < 187: "Input_section_4\\",
+            self.config['id'] >= 187: "Input_section_5\\",
+        }
+        cm = cable_maker
+        try:
+            if not self._isConverted:
+                return f"{stage[True]}{cm(self.config['route'][0][0])}_" \
+                       f"{int(self.config['calc_set_config']['frequency_start'])}_" \
+                       f"{int(self.config['calc_set_config']['frequency_start'] + self.bw)}_" \
+                       f"@MEAS@_{self.config['power_level']}"
+            else:
+                return f"{stage[True]}{cm(self.config['route'][0][0])}_" \
+                       f"{int(self.frequencyInCenter)}_" \
+                       f"{int(self.frequencyOutCenter)}_" \
+                       f"{int(self.config['bw'])}_@MEAS@_{self.powerLevel}"
+        except Exception:
+            print("Dont_work" + self.config['id'])
 
     def _get_calibration_file_name_measure(self, measureName) -> str:
         suf: str = ''
@@ -70,9 +91,59 @@ class Measure:
             suf = '_inv'
         return self.calibrationFileNameMain.replace('@MEAS@', measureName) + suf
 
+    def _get_dtp_config_string(self):
+        dtp_config = self.config["dtp"]
+        on_dtp = {
+            dtp_config['TC_N'] == 1 and dtp_config['TC_R'] == 0: 'DTP: GEST_N ВКЛЮЧЕН',
+            dtp_config['TC_N'] == 0 and dtp_config['TC_R'] == 1: 'DTP: GEST_R ВКЛЮЧЕН',
+            dtp_config['TC_R'] == 0 and dtp_config['TC_N'] == 0: 'DTP: GEST_N ОТКЛЮЧЕН, GEST_R ОТКЛЮЧЕН',
+        }[True]
+        BIBO1 = {
+            dtp_config['B1'] == 0: 'BIBO1: ОТКЛЮЧЕН',
+            dtp_config['B1'] == 1: 'BIBO1: ВКЛЮЧЕН',
+        }[True]
+        BIBO2 = {
+            dtp_config['B2'] == 0: 'BIBO2: ОТКЛЮЧЕН',
+            dtp_config['B2'] == 1: 'BIBO2: ВКЛЮЧЕН',
+        }[True]
+        BIBO3 = {
+            dtp_config['B3'] == 0: 'BIBO3: ОТКЛЮЧЕН',
+            dtp_config['B3'] == 1: 'BIBO3: ВКЛЮЧЕН',
+        }[True]
+        BIBO4 = {
+            dtp_config['B4'] == 0: 'BIBO4: ОТКЛЮЧЕН',
+            dtp_config['B4'] == 1: 'BIBO4: ВКЛЮЧЕН',
+        }[True]
+
+        return on_dtp + '|' + BIBO1 + '|' + BIBO2 + '|' + BIBO3 + '|' + BIBO4
+
+    def _get_config_long_name_list(self):
+        counter = 0
+        list_long_config = []
+        item = ''
+        for i in 'ПУТЬ: ' + self.config["route_long_name"]:
+            if counter < 100:
+                item += i
+                counter += 1
+            else:
+                list_long_config.append(item)
+                counter = 0
+                item = i
+        return list_long_config
+
     def getCGStr(self):
         cg = CycleGramGenerator(0)
         cg.program(self.nameOfCg)
+
+        path_config = self._get_config_long_name_list()
+        dtp_config = self._get_dtp_config_string().split('|')
+        config_config = f'{self.config["config_name"]}'
+        main_comment = []
+        main_comment.extend(path_config)
+        main_comment.append('КОНФИГУРАЦИЯ: ' + config_config)
+        main_comment.extend(dtp_config)
+
+        cg.comment(main_comment)
         cg.compute([
             ['SSI', '=', f'"{self.nameOfCg}"']
         ])

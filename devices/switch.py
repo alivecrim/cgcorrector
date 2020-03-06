@@ -96,6 +96,10 @@ class Switch:
         row = ''
         return [row, num]
 
+    def getCGStrOff(self, num) -> []:
+        row = ''
+        return [row, num]
+
     def isConfigurable(self):
         return False
 

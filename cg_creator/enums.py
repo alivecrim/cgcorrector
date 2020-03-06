@@ -27,6 +27,7 @@ class CMD(Enum):
     SELECT_VAR = 'ВАРИАНТ'
     SELECT_END = 'КВЫБОР'
     EXIT = 'ВЫХОД'
+    PRINT = 'ПЕЧАТЬ'
 
 
 class KPI(Enum):
