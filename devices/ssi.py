@@ -10,6 +10,22 @@ from cg_creator.cg_form import CycleGramGenerator
 from measure.measure import Measure
 
 
+def getDtpWriteString(item: dp.DTP):
+    ws = "#ГДАТА ; #ГВРЕМЯ "
+    for i in item.dtpNotation:
+        ws += f"${i['ch']};"
+        ws += f"{i['chmod']};"
+        ws += f"{i['input']};"
+        ws += f"{i['output']};"
+        ws += f"{i['alc']};"
+        ws += f"{i['bw']};"
+        ws += f"{i['gain']};"
+        ws += f"{i['ifStart']};"
+        ws += f"{i['ofStart']}"
+    ws += "$\n"
+    return ws
+
+
 class SSI:
     def __init__(self, config):
         self.device_list_dict = {
@@ -32,7 +48,7 @@ class SSI:
         self.CN_list = []
         self.switch_List = []
         self.fullDeviceList = []
-        self._fillData()
+
         self.isInverted = self.config['dtp']['INV'] == 1
 
         self.nameForSwitch = '763_БСК1_ПРК_' + self.config['route_short_name']
@@ -40,7 +56,7 @@ class SSI:
         self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + self.config['route_short_name']
         self.nameForAll = "763_БСК1_ВХ" + str(self.config_id)
         self.nameForConfigDevice = "763_БСК1_КНФ_" + str(self.config_id)
-
+        self._fillData()
         num_prefix = {
             len(str(self.config_id)) == 1: '00',
             len(str(self.config_id)) == 2: '0',
@@ -73,6 +89,8 @@ class SSI:
             sh_name = sh_name.replace(re.findall(r'W5CN\d', sh_name)[0], self.device_list_dict['CN_SKa'])
         if re.findall(r'W6CN\d', sh_name):
             sh_name = sh_name.replace(re.findall(r'W6CN\d', sh_name)[0], self.device_list_dict['CN_KKa'])
+        if self.config_id == 171:
+            print(1)
         if re.findall(r'WDTP1-J\d{2,3}_WDTP1-J\d\d', sh_name):
             sh_name = sh_name.replace(re.findall(r'WDTP1-J\d{2,3}_WDTP1-J\d\d', sh_name)[0],
                                       self.device_list_dict['DTP'])
@@ -121,6 +139,8 @@ class SSI:
 
     def _fill_dtp(self, r, config):
         self.dtp = dp.DTP(r, config)
+        self.nameForDevice = self.nameForDevice.replace("WDTP1", "WDTP" + self.dtp.name[1])
+        self.nameForDeviceOff = self.nameForDeviceOff.replace("WDTP1", "WDTP" + self.dtp.name[1])
 
     def _fill_twt(self, r, config):
         # TODO
@@ -200,6 +220,13 @@ class SSI:
                 if res != '':
                     cg.add_to_all_data(res[0])
                     cg.idx.set_value(res[1])
+                    if isinstance(item, dp.DTP):
+                        item: dp.DTP
+                        dtp_write_string = getDtpWriteString(item)
+                        cg.print_to_file(f'M:\\Архив РВ\\ВЧ КПА\\ОТЧЕТЫ\\{self.nameForMeasure}\\dtp.config', [
+                            dtp_write_string
+                        ])
+
             cg.message('Оператору проверить установленную конфигурацию оборудования')
             cg.program_end()
             return cg.all_data

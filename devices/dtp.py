@@ -24,23 +24,26 @@ class DTP:
         if self._config['dtp']['TC_R'] == 1:
             nom = 'R'
         self.name = 'D' + nom
-        if len(route[1]) == 3:
-            self._inputPort = int(route[1][1:2])
+        if len(route[1]) == 4:
+            self._inputPort_hw = int(route[1][1:3])
         else:
-            self._inputPort = int(route[1][1])
-        self._outputPort = int(route[2][1])
+            self._inputPort_hw = int(route[1][1])
+        self._outputPort_hw = int(route[2][1])
 
-        if self._outputPort in [2, 3, 4, 5, 6]:
-            self._outputPort -= 1
-        else:
-            self._outputPort = 0
-
-        if self._inputPort in [2, 3, 4, 5, 6, 7, 8, 9]:
-            self._inputPort -= 1
-        elif self._inputPort == 1:
-            self._inputPort = 1
-        elif self._inputPort == 10:
-            self._inputPort = 8
+        dtp_hard_to_soft = {
+            1: -1,
+            2: 0,
+            3: 1,
+            4: 2,
+            5: 3,
+            6: 4,
+            7: 5,
+            8: 6,
+            9: -2,
+            10: 7,
+        }
+        self._inputPort = dtp_hard_to_soft[self._inputPort_hw]
+        self._outputPort = dtp_hard_to_soft[self._outputPort_hw]
 
         self._bw = self._config['bw']
         self._alc = self._config['dtp']['ALC'] == 1
@@ -76,11 +79,25 @@ class DTP:
         alc_fgm = lambda x: 'АРУ' if x else 'ФРУ'
         create_mode = lambda x: '<без маршрутизации>' if (x == 0) else (
             "<маршрутизация с удалением>" if (x == 1) else "<маршрутизация без удаления>")
-
         cg = CycleGramGenerator(num)
+
+        # Проверка на резервные вход 1!
+        if self._inputPort == -1 or self._outputPort == -1:
+            cg.comment([f'Проверка на включенный резерв RT0'])
+            self.check_for_redundant_RT0(cg)
+            if self._inputPort == -1:
+                self.dtpNotation[0]['input'] = 0
+            if self._outputPort == -1:
+                self.dtpNotation[0]['output'] = 0
+        # Проверка на резервные вход 9!
+        if self._inputPort == -2:
+            cg.comment([f'Проверка на включенный резерв RT7'])
+            self.check_for_redundant_RT7(cg)
+            self.dtpNotation[0]['input'] = 7
+
         cg.comment([
             f'Включение канала {dtpNotationItem["ch"]}',
-            f'Входной порт:{dtpNotationItem["input"]}, Выходной порт:{dtpNotationItem["output"]}',
+            f'Входной порт:{self._inputPort_hw}, Выходной порт:{self._outputPort_hw}',
             f'Полоса:{self._bw} МГц',
             f'Начальная частота: ВХОД-{dtpNotationItem["ifStart"] * 0.3125 + 675} МГц',
             f'Начальная частота: ВЫХОД-{dtpNotationItem["ofStart"] * 0.3125 + 355.0} МГц',
@@ -88,17 +105,6 @@ class DTP:
             f'Режим создания: {create_mode(dtpNotationItem["chmod"])}',
         ])
 
-        # noinspection PyTypeChecker
-        cg.print_to_file(
-            f'M:\\Архив РВ\\ВЧ КПА\\ОТЧЕТЫ\\',
-            [f'{dtpNotationItem["ch"]} ; '
-             f'{dtpNotationItem["input"]} ; '
-             f'{dtpNotationItem["output"]} ;'
-             f'{dtpNotationItem["ifStart"]} ;'
-             f'{dtpNotationItem["ofStart"]} ;'
-             f'{dtpNotationItem["alc"]} ;'
-             f'{dtpNotationItem["gain"]}'
-             ])
 
         if dtpNotationItem['alc']:
             cg.send(DtpCmd.ALC)
@@ -115,8 +121,8 @@ class DTP:
         cg.pause(1)
 
         cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.chNum], [KPI.VAL, dtpNotationItem['ch']]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.inputPort], [KPI.VAL, dtpNotationItem['input'] - 1]])
-        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.outputPort], [KPI.VAL, dtpNotationItem['output'] - 1]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.inputPort], [KPI.VAL, dtpNotationItem['input']]])
+        cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.outputPort], [KPI.VAL, dtpNotationItem['output']]])
         cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.bandwidth], [KPI.VAL, dtpNotationItem['bw']]])
         cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.input_frequency], [KPI.VAL, dtpNotationItem['ifStart']]])
         cg.send(KPI.KPI_CMD, [[KPI.PAR, DtpKPI.output_frequency], [KPI.VAL, dtpNotationItem['ofStart']]])
@@ -155,7 +161,7 @@ class DTP:
         cmd = ''
 
         for s in reqTm:
-            if (dtpNotationItem['output'] - 1) == s[1]:
+            if (dtpNotationItem['output']) == s[1]:
                 if dtpNotationItem['ch'] in s[2]:
                     cmd = 'R' + str(s[0])
 
@@ -163,12 +169,11 @@ class DTP:
             ch = '0' + str(dtpNotationItem['ch'] + 1)
         else:
             ch = str(dtpNotationItem['ch'] + 1)
-        op = str(dtpNotationItem['output'])
-        ip = str(dtpNotationItem['input'] - 1)
-        # cs = str(dtpNotationItem['chmod'])
+        op = str(dtpNotationItem['output'] + 1)
+        ip = str(dtpNotationItem['input'])
         cs = str(3)
         bw = str(dtpNotationItem['bw'])
-        if str(dtpNotationItem['alc']):
+        if dtpNotationItem['alc']:
             gm = 0
         else:
             gm = 1
@@ -203,6 +208,53 @@ class DTP:
         ])
         cg.if_end()
         return [cg.all_data, cg.idx.get_value()]
+
+    def check_for_redundant_RT0(self, cg):
+
+        cg.if_([['DTPN', 1]])
+        cg.if_([['RT0S0_N', 1]])
+        cg.if_([['RT0RED_N', 0]])
+        cg.call_("763_БСК1_RT_ВКЛ_О", [
+            "0",
+            "1"
+        ])
+        cg.if_end()
+        cg.if_end()
+        cg.if_end()
+
+        cg.if_([['DTPR', 1]])
+        cg.if_([['RT0S0_R', 1]])
+        cg.if_([['RT0RED_R', 0]])
+        cg.call_("763_БСК1_RT_ВКЛ_Р", [
+            "0",
+            "1"
+        ])
+        cg.if_end()
+        cg.if_end()
+        cg.if_end()
+
+    def check_for_redundant_RT7(self, cg):
+        cg.if_([['DTPN', 1]])
+        cg.if_([['RT7S0_N', 1]])
+        cg.if_([['RT7RED_N', 0]])
+        cg.call_("763_БСК1_RT_ВКЛ_О", [
+            "7",
+            "2"
+        ])
+        cg.if_end()
+        cg.if_end()
+        cg.if_end()
+
+        cg.if_([['DTPR', 1]])
+        cg.if_([['RT7S0_R', 1]])
+        cg.if_([['RT7RED_R', 0]])
+        cg.call_("763_БСК1_RT_ВКЛ_Р", [
+            "7",
+            "2"
+        ])
+        cg.if_end()
+        cg.if_end()
+        cg.if_end()
 
     def getCGStrConfig(self, num) -> []:
         row = ''
