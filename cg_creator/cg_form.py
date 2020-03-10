@@ -184,6 +184,13 @@ class IfEndCreate(Translator, ABC):
         return full_line
 
 
+class IfElseCreate(Translator, ABC):
+    def get_str(self, idx: 'Counter', params: Dict) -> str:
+        idx.inc()
+        full_line = getCGStrFormat(operation=Op.O, numOrComment=idx.get_value(), command=CMD.IF_ELSE)
+        return full_line
+
+
 class CommentCreate(Translator, ABC):
 
     def get_str(self, idx: 'Counter', params: Dict) -> str:
@@ -322,6 +329,9 @@ class CycleGramGenerator:
     def if_end(self):
         return self.create_cg_block(CMD.IF_END, {})
 
+    def if_else(self):
+        return self.create_cg_block(CMD.IF_ELSE, {})
+
     def repeat(self, min_v, max_v):
         return self.create_cg_block(CMD.REPEAT, {'repeat_params': [min_v, max_v]})
 
@@ -364,6 +374,7 @@ class CycleGramGenerator:
             CMD.WAIT: WaitCreate(),
             CMD.IF: IfCreate(),
             CMD.IF_END: IfEndCreate(),
+            CMD.IF_ELSE: IfElseCreate(),
             CMD.COMMENT: CommentCreate(),
             CMD.MENU: MenuCreate(),
             CMD.SELECT: SelectCreate(),

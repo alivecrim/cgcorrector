@@ -20,6 +20,7 @@ class CMD(Enum):
     COMPUTE = 'ВЫЧИСЛ'
     WAIT = 'ЖДАТЬ'
     IF = 'ЕСЛИТО'
+    IF_ELSE = 'ИНАЧЕ'
     IF_END = 'КЕСЛИТО'
     COMMENT = ''
     MENU = 'МЕНЮ'

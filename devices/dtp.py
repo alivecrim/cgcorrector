@@ -276,10 +276,6 @@ class DTP:
         return [cg.all_data, cg.idx.get_value()]
 
     def _createRTon(self, cg, value, inversion):
-        if self.nom == 'N':
-            cg_name = "763_БСК1_RT_ВКЛ_О"
-        if self.nom == 'R':
-            cg_name = '763_БСК1_RT_ВКЛ_Р'
         red_RT = 0
         if value > 0:
             red_RT = 0
@@ -290,11 +286,21 @@ class DTP:
             if value == -2:
                 red_RT = 2
                 value = 7
+        cg.if_([['DTPN', 1]])
+        cg_name = "763_БСК1_RT_ВКЛ_О"
         cg.call_(cg_name, [
             str(value),
             red_RT,
             str(inversion),
         ])
+        cg.if_else()
+        cg_name = "763_БСК1_RT_ВКЛ_Р"
+        cg.call_(cg_name, [
+            str(value),
+            red_RT,
+            str(inversion),
+        ])
+        cg.if_end()
 
     def getCGStrOff(self, num) -> []:
         if self.nom == 'N':
