@@ -50,7 +50,7 @@ class Measure:
         self._powerIn_coma = str(self._powerIn).replace('.', ',')
         self.bw = int(self.config['bw'])
         self.frequencyInCenter = int(self.config['calc_set_config']['frequency_start'] + (self.bw / 2))
-        self.frequencyOutCenter = int(self.frequencyInCenter + ssi.get_outFreq())
+        self.frequencyOutCenter = abs(int(self.frequencyInCenter + ssi.get_outFreq()))
         self.powerLevel = self.config['power_level']
         self.calibrationFileNameMain = self._getCalibrationFileName()
         self.nameOfCg = nameOfCg
@@ -71,6 +71,8 @@ class Measure:
             self.config['id'] >= 187: "Input_section_5\\",
         }
         cm = cable_maker
+        if self.config['id'] == 171:
+            print('test')
         try:
             if not self._isConverted:
                 return f"{stage[True]}{cm(self.config['route'][0][0])}_" \

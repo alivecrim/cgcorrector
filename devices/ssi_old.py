@@ -52,11 +52,8 @@ class SSI:
         self.isInverted = self.config['dtp']['INV'] == 1
 
         self.nameForSwitch = '763_БСК1_ПРК_' + self.config['route_short_name']
-        self.nameForDevice = '763_БСК1_ПРБ_' + str(self.config_id)
-        # self.nameForDevice = '763_БСК1_ПРБ_' + self.config['route_short_name']
-        self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + str(self.config_id)
-        # self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + self.config['route_short_name']
-
+        self.nameForDevice = '763_БСК1_ПРБ_' + self.config['route_short_name']
+        self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + self.config['route_short_name']
         self.nameForAll = "763_БСК1_ВХ" + str(self.config_id)
         self.nameForConfigDevice = "763_БСК1_КНФ_" + str(self.config_id)
         self._fillData()
@@ -92,6 +89,8 @@ class SSI:
             sh_name = sh_name.replace(re.findall(r'W5CN\d', sh_name)[0], self.device_list_dict['CN_SKa'])
         if re.findall(r'W6CN\d', sh_name):
             sh_name = sh_name.replace(re.findall(r'W6CN\d', sh_name)[0], self.device_list_dict['CN_KKa'])
+        if self.config_id == 171:
+            print(1)
         if re.findall(r'WDTP1-J\d{2,3}_WDTP1-J\d\d', sh_name):
             sh_name = sh_name.replace(re.findall(r'WDTP1-J\d{2,3}_WDTP1-J\d\d', sh_name)[0],
                                       self.device_list_dict['DTP'])
@@ -103,16 +102,10 @@ class SSI:
 
     def get_outFreq(self):
         full_lo = 0
-        if self.isInverted:
-            for cn in self.CN_list:
-                full_lo += cn._lo * (-1)
-            if self.dtp is not None:
-                full_lo += -320 * (-1)
-        else:
-            for cn in self.CN_list:
-                full_lo += cn._lo
-            if self.dtp is not None:
-                full_lo += -320
+        for cn in self.CN_list:
+            full_lo += cn._lo
+        if self.dtp is not None:
+            full_lo += -320
 
         return full_lo
 
@@ -145,7 +138,7 @@ class SSI:
         self.CN_list.append(cn.CN(r, config))
 
     def _fill_dtp(self, r, config):
-        self.dtp = dp.DTP(r, config, self)
+        self.dtp = dp.DTP(r, config)
         self.nameForDevice = self.nameForDevice.replace("WDTP1", "WDTP" + self.dtp.name[1])
         self.nameForDeviceOff = self.nameForDeviceOff.replace("WDTP1", "WDTP" + self.dtp.name[1])
 
@@ -190,7 +183,7 @@ class SSI:
             cg.menu([
                 'Отключить включенное оборудование',
                 'Отключить включенное оборудование кроме DTP и MLO',
-                'Выход',
+                'Не отключать включенное оборудование',
             ])
             cg.select_()
             cg.select_var(1)
@@ -240,6 +233,7 @@ class SSI:
         return None
 
     def getFullCGStrMeasure(self) -> str:
+
         return self.measure.getCGStr()
 
     def getFullCGStr(self) -> str:

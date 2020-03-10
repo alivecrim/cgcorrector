@@ -15,16 +15,15 @@ def calcGain(reqGain, alc, bw) -> int:
 
 
 class DTP:
-    def __init__(self, route, config, ssi_object):
+    def __init__(self, route, config):
         self._config = config
         self._num = 1
-        self.nom = ''
-        self.ssi_obj = ssi_object
+        nom = ''
         if self._config['dtp']['TC_N'] == 1:
-            self.nom = 'N'
+            nom = 'N'
         if self._config['dtp']['TC_R'] == 1:
-            self.nom = 'R'
-        self.name = 'D' + self.nom
+            nom = 'R'
+        self.name = 'D' + nom
         if len(route[1]) == 4:
             self._inputPort_hw = int(route[1][1:3])
         else:
@@ -81,12 +80,20 @@ class DTP:
         create_mode = lambda x: '<без маршрутизации>' if (x == 0) else (
             "<маршрутизация с удалением>" if (x == 1) else "<маршрутизация без удаления>")
         cg = CycleGramGenerator(num)
-        if dtpNotationItem["input"] == -1:
-            dtpNotationItem["input"] = 0
-        if dtpNotationItem["input"] == -2:
-            dtpNotationItem["input"] = 7
-        if dtpNotationItem["output"] == -1:
-            dtpNotationItem["input"] = 0
+
+        # Проверка на резервные вход 1!
+        if self._inputPort == -1 or self._outputPort == -1:
+            cg.comment([f'Проверка на включенный резерв RT0'])
+            self.check_for_redundant_RT0(cg)
+            if self._inputPort == -1:
+                self.dtpNotation[0]['input'] = 0
+            if self._outputPort == -1:
+                self.dtpNotation[0]['output'] = 0
+        # Проверка на резервные вход 9!
+        if self._inputPort == -2:
+            cg.comment([f'Проверка на включенный резерв RT7'])
+            self.check_for_redundant_RT7(cg)
+            self.dtpNotation[0]['input'] = 7
 
         cg.comment([
             f'Включение канала {dtpNotationItem["ch"]}',
@@ -97,7 +104,6 @@ class DTP:
             f'Режим работы: {alc_fgm(dtpNotationItem["alc"])}',
             f'Режим создания: {create_mode(dtpNotationItem["chmod"])}',
         ])
-
 
         if dtpNotationItem['alc']:
             cg.send(DtpCmd.ALC)
@@ -202,52 +208,52 @@ class DTP:
         cg.if_end()
         return [cg.all_data, cg.idx.get_value()]
 
-    # def check_for_redundant_RT0(self, cg):
-    #
-    #     cg.if_([['DTPN', 1]])
-    #     cg.if_([['RT0S0_N', 1]])
-    #     cg.if_([['RT0RED_N', 0]])
-    #     cg.call_("763_БСК1_RT_ВКЛ_О", [
-    #         "0",
-    #         "1",
-    #     ])
-    #     cg.if_end()
-    #     cg.if_end()
-    #     cg.if_end()
-    #
-    #     cg.if_([['DTPR', 1]])
-    #     cg.if_([['RT0S0_R', 1]])
-    #     cg.if_([['RT0RED_R', 0]])
-    #     cg.call_("763_БСК1_RT_ВКЛ_Р", [
-    #         "0",
-    #         "1"
-    #     ])
-    #     cg.if_end()
-    #     cg.if_end()
-    #     cg.if_end()
-    #
-    # def check_for_redundant_RT7(self, cg):
-    #     cg.if_([['DTPN', 1]])
-    #     cg.if_([['RT7S0_N', 1]])
-    #     cg.if_([['RT7RED_N', 0]])
-    #     cg.call_("763_БСК1_RT_ВКЛ_О", [
-    #         "7",
-    #         "2"
-    #     ])
-    #     cg.if_end()
-    #     cg.if_end()
-    #     cg.if_end()
-    #
-    #     cg.if_([['DTPR', 1]])
-    #     cg.if_([['RT7S0_R', 1]])
-    #     cg.if_([['RT7RED_R', 0]])
-    #     cg.call_("763_БСК1_RT_ВКЛ_Р", [
-    #         "7",
-    #         "2"
-    #     ])
-    #     cg.if_end()
-    #     cg.if_end()
-    #     cg.if_end()
+    def check_for_redundant_RT0(self, cg):
+
+        cg.if_([['DTPN', 1]])
+        cg.if_([['RT0S0_N', 1]])
+        cg.if_([['RT0RED_N', 0]])
+        cg.call_("763_БСК1_RT_ВКЛ_О", [
+            "0",
+            "1"
+        ])
+        cg.if_end()
+        cg.if_end()
+        cg.if_end()
+
+        cg.if_([['DTPR', 1]])
+        cg.if_([['RT0S0_R', 1]])
+        cg.if_([['RT0RED_R', 0]])
+        cg.call_("763_БСК1_RT_ВКЛ_Р", [
+            "0",
+            "1"
+        ])
+        cg.if_end()
+        cg.if_end()
+        cg.if_end()
+
+    def check_for_redundant_RT7(self, cg):
+        cg.if_([['DTPN', 1]])
+        cg.if_([['RT7S0_N', 1]])
+        cg.if_([['RT7RED_N', 0]])
+        cg.call_("763_БСК1_RT_ВКЛ_О", [
+            "7",
+            "2"
+        ])
+        cg.if_end()
+        cg.if_end()
+        cg.if_end()
+
+        cg.if_([['DTPR', 1]])
+        cg.if_([['RT7S0_R', 1]])
+        cg.if_([['RT7RED_R', 0]])
+        cg.call_("763_БСК1_RT_ВКЛ_Р", [
+            "7",
+            "2"
+        ])
+        cg.if_end()
+        cg.if_end()
+        cg.if_end()
 
     def getCGStrConfig(self, num) -> []:
         row = ''
@@ -258,48 +264,21 @@ class DTP:
         return [row, num]
 
     def getCGStrOn(self, num) -> []:
-        if self.nom == 'N':
+        if self._config['dtp']['TC_N'] == 1:
             cg_name = '763_БСК1_DTP_О_ВКЛ'
-        elif self.nom == 'R':
+        elif self._config['dtp']['TC_R'] == 1:
             cg_name = '763_БСК1_DTP_Р_ВКЛ'
         else:
             return ['', num]
         cg = CycleGramGenerator(num)
         cg.comment('Включение DTP')
         cg.call_(cg_name)
-        if self._inputPort != self._outputPort:
-            self._createRTon(cg, self._inputPort, 0)
-            self._createRTon(cg, self._outputPort, self.ssi_obj.isInverted * 2)
-        else:
-            self._createRTon(cg, self._outputPort, self.ssi_obj.isInverted * 2)
-
         return [cg.all_data, cg.idx.get_value()]
 
-    def _createRTon(self, cg, value, inversion):
-        if self.nom == 'N':
-            cg_name = "763_БСК1_RT_ВКЛ_О"
-        if self.nom == 'R':
-            cg_name = '763_БСК1_RT_ВКЛ_Р'
-        red_RT = 0
-        if value > 0:
-            red_RT = 0
-        else:
-            if value == -1:
-                red_RT = 1
-                value = 0
-            if value == -2:
-                red_RT = 2
-                value = 7
-        cg.call_(cg_name, [
-            str(value),
-            red_RT,
-            str(inversion),
-        ])
-
     def getCGStrOff(self, num) -> []:
-        if self.nom == 'N':
+        if self._config['dtp']['TC_N'] == 1:
             cg_name = '763_БСК1_DTP_О_ОТКЛ'
-        elif self.nom == 'R':
+        elif self._config['dtp']['TC_R'] == 1:
             cg_name = '763_БСК1_DTP_Р_ОТКЛ'
         else:
             return ['', num]
