@@ -8,8 +8,9 @@ with open("servicedata/data/config_routes.json", "r") as read_file:
     data = json.load(read_file)
 
 SSIList = []
-counter = 0
+counter = 1
 for ssiDef in data:
+
     ssiItem = ssi.SSI(ssiDef)
     SSIList.append(ssiItem)
     counter += 1
@@ -19,6 +20,8 @@ type_CGs = ['dev', 'dev_off', 'sw', 'conf', 'all', 'meas']
 counter = 0
 for s in SSIList:
     for type_CG in type_CGs:
+        if counter == 184:
+            print()
         writers.writeCG(s, type_CG, isUnicode)
     writers.writePlan(s.getPlan())
     counter += 1

@@ -11,7 +11,7 @@ from measure.measure import Measure
 
 
 def getDtpWriteString(item: dp.DTP):
-    ws = "#ГДАТА ; #ГВРЕМЯ "
+    ws = "#ГДАТА ; #ГВРЕМЯ; ОЖИДАЕМОЕ"
     for i in item.dtpNotation:
         ws += f"${i['ch']};"
         ws += f"{i['chmod']};"
@@ -22,7 +22,36 @@ def getDtpWriteString(item: dp.DTP):
         ws += f"{i['gain']};"
         ws += f"{i['ifStart']};"
         ws += f"{i['ofStart']}"
-    ws += "$\n"
+    ws += "[DTPN]"
+
+    for i in item.dtpNotation:
+        ch = i['ch'] + 1
+        if ch < 10:
+            ch = '0' + str(ch)
+        else:
+            ch = str(ch)
+        ws += f" OP{i['output'] + 1}CH{ch}IP_N ;"
+        ws += f" OP{i['output'] + 1}CH{ch}CS_N ;"
+        ws += f" OP{i['output'] + 1}CH{ch}GM_N ;"
+        ws += f" OP{i['output'] + 1}CH{ch}IF_N ;"
+        ws += f" OP{i['output'] + 1}CH{ch}OF_N ;"
+        ws += f" OP{i['output'] + 1}CH{ch}BW_N ;"
+        ws += f" OP{i['output'] + 1}CH{ch}GL_N ;"
+    ws += " [DTPR] "
+    for i in item.dtpNotation:
+        ch = i['ch'] + 1
+        if ch < 10:
+            ch = '0' + str(ch)
+        else:
+            ch = str(ch)
+        ws += f" OP{i['output'] + 1}CH{ch}IP_R ;"
+        ws += f" OP{i['output'] + 1}CH{ch}CS_R ;"
+        ws += f" OP{i['output'] + 1}CH{ch}GM_R ;"
+        ws += f" OP{i['output'] + 1}CH{ch}IF_R ;"
+        ws += f" OP{i['output'] + 1}CH{ch}OF_R ;"
+        ws += f" OP{i['output'] + 1}CH{ch}BW_R ;"
+        ws += f" OP{i['output'] + 1}CH{ch}GL_R ;"
+    ws += "$"
     return ws
 
 

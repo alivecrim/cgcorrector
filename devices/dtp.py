@@ -86,7 +86,7 @@ class DTP:
         if dtpNotationItem["input"] == -2:
             dtpNotationItem["input"] = 7
         if dtpNotationItem["output"] == -1:
-            dtpNotationItem["input"] = 0
+            dtpNotationItem["output"] = 0
 
         cg.comment([
             f'Включение канала {dtpNotationItem["ch"]}',

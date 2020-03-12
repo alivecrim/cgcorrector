@@ -35,11 +35,17 @@ class CN:
         if self.firstNum == '6':
             self.type = 'KKa'
 
-        self.secondNum = self._definition[0][4:]
-        if len(self.secondNum) < 2:
-            self.secondNum = '0' + self.secondNum
+        if self.type == 'IFS':
+            self.secondNum = self._definition[0][4:]
+            third_num = self._definition[1][1]
+            self.num = int(self.firstNum + self.secondNum + third_num)
 
-        self.num = int(self.firstNum + self.secondNum)
+        else:
+            self.secondNum = self._definition[0][4:]
+            if len(self.secondNum) < 2:
+                self.secondNum = '0' + self.secondNum
+
+            self.num = int(self.firstNum + self.secondNum)
 
     def _setGainLo(self):
         if self.type in ['CIF']:
