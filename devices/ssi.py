@@ -82,9 +82,7 @@ class SSI:
 
         self.nameForSwitch = '763_БСК1_ПРК_' + self.config['route_short_name']
         self.nameForDevice = '763_БСК1_ПРБ_' + str(self.config_id)
-        # self.nameForDevice = '763_БСК1_ПРБ_' + self.config['route_short_name']
         self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + str(self.config_id)
-        # self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + self.config['route_short_name']
 
         self.nameForAll = "763_БСК1_ВХ" + str(self.config_id)
         self.nameForConfigDevice = "763_БСК1_КНФ_" + str(self.config_id)
@@ -132,17 +130,13 @@ class SSI:
 
     def get_outFreq(self):
         full_lo = 0
-        if self.isInverted:
-            for cn in self.CN_list:
-                full_lo += cn._lo * (-1)
-            if self.dtp is not None:
-                full_lo += -320 * (-1)
-        else:
-            for cn in self.CN_list:
+        for cn in self.CN_list:
+            if cn.type == 'LC':
+                full_lo += cn._lo - (self.config['frequency_start'] + self.config['bw'] / 2) * 2
+            else:
                 full_lo += cn._lo
-            if self.dtp is not None:
-                full_lo += -320
-
+        if self.dtp is not None:
+            full_lo += -320
         return full_lo
 
     def _fillData(self):
