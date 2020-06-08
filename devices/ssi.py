@@ -57,7 +57,7 @@ def getDtpWriteString(item: dp.DTP):
 
 
 class SSI:
-    def __init__(self, config):
+    def __init__(self, config, stage_name):
         self.device_list_dict = {
             'conf_num': '',
             'in': '',
@@ -86,7 +86,7 @@ class SSI:
         self.nameForDevice = '763_БСК1_ПРБ_' + str(self.config_id)
         self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + str(self.config_id)
         # TODO сделать универсальное имя для главной конфы!
-        self.nameForAll = "763_БСК1_RSRE" + str(self.config_id)
+        self.nameForAll = f"763_БСК1_{stage_name}" + str(self.config_id)
         self.nameForConfigDevice = "763_БСК1_КНФ_" + str(self.config_id)
         self._fillData()
         num_prefix = {
@@ -96,9 +96,8 @@ class SSI:
         }[True]
         get_num = num_prefix + str(self.config_id)
 
-        route_name = self._short_name_modify(self.config['route_short_name'])
+        # route_name = self._short_name_modify(self.config['route_short_name'])
         # -----------------------------------------
-        self.device_list_dict['conf_num'] = get_num
         self.device_list_dict['conf_num'] = get_num
 
         self.nameForMeasure = "763_БСК1_ИЗМЕР_" + get_num
@@ -324,6 +323,7 @@ class SSI:
             self.fullDeviceList.append(self.dtp)
         self.fill_ssi_dict()
 
+    # Зачем используется этот лист - не помню
     def fill_ssi_dict(self):
         for item in self.fullDeviceList:
             if isinstance(item, ml.MLO):
@@ -345,6 +345,8 @@ class SSI:
                     self.device_list_dict['CN_KKa'] = 'CN' + str(item.num)
             if isinstance(item, ln.LNA):
                 self.device_list_dict['LNA'] = 'LN' + str(item.num)
+            if isinstance(item, twt.TWT):
+                self.device_list_dict['TWT'] = 'TWT' + str(item.num) + item._ab
 
     def _isExistConfigDevice(self) -> bool:
         for device in self.fullDeviceList:
