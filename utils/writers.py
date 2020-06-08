@@ -34,6 +34,7 @@ def createDirs():
     plan_path = 'ПЛАНЫ/'
     measure_path = 'ИЗМЕРЕНИЯ/'
     device_path_off = 'ОБОРУД/ОТКЛ/'
+    device_path_rf_onoff = 'ОБОРУД/ВЧ/'
     try:
         os.mkdir(output_path)
         os.mkdir(output_path + switch_path)
@@ -42,6 +43,7 @@ def createDirs():
         os.mkdir(output_path + plan_path)
         os.mkdir(output_path + measure_path)
         os.mkdir(output_path + device_path_off)
+        os.mkdir(output_path + device_path_rf_onoff)
         print('Папки созданы')
     except FileExistsError:
         pass
@@ -54,6 +56,7 @@ def writeCG(s: ssi.SSI, CGType: str, isUnicode=True):
     config_path = 'КОНФИГУРАЦИЯ/'
     measure_path = 'ИЗМЕРЕНИЯ/'
     device_path_off = 'ОБОРУД/ОТКЛ/'
+    device_path_rf_onoff = 'ОБОРУД/ВЧ/'
     createDirs()
     if CGType == 'sw':
         name = s.nameForSwitch
@@ -80,6 +83,11 @@ def writeCG(s: ssi.SSI, CGType: str, isUnicode=True):
         name = s.nameForMeasure
         output_path += measure_path
         strToWrite = s.getFullCGStrMeasure()
+
+    if CGType == 'rf_on_off':
+        name = s.nameForRfOnOff
+        output_path += device_path_rf_onoff
+        strToWrite = s.getCGStrRfOnOff()
 
     if strToWrite is not None:
         with open(output_path + name + '.ci', 'wb') as writeFile:

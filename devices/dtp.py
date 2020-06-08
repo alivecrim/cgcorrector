@@ -9,6 +9,10 @@ def calcGain(reqGain, alc, bw) -> int:
         numberOfElementary = bw / 0.3125
         powerPerElementary = reqGain - 10 * math.log10(numberOfElementary)
         return round(((powerPerElementary + 103.7125) * 8))
+
+    # powerPerElementary = reqGain - 10 * math.log10(bw / 0.3125)
+    # return round(((reqGain - 10 * math.log10(bw / 0.3125) + 103.7125) * 8))
+
     else:
         return round(((reqGain + 86) * 8))
     return 0
@@ -24,6 +28,7 @@ class DTP:
             self.nom = 'N'
         if self._config['dtp']['TC_R'] == 1:
             self.nom = 'R'
+        self.dtp_lo = self._config['dtp']['LO']
         self.name = 'D' + self.nom
         if len(route[1]) == 4:
             self._inputPort_hw = int(route[1][1:3])
@@ -69,7 +74,7 @@ class DTP:
                 'bw': round(self._bw / 0.3125) - 1,
                 'gain': calcGain(self._gain, self._alc, self._bw),
                 'ifStart': 0,
-                'ofStart': 0,
+                'ofStart': round((320 + self.dtp_lo) / 0.3125),
             },
         ]
 

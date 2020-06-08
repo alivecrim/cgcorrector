@@ -69,6 +69,7 @@ class Measure:
             162 <= self.config['id'] < 172: "Input_section_3\\",
             172 <= self.config['id'] < 187: "Input_section_4\\",
             self.config['id'] >= 187: "Input_section_5\\",
+            self.config['id'] >= 300: "RSRE_1\\",
         }
         cm = cable_maker
         if self.config['id'] == 171:
@@ -157,6 +158,7 @@ class Measure:
             ['FROUTCENT', '=', self.frequencyOutCenter],
             ['POWOUT', '=', -20],
         ])
+
         cg.comment('Выбор измерения')
 
         cg.menu([
@@ -211,8 +213,8 @@ class Measure:
 
         return cg.all_data
 
-    @staticmethod
-    def _measure_insert(cycl_gen: CycleGramGenerator, num_of_meas: int, name_of_meas: str, keys_of_measure: Dict):
+    # @staticmethod
+    def _measure_insert(self, cycl_gen: CycleGramGenerator, num_of_meas: int, name_of_meas: str, keys_of_measure: Dict):
 
         keys_list = []
         for k in keys_of_measure:

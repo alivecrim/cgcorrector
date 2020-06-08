@@ -7,6 +7,7 @@ import devices.mlo as ml
 import devices.switch as sw
 import utils.splitters as u
 from cg_creator.cg_form import CycleGramGenerator
+from devices import twt
 from measure.measure import Measure
 
 
@@ -74,6 +75,7 @@ class SSI:
         self.config = config
         self.config_id = self.config['id']
         self.LNA_list = []
+        self.TWT_list = []
         self.CN_list = []
         self.switch_List = []
         self.fullDeviceList = []
@@ -83,8 +85,8 @@ class SSI:
         self.nameForSwitch = '763_БСК1_ПРК_' + self.config['route_short_name']
         self.nameForDevice = '763_БСК1_ПРБ_' + str(self.config_id)
         self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + str(self.config_id)
-
-        self.nameForAll = "763_БСК1_ВХ" + str(self.config_id)
+        # TODO сделать универсальное имя для главной конфы!
+        self.nameForAll = "763_БСК1_RSRE" + str(self.config_id)
         self.nameForConfigDevice = "763_БСК1_КНФ_" + str(self.config_id)
         self._fillData()
         num_prefix = {
@@ -100,6 +102,7 @@ class SSI:
         self.device_list_dict['conf_num'] = get_num
 
         self.nameForMeasure = "763_БСК1_ИЗМЕР_" + get_num
+        self.nameForRfOnOff = "763_БСК1_ВЧ_ВКЛ_ОТКЛ_" + get_num
         self.measure = Measure(self.config, self.nameForMeasure, self)
 
     def _short_name_modify(self, sh_name: str):
@@ -136,7 +139,7 @@ class SSI:
             else:
                 full_lo += cn._lo
         if self.dtp is not None:
-            full_lo += -320
+            full_lo += self.config['dtp']['LO']
         return full_lo
 
     def _fillData(self):
@@ -151,6 +154,10 @@ class SSI:
                 self._fill_cn(r, self.config)
             if re.findall(r'WDTP1', r[0]):
                 self._fill_dtp(r, self.config)
+            if re.findall(r'WTW', r[0]):
+                self._fill_twt(r, self.config)
+            # if re.findall(r'WTW1M', r[0]):
+            #     self._fill_twt(r, self.config)
 
         self._makeFullDeviceList()
         self._config_parse()
@@ -173,8 +180,7 @@ class SSI:
         self.nameForDeviceOff = self.nameForDeviceOff.replace("WDTP1", "WDTP" + self.dtp.name[1])
 
     def _fill_twt(self, r, config):
-        # TODO
-        raise NotImplementedError
+        self.TWT_list.append(twt.TWT(r, config))
 
     def getFullCGStrSwitch(self) -> str:
         cg = CycleGramGenerator(0)
@@ -195,6 +201,8 @@ class SSI:
         if self._isDevice():
             cg.program(self.nameForDevice)
             for item in self.fullDeviceList:
+                s1 = cg.idx.get_value()
+                d = item.getCGStrOn(s1)
                 res = item.getCGStrOn(cg.idx.get_value())
                 if res != '':
                     cg.add_to_all_data(res[0])
@@ -241,6 +249,21 @@ class SSI:
             return cg.all_data
         return None
 
+    def getCGStrRfOnOff(self) -> str:
+        cg = CycleGramGenerator(0)
+        if self._isExistConfigDevice():
+            cg.program(self.nameForRfOnOff)
+            for item in self.fullDeviceList:
+                if isinstance(item, twt.TWT):
+                    res = item.getCGRfOnOff(cg.idx.get_value())
+                    if res != '':
+                        cg.add_to_all_data(res[0])
+                        cg.idx.set_value(res[1])
+            cg.message('ВЧ Включено')
+            cg.program_end()
+            return cg.all_data
+        return None
+
     def getFullCGStrConfigDevice(self) -> str:
         cg = CycleGramGenerator(0)
         if self._isExistConfigDevice():
@@ -279,6 +302,7 @@ class SSI:
         # Call CG for device config
         if self._isExistConfigDevice():
             cg.call_(self.nameForConfigDevice)
+            cg.call_(self.nameForRfOnOff)
 
         # Call CG for measures
         cg.call_(self.nameForMeasure)
@@ -294,9 +318,10 @@ class SSI:
         self.fullDeviceList.extend(self.LNA_list)
         self.fullDeviceList.extend(self.CN_list)
         self.fullDeviceList.append(self.Mlo)
+        self.fullDeviceList.extend(self.TWT_list)
+
         if self.dtp is not None:
             self.fullDeviceList.append(self.dtp)
-
         self.fill_ssi_dict()
 
     def fill_ssi_dict(self):
@@ -342,8 +367,10 @@ class SSI:
             filename = '763_ВХСЕК3'
         elif self.config['id'] < 187:
             filename = '763_ВХСЕК4'
-        elif self.config['id'] >= 187:
+        elif self.config['id'] < 301:
             filename = '763_ВХСЕК5'
+        elif self.config['id'] < 350:
+            filename = '763_RSRE'
         else:
             filename = '763_ВХСЕКXXXXX'
         return {'filename': filename,
