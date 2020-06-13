@@ -2,13 +2,12 @@ from cg_creator.cg_form import CycleGramGenerator
 
 
 class TWT:
-
     def __init__(self, definition: list, config: list):
         self.num: int = 0
         self._definition = definition
-        self._sca = 0
-        self._gca = 0
-        self._fca = 0
+        self._sca = 41
+        self._gca = 35
+        self._fca = 31
         self._alc = False
         self.type = ''
         self._ab = ''
@@ -33,21 +32,23 @@ class TWT:
             self._ab = self._definition[0][-1:]
 
     def extract_steps_from_json(self):
-        if (self._config['twta_tas'] == 1 and self._config['twta_mda'] == 0):
+        if (self._config['twta_tas'] != 0 and self._config['twta_mda'] == 0):
             self.type = 'tas'
             try:
-                self._fca = self._config['twta_20']["fca"]
-                self._gca = self._config['twta_20']["gca"]
-                self._sca = self._config['twta_20']["sca"]
+                self._fca = self._config['twta_tas']["FCA"]
+                self._gca = self._config['twta_tas']["GCA"]
+                self._sca = self._config['twta_tas']["SCA"]
+                self._alc = self._config['twta_tas']["FGM"]
             except:
-                print("Шаги не указаны, ставим стандартные 15,15,15")
+                print("Шаги для ТАС указаны, ставим стандартные 15,15,15")
         else:
             self.type = 'mda'
             try:
-                self._fca = self._config['twta_33']["fca"]
-                self._sca = self._config['twta_33']["sca"]
+                self._fca = self._config['twta_mda']["FCA"]
+                self._sca = self._config['twta_mda']["SCA"]
+                self._alc = self._config['twta_mda']["FGM"]
             except:
-                print("Шаги не указаны, ставим стандартные 15,15,15")
+                print("Шаги для МДА не указаны, ставим стандартные 15,15,15")
                 self._fca = 10
                 self._sca = 15
 
@@ -86,8 +87,13 @@ class TWT:
 
     def getCGStrConfig(self, num) -> []:
         row = ''
+        par = 0
+        if self._alc == 1:
+            par = 0
+        if self._alc == 0:
+            par = 1
+        setAlcFgmStr = self._setAlcFgm(num, par)
 
-        setAlcFgmStr = self._setAlcFgm(num, 1)
         row += setAlcFgmStr[0]
         num = setAlcFgmStr[1]
 
@@ -168,7 +174,11 @@ class TWT:
                 sw_on = 1
             if self._ab == 'B':
                 sw_on = 2
-            cg.comment(f'Установка режима ФРУ/АРУ WTWTA{self.num} {self._ab}')
+            alc_fgm_message = {
+                0: "ФРУ",
+                1: "АРУ"
+            }
+            cg.comment(f'Установка режима {alc_fgm_message[param]} WTWTA{self.num} {self._ab}')
             cg.call_('763_БСК1_УЛБВ_K_ФРУ_АРУ', [self.num, sw_on, param])
 
         if (self.type == 'mda'):

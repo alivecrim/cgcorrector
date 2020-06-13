@@ -83,6 +83,7 @@ class SSI:
         self.isInverted = self.config['dtp']['INV'] == 1
 
         self.nameForSwitch = '763_БСК1_ПРК_' + self.config['route_short_name']
+        self.nameForSwitch = self.nameForSwitch.replace(".", "_")
         self.nameForDevice = '763_БСК1_ПРБ_' + str(self.config_id)
         self.nameForDeviceOff = '763_БСК1_ПРБ_ОТКЛ_' + str(self.config_id)
         # TODO сделать универсальное имя для главной конфы!

@@ -1,10 +1,7 @@
 import math
-from typing import List
 
 from cg_creator.cg_form import CycleGramGenerator
 from cg_creator.enums import KPI, DtpCmd, DtpKPI
-from devices.ut.rt_selector import RT
-from devices.ut.rt_selector import Rt_selector_service, Red
 
 
 def calcGain(reqGain, alc, bw) -> int:
@@ -33,26 +30,26 @@ class DTP:
             self.nom = 'R'
         self.dtp_lo = self._config['dtp']['LO']
         self.name = 'D' + self.nom
-
-        self._inputPort_hw = int(route[1][1:len(route[1]) - 1])
+        if len(route[1]) == 4:
+            self._inputPort_hw = int(route[1][1:3])
+        else:
+            self._inputPort_hw = int(route[1][1])
         self._outputPort_hw = int(route[2][1])
 
-        self.whichRt: List[RT] = Rt_selector_service.select_rt([self._inputPort_hw, self._outputPort_hw])
-
-        self._inputPort = Rt_selector_service.get_rt_num(self._inputPort_hw)
-        self._outputPort = Rt_selector_service.get_rt_num(self._outputPort_hw)
-        if self._inputPort == -1:
-            for r in self.whichRt:
-                if r._forRed == Red.RED1:
-                    self._inputPort = r._number
-        if self._inputPort == -2:
-            for r in self.whichRt:
-                if r._forRed == Red.RED2:
-                    self._inputPort = r._number
-        if self._outputPort == -1:
-            for r in self.whichRt:
-                if r._forRed == Red.RED1:
-                    self._outputPort = r._number
+        dtp_hard_to_soft = {
+            1: -1,
+            2: 0,
+            3: 1,
+            4: 2,
+            5: 3,
+            6: 4,
+            7: 5,
+            8: 6,
+            9: -2,
+            10: 7,
+        }
+        self._inputPort = dtp_hard_to_soft[self._inputPort_hw]
+        self._outputPort = dtp_hard_to_soft[self._outputPort_hw]
 
         self._bw = self._config['bw']
         self._alc = self._config['dtp']['ALC'] == 1
@@ -74,14 +71,6 @@ class DTP:
         else:
             in_dtp = (in_f + cnv_cif)
         out_dtp = in_dtp + self.dtp_lo
-
-        ifStart = round((in_dtp - 675) / 0.3125)
-        ofStart = round((out_dtp - 355) / 0.3125)
-        bww = round(self._bw / 0.3125) - 1
-        if self.ssi_obj.isInverted:
-            ifStart = ifStart - bww - 1
-            ofStart = ofStart - bww - 1
-
         self.dtpNotation = [
 
             {
@@ -90,10 +79,10 @@ class DTP:
                 'input': self._inputPort,
                 'output': self._outputPort,
                 'alc': self._alc,
-                'bw': bww,
+                'bw': round(self._bw / 0.3125) - 1,
                 'gain': calcGain(self._gain, self._alc, self._bw),
-                'ifStart': ifStart,
-                'ofStart': ofStart,
+                'ifStart': round((in_dtp - 675) / 0.3125),
+                'ofStart': round((out_dtp - 355) / 0.3125),
             },
         ]
 
@@ -290,39 +279,37 @@ class DTP:
         cg = CycleGramGenerator(num)
         cg.comment('Включение DTP')
         cg.call_(cg_name)
-
-        switch_inversion = False
-        if self.ssi_obj.isInverted == 1:
-            switch_inversion = True
-        for r in self.whichRt:
-            if switch_inversion:
-                self._createRTon(cg, r, 2)
-                switch_inversion = False
-            else:
-                self._createRTon(cg, r, 0)
-
-        # if self._inputPort != self._outputPort:
-        #     self._createRTon(cg, self._inputPort, 0)
-        #     self._createRTon(cg, self._outputPort, self.ssi_obj.isInverted * 2)
-        # else:
-        #     self._createRTon(cg, self._outputPort, self.ssi_obj.isInverted * 2)
+        if self._inputPort != self._outputPort:
+            self._createRTon(cg, self._inputPort, 0)
+            self._createRTon(cg, self._outputPort, self.ssi_obj.isInverted * 2)
+        else:
+            self._createRTon(cg, self._outputPort, self.ssi_obj.isInverted * 2)
 
         return [cg.all_data, cg.idx.get_value()]
 
-    def _createRTon(self, cg, value: RT, inversion):
-
+    def _createRTon(self, cg, value, inversion):
+        red_RT = 0
+        if value > 0:
+            red_RT = 0
+        else:
+            if value == -1:
+                red_RT = 1
+                value = 0
+            if value == -2:
+                red_RT = 2
+                value = 7
         cg.if_([['DTPN', 1]])
         cg_name = "763_БСК1_RT_ВКЛ_О"
         cg.call_(cg_name, [
-            str(value._number),
-            str(value._forRed.value),
+            str(value),
+            red_RT,
             str(inversion),
         ])
         cg.if_else()
         cg_name = "763_БСК1_RT_ВКЛ_Р"
         cg.call_(cg_name, [
-            str(value._number),
-            str(value._forRed.value),
+            str(value),
+            red_RT,
             str(inversion),
         ])
         cg.if_end()
