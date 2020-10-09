@@ -31,8 +31,15 @@ class TWT:
             self.num = int(self._definition[0][3:len(self._definition[0]) - 1])
             self._ab = self._definition[0][-1:]
 
+    def getAB(self):
+        if self._ab == 'A':
+            return 1
+        if self._ab == 'B':
+            return 2
+        return 0
+
     def extract_steps_from_json(self):
-        if (self._config['twta_tas'] != 0 and self._config['twta_mda'] == 0):
+        if self._config['twta_tas']['status'] == 1:
             self.type = 'tas'
             try:
                 self._fca = self._config['twta_tas']["FCA"]
@@ -97,23 +104,32 @@ class TWT:
         row += setAlcFgmStr[0]
         num = setAlcFgmStr[1]
 
-        setFCAStr = self._setStep(num, 1)
-        row += setFCAStr[0]
-        num = setFCAStr[1]
+        # FIXME
 
         if (self.type == 'tas'):
+            setFCAStr = self._setStep(num, 1)
+            row += setFCAStr[0]
+            num = setFCAStr[1]
+
             setGcaStr = self._setStep(num, 2)
             row += setGcaStr[0]
             num = setGcaStr[1]
 
-        setScaStr = self._setStep(num, 3)
-        row += setScaStr[0]
-        num = setScaStr[1]
+            setScaStr = self._setStep(num, 3)
+            row += setScaStr[0]
+            num = setScaStr[1]
+        else:
+            setFCAStr = self._setStep(num, 1)
+            row += setFCAStr[0]
+            num = 15
 
         return [row, num]
 
-    def _setStep(self, num, param):
-        cg = CycleGramGenerator(num)
+    def _setStep(self, num, step_type, cgg=None):
+        if cgg == None:
+            cg = CycleGramGenerator(num)
+        else:
+            cg = cgg
         stepName = {
             1: "FCA",
             2: "GCA",
@@ -125,20 +141,20 @@ class TWT:
             3: self._sca,
         }
         if (self.type == 'tas'):
-            sw_on = 0
+            twt_ab = 0
             if self._ab == 'A':
-                sw_on = 1
+                twt_ab = 1
             if self._ab == 'B':
-                sw_on = 2
-            cg.comment(f'Установка шага {stepName[param]} {stepValue[param]}')
-            cg.call_('763_БСК1_УЛБВ_K_УСТ_ШАГА', [self.num, sw_on, param, stepValue[param]])
+                twt_ab = 2
+            cg.comment(f'Установка шага {stepName[step_type]} {stepValue[step_type]}')
+            cg.call_('763_БСК1_УЛБВ_K_УСТ_ШАГА', [self.num, twt_ab, step_type, stepValue[step_type]])
             cg.pause(1)
         if (self.type == 'mda'):
-            cg.comment(f'Установка шага {stepName[param]} {stepValue[param]}')
-            if (param == 1):
-                cg.call_('763_БСК1_УЛБВ_Ka_УСТ_ШАГА_АВТО', [self.num, stepValue[param]])
-            if (param == 3):
-                cg.call_('763_БСК1_УЛБВ_Ka_УСТ_АТТ_АВТО', [self.num, stepValue[param]])
+            cg.comment(f'Установка шага {stepName[step_type]} {15}')
+            if (step_type == 1):
+                cg.call_('763_БСК1_УЛБВ_Ka_УСТ_ШАГА_АВТО', [self.num, 15])
+            if (step_type == 3):
+                cg.call_('763_БСК1_УЛБВ_Ka_УСТ_АТТ_АВТО', [self.num, stepValue[step_type]])
             cg.pause(1)
 
         return [cg.all_data, cg.idx.get_value()]

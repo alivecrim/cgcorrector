@@ -3,8 +3,7 @@ from typing import List
 
 from cg_creator.cg_form import CycleGramGenerator
 from cg_creator.enums import KPI, DtpCmd, DtpKPI
-from devices.ut.rt_selector import RT
-from devices.ut.rt_selector import Rt_selector_service, Red
+from devices.ut.rt_selector import Rt_selector_service, Red, RT
 
 
 def calcGain(reqGain, alc, bw) -> int:
@@ -12,10 +11,6 @@ def calcGain(reqGain, alc, bw) -> int:
         numberOfElementary = bw / 0.3125
         powerPerElementary = reqGain - 10 * math.log10(numberOfElementary)
         return round(((powerPerElementary + 103.7125) * 8))
-
-    # powerPerElementary = reqGain - 10 * math.log10(bw / 0.3125)
-    # return round(((reqGain - 10 * math.log10(bw / 0.3125) + 103.7125) * 8))
-
     else:
         return round(((reqGain + 86) * 8))
     return 0
@@ -69,10 +64,12 @@ class DTP:
     def _makeDtpNotation(self):
         in_f = self._config['frequency_start']
         cnv_cif = self._config['cnv_cif']['LO']
+        cnv_kuc = self._config['cnv_kuc']['LO']
+
         if (self._config['cnv_lc']['LO']) > 0:
-            in_dtp = self._config['cnv_lc']['LO'] - in_f + cnv_cif
+            in_dtp = self._config['cnv_lc']['LO'] - in_f + cnv_cif + cnv_kuc
         else:
-            in_dtp = (in_f + cnv_cif)
+            in_dtp = (in_f + cnv_cif) + cnv_kuc
         out_dtp = in_dtp + self.dtp_lo
 
         ifStart = round((in_dtp - 675) / 0.3125)
@@ -80,8 +77,8 @@ class DTP:
         bww = round(self._bw / 0.3125) - 1
         if self.ssi_obj.isInverted:
             ifStart = ifStart - bww - 1
+            # ofStart = round(ofStart - bww - 1 + appendix-2*(ofStart-400))
             ofStart = ofStart - bww - 1
-
         self.dtpNotation = [
 
             {
@@ -105,16 +102,11 @@ class DTP:
         create_mode = lambda x: '<без маршрутизации>' if (x == 0) else (
             "<маршрутизация с удалением>" if (x == 1) else "<маршрутизация без удаления>")
         cg = CycleGramGenerator(num)
-        if dtpNotationItem["input"] == -1:
-            dtpNotationItem["input"] = 0
-        if dtpNotationItem["input"] == -2:
-            dtpNotationItem["input"] = 7
-        if dtpNotationItem["output"] == -1:
-            dtpNotationItem["output"] = 0
 
         cg.comment([
             f'Включение канала {dtpNotationItem["ch"]}',
             f'Входной порт:{self._inputPort_hw}, Выходной порт:{self._outputPort_hw}',
+            f'Включенные RT: {self.whichRt}',
             f'Полоса:{self._bw} МГц',
             f'Начальная частота: ВХОД-{dtpNotationItem["ifStart"] * 0.3125 + 675} МГц',
             f'Начальная частота: ВЫХОД-{dtpNotationItem["ofStart"] * 0.3125 + 355.0} МГц',
@@ -225,53 +217,6 @@ class DTP:
         cg.if_end()
         return [cg.all_data, cg.idx.get_value()]
 
-    # def check_for_redundant_RT0(self, cg):
-    #
-    #     cg.if_([['DTPN', 1]])
-    #     cg.if_([['RT0S0_N', 1]])
-    #     cg.if_([['RT0RED_N', 0]])
-    #     cg.call_("763_БСК1_RT_ВКЛ_О", [
-    #         "0",
-    #         "1",
-    #     ])
-    #     cg.if_end()
-    #     cg.if_end()
-    #     cg.if_end()
-    #
-    #     cg.if_([['DTPR', 1]])
-    #     cg.if_([['RT0S0_R', 1]])
-    #     cg.if_([['RT0RED_R', 0]])
-    #     cg.call_("763_БСК1_RT_ВКЛ_Р", [
-    #         "0",
-    #         "1"
-    #     ])
-    #     cg.if_end()
-    #     cg.if_end()
-    #     cg.if_end()
-    #
-    # def check_for_redundant_RT7(self, cg):
-    #     cg.if_([['DTPN', 1]])
-    #     cg.if_([['RT7S0_N', 1]])
-    #     cg.if_([['RT7RED_N', 0]])
-    #     cg.call_("763_БСК1_RT_ВКЛ_О", [
-    #         "7",
-    #         "2"
-    #     ])
-    #     cg.if_end()
-    #     cg.if_end()
-    #     cg.if_end()
-    #
-    #     cg.if_([['DTPR', 1]])
-    #     cg.if_([['RT7S0_R', 1]])
-    #     cg.if_([['RT7RED_R', 0]])
-    #     cg.call_("763_БСК1_RT_ВКЛ_Р", [
-    #         "7",
-    #         "2"
-    #     ])
-    #     cg.if_end()
-    #     cg.if_end()
-    #     cg.if_end()
-
     def getCGStrConfig(self, num) -> []:
         row = ''
         for dtpConfig in self.dtpNotation:
@@ -295,7 +240,7 @@ class DTP:
         if self.ssi_obj.isInverted == 1:
             switch_inversion = True
         for r in self.whichRt:
-            if switch_inversion:
+            if self._outputPort == r._number and switch_inversion:
                 self._createRTon(cg, r, 2)
                 switch_inversion = False
             else:

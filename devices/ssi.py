@@ -140,13 +140,15 @@ class SSI:
                 full_lo += cn._lo
         if self.dtp is not None:
             full_lo += self.config['dtp']['LO']
+
+            full_lo = self.config['global_lo']
         return full_lo
 
     def _fillData(self):
         self.Mlo = ml.MLO(self.config['mlo'])
         self.dtp = None
         for r in self.config['route']:
-            if u.splitByDigit(r[0])[0] in ['WSC', 'WSA', 'WSCT', 'WST', 'WSR']:
+            if u.splitByDigit(r[0])[0] in ['WSC', 'WSCW', 'WSA', 'WSCT', 'WST', 'WSR']:
                 self._fill_switch(r)
             if u.splitByDigit(r[0])[0] in ['WLNA']:
                 self._fill_lna(r)
@@ -259,7 +261,7 @@ class SSI:
                     if res != '':
                         cg.add_to_all_data(res[0])
                         cg.idx.set_value(res[1])
-            cg.message('ВЧ Включено')
+            cg.message('ВЧ Отключено')
             cg.program_end()
             return cg.all_data
         return None
@@ -286,7 +288,7 @@ class SSI:
         return None
 
     def getFullCGStrMeasure(self) -> str:
-        return self.measure.getCGStr()
+        return self.measure.getCGStr(self)
 
     def getFullCGStr(self) -> str:
         cg = CycleGramGenerator(0)
@@ -302,7 +304,7 @@ class SSI:
         # Call CG for device config
         if self._isExistConfigDevice():
             cg.call_(self.nameForConfigDevice)
-            cg.call_(self.nameForRfOnOff)
+            # cg.call_(self.nameForRfOnOff)
 
         # Call CG for measures
         cg.call_(self.nameForMeasure)
@@ -374,6 +376,8 @@ class SSI:
             filename = '763_ВХСЕК5'
         elif self.config['id'] < 350:
             filename = '763_RSRE'
+        elif self.config['id'] > 499:
+            filename = '763_ETE'
         else:
             filename = '763_ВХСЕКXXXXX'
         return {'filename': filename,

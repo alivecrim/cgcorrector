@@ -5,7 +5,7 @@ from typing import List
 class Red(Enum):
     RED1 = 1
     RED2 = 2
-    NOT = 0
+    NOMINAL = 0
 
 
 class RT:
@@ -29,7 +29,7 @@ class RT:
         self._already_use = True
 
     def __repr__(self) -> str:
-        return f'RT{self._number}: {self._forRed}'
+        return f'RT{self._number}=>{str(self._forRed)[4:]}'
 
 
 class Rt_selector_service:
@@ -54,7 +54,7 @@ class Rt_selector_service:
     def _process_rt(cls, output_rt, port, rt_list):
         if cls.get_rt_num(port) >= 0:
             rt = rt_list[cls.get_rt_num(port)]
-            can_to_add = rt.set_role(Red.NOT)
+            can_to_add = rt.set_role(Red.NOMINAL)
             if can_to_add:
                 output_rt.append(rt)
         if cls.get_rt_num(port) == -1:
