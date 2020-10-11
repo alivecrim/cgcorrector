@@ -12,11 +12,12 @@ def process_stage(selector):
             "1": Stage.INPUT_SECTION.value,
             "2": Stage.RSRE.value,
             "3": Stage.ETE.value,
+            "4": Stage.INTEGRATION.value,
         }
         if selector in sys.argv:
             selector_value = sys.argv[sys.argv.index(selector) + 1]
             return return_map[selector_value]
-        return return_map["2"]
+        return return_map["4"]
 
     if selector == '-debug':
         return_map = {
@@ -26,13 +27,14 @@ def process_stage(selector):
         if selector in sys.argv:
             selector_value = sys.argv[sys.argv.index(selector) + 1]
             return return_map[selector_value]
-        return return_map["0"]
+        return return_map["1"]
 
 
 class Stage(Enum):
     INPUT_SECTION = "INPUT_SECTION"
     RSRE = "RSRE"
     ETE = "ETE"
+    INTEGRATION = "INTEGRATION"
 
 
 stage_map = {
@@ -53,6 +55,12 @@ stage_map = {
         "file_name_json": "servicedata/data/ETE/config_routes.json",
         "cg_prefix": "ETE",
         "name_proc": "ETE"
+    },
+    "INTEGRATION": {
+        "main_cg_name": "INT_",
+        "file_name_json": "servicedata/data/INTEGRATION/config_routes.json",
+        "cg_prefix": "INT",
+        "name_proc": "INT"
     }
 }
 
@@ -68,8 +76,44 @@ with open(file_name, "r") as read_file:
 
 SSIList = []
 counter = 1
+in_batch: {}
+out_batch: {}
+
+
+def batch_combine(in_batch, out_batch):
+    merged = {"id": int(in_batch.pop("id")[:3])}
+    for item in in_batch:
+        if item in ["frequency_start",
+                    "power_in",
+                    "cnv_cif",
+                    "cnv_ska",
+                    "cnv_ifs",
+                    "bw"
+                    ]:
+            merged[item] = in_batch[item]
+        elif (item in ["twta_tas",
+                       "twta_mda",
+                       "frequency_out"]):
+            merged[item] = out_batch[item]
+        else:
+            if type(in_batch[item]) == dict:
+                merged[item] = {**in_batch[item], **out_batch[item]}
+            else:
+                merged[item] = in_batch[item] + out_batch[item]
+    return merged
+
+
 for ssiDef in data:
-    ssiItem = ssi.SSI(ssiDef, stage_map[stage]["main_cg_name"])
+    if type(ssiDef["id"]) == str:
+        if "in" in ssiDef["id"]:
+            in_batch = ssiDef
+            continue
+        else:
+            out_batch = ssiDef
+            m = batch_combine(in_batch, out_batch)
+            ssiItem = ssi.SSI(m, stage_map[stage]["main_cg_name"])
+    else:
+        ssiItem = ssi.SSI(ssiDef, stage_map[stage]["main_cg_name"])
     SSIList.append(ssiItem)
     counter += 1
 

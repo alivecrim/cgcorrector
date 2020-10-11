@@ -124,6 +124,7 @@ class Measure:
             self.config['id'] >= 187: "Input_section_5\\",
             self.config['id'] >= 300: "RSRE_1\\",
             self.config['id'] >= 500: "ETE\\",
+            self.config['id'] >= 800: "INTEG\\",
         }
         cm = cable_maker
         if self.config['id'] == 171:
