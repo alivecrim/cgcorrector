@@ -105,5 +105,5 @@ class Merger(object):
         z["frequency_out"] = self.ssi_integration_item['Fc_out'] - self.bw / 2
         z['bw'] = self.bw
         z["route_short_name"] = z["route_short_name"] + ' BSK2_' + str(self.bsk2_id) + ' BSK3_' + str(self.bsk3_id)
-        z['route_long_name'] = z['route_long_name'] + ' BSK2_' + str(self.bsk2_id) + ' BSK3_' + str(self.bsk3_id),
+        z['route_long_name'] = z['route_long_name'] + ' BSK2_' + str(self.bsk2_id) + ' BSK3_' + str(self.bsk3_id)
         return z
