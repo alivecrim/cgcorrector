@@ -74,6 +74,8 @@ class Merger(object):
              'bw': self.bw,
              'frequency_out': self.ssi_integration_item['Fc_out'] - self.bw / 2,
              'frequency_start': self.ssi_integration_item['Fc_in'] - self.bw / 2,
+             'bsk2': self.bsk2_id,
+             'bsk3': self.bsk3_id,
              'query_route': bsk1_in['query_route'] + bsk1_out['query_route'],
              'route': bsk1_in['route'] + bsk1_out['route'],
              'route_long_name': bsk1_in['route_long_name'] + ' ' + bsk1_out['route_long_name'] + ' BSK2_' + str(
@@ -104,6 +106,8 @@ class Merger(object):
         z["frequency_start"] = self.ssi_integration_item['Fc_in'] - self.bw / 2
         z["frequency_out"] = self.ssi_integration_item['Fc_out'] - self.bw / 2
         z['bw'] = self.bw
+        z['bsk2'] = self.bsk2_id
+        z['bsk3'] = self.bsk3_id
         z["route_short_name"] = z["route_short_name"] + ' BSK2_' + str(self.bsk2_id) + ' BSK3_' + str(self.bsk3_id)
         z['route_long_name'] = z['route_long_name'] + ' BSK2_' + str(self.bsk2_id) + ' BSK3_' + str(self.bsk3_id)
         return z

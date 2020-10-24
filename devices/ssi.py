@@ -210,7 +210,8 @@ class SSI:
                 if res != '':
                     cg.add_to_all_data(res[0])
                     cg.idx.set_value(res[1])
-
+            cg.message('Оператору включить конфигурацию БСК2: ' + str(self.config['bsk2']))
+            cg.message('Оператору включить конфигурацию БСК3: ' + str(self.config['bsk3']))
             cg.message('Оператору проверить включенное оборудование')
             cg.program_end()
             return cg.all_data
