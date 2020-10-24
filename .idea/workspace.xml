@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc34aa6a-c8c6-4cf6-bce1-68aa9645c990" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/utils/merger.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/relative.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devices/ssi.py" beforeDir="false" afterPath="$PROJECT_DIR$/devices/ssi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measure/csa_dict.py" beforeDir="false" afterPath="$PROJECT_DIR$/measure/csa_dict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measure/measure.py" beforeDir="false" afterPath="$PROJECT_DIR$/measure/measure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_merge_ssi.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_merge_ssi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/merger.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/merger.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +66,7 @@
       <recent name="$PROJECT_DIR$/servicedata/data/RSRE" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.relative">
+  <component name="RunManager" selected="Python.main">
     <configuration name="keygenerator" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="InputSection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -315,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602241460183</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="интеграция окончена">
+      <created>1603558980809</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1603558980809</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +355,8 @@
     <MESSAGE value="Новая версия с проверкой включаемого РТ!" />
     <MESSAGE value="Добавлено управление лампами" />
     <MESSAGE value="Добавлен выбор текущего режима испытаний" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен выбор текущего режима испытаний" />
+    <MESSAGE value="интеграция окончена" />
+    <option name="LAST_COMMIT_MESSAGE" value="интеграция окончена" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -374,44 +374,45 @@
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state x="232" y="260" width="1598" height="535" key="#xdebugger.XInspectDialog/56.27.1864.1053/1920.0.1920.1080@56.27.1864.1053" timestamp="1598869610345" />
-    <state x="527" y="101" width="912" height="911" key="CommitChangelistDialog2" timestamp="1602241459968">
-      <screen x="56" y="26" width="1864" height="1054" />
+    <state x="485" y="109" width="912" height="911" key="CommitChangelistDialog2" timestamp="1603558980565">
+      <screen x="0" y="25" width="1920" height="1175" />
     </state>
+    <state x="485" y="109" key="CommitChangelistDialog2/0.25.1920.1175@0.25.1920.1175" timestamp="1603558980565" />
     <state x="527" y="101" width="912" height="911" key="CommitChangelistDialog2/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602241459968" />
     <state width="1431" height="519" key="DebuggerActiveHint" timestamp="1603555835686">
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
     <state width="1431" height="519" key="DebuggerActiveHint/0.25.1920.1175@0.25.1920.1175" timestamp="1603555835686" />
     <state width="1431" height="465" key="DebuggerActiveHint/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1603520518845" />
-    <state width="1899" height="258" key="GridCell.Tab.0.bottom" timestamp="1603557713998">
+    <state width="1899" height="258" key="GridCell.Tab.0.bottom" timestamp="1603558987268">
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
     <state width="1899" height="503" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1603551195820" />
-    <state width="1899" height="258" key="GridCell.Tab.0.bottom/0.25.1920.1175@0.25.1920.1175" timestamp="1603557713998" />
+    <state width="1899" height="258" key="GridCell.Tab.0.bottom/0.25.1920.1175@0.25.1920.1175" timestamp="1603558987268" />
     <state width="1878" height="247" key="GridCell.Tab.0.bottom/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1603524493367" />
     <state width="1822" height="271" key="GridCell.Tab.0.bottom/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602739619123" />
     <state width="1818" height="396" key="GridCell.Tab.0.bottom/56.27.1864.1053/1920.0.1920.1080@56.27.1864.1053" timestamp="1598869634193" />
-    <state width="1899" height="258" key="GridCell.Tab.0.center" timestamp="1603557713997">
+    <state width="1899" height="258" key="GridCell.Tab.0.center" timestamp="1603558987267">
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
     <state width="1899" height="503" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1603551195812" />
-    <state width="1899" height="258" key="GridCell.Tab.0.center/0.25.1920.1175@0.25.1920.1175" timestamp="1603557713997" />
+    <state width="1899" height="258" key="GridCell.Tab.0.center/0.25.1920.1175@0.25.1920.1175" timestamp="1603558987267" />
     <state width="1878" height="247" key="GridCell.Tab.0.center/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1603524493367" />
     <state width="1822" height="271" key="GridCell.Tab.0.center/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602739619123" />
     <state width="1818" height="396" key="GridCell.Tab.0.center/56.27.1864.1053/1920.0.1920.1080@56.27.1864.1053" timestamp="1598869634192" />
-    <state width="1899" height="258" key="GridCell.Tab.0.left" timestamp="1603557713997">
+    <state width="1899" height="258" key="GridCell.Tab.0.left" timestamp="1603558987267">
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
     <state width="1899" height="503" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1603551195811" />
-    <state width="1899" height="258" key="GridCell.Tab.0.left/0.25.1920.1175@0.25.1920.1175" timestamp="1603557713997" />
+    <state width="1899" height="258" key="GridCell.Tab.0.left/0.25.1920.1175@0.25.1920.1175" timestamp="1603558987267" />
     <state width="1878" height="247" key="GridCell.Tab.0.left/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1603524493367" />
     <state width="1822" height="271" key="GridCell.Tab.0.left/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602739619122" />
     <state width="1818" height="396" key="GridCell.Tab.0.left/56.27.1864.1053/1920.0.1920.1080@56.27.1864.1053" timestamp="1598869634192" />
-    <state width="1899" height="258" key="GridCell.Tab.0.right" timestamp="1603557713998">
+    <state width="1899" height="258" key="GridCell.Tab.0.right" timestamp="1603558987268">
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
     <state width="1899" height="503" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1603551195817" />
-    <state width="1899" height="258" key="GridCell.Tab.0.right/0.25.1920.1175@0.25.1920.1175" timestamp="1603557713998" />
+    <state width="1899" height="258" key="GridCell.Tab.0.right/0.25.1920.1175@0.25.1920.1175" timestamp="1603558987268" />
     <state width="1878" height="247" key="GridCell.Tab.0.right/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1603524493367" />
     <state width="1822" height="271" key="GridCell.Tab.0.right/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602739619123" />
     <state width="1818" height="396" key="GridCell.Tab.0.right/56.27.1864.1053/1920.0.1920.1080@56.27.1864.1053" timestamp="1598869634193" />
@@ -471,10 +472,10 @@
       <screen x="56" y="26" width="1864" height="1054" />
     </state>
     <state x="749" y="452" width="468" height="209" key="git4idea.remote.GitConfigureRemotesDialog/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602470905684" />
-    <state x="625" y="289" width="670" height="676" key="search.everywhere.popup" timestamp="1603556628627">
+    <state x="625" y="289" width="670" height="676" key="search.everywhere.popup" timestamp="1603559081949">
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
-    <state x="625" y="289" width="670" height="676" key="search.everywhere.popup/0.25.1920.1175@0.25.1920.1175" timestamp="1603556628627" />
+    <state x="625" y="289" width="670" height="676" key="search.everywhere.popup/0.25.1920.1175@0.25.1920.1175" timestamp="1603559081949" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -491,12 +492,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tests/test_merge_ssi.py</url>
-          <line>489</line>
+          <line>490</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>98</line>
+          <line>96</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

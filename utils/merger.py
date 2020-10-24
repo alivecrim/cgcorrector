@@ -69,16 +69,18 @@ class Merger(object):
 
     def merge_ssi_in_and_out(self, bsk1_in, bsk1_out):
         z = {'id': self.config_id,
+             'power_in': self.power_in,
+             'power_level': self.lvl,
+             'bw': self.bw,
+             'frequency_out': self.ssi_integration_item['Fc_out'] - self.bw / 2,
+             'frequency_start': self.ssi_integration_item['Fc_in'] - self.bw / 2,
              'query_route': bsk1_in['query_route'] + bsk1_out['query_route'],
              'route': bsk1_in['route'] + bsk1_out['route'],
-             'route_long_name': bsk1_in['route_long_name'] + ' ' + bsk1_out['route_long_name'],
-             'route_short_name': bsk1_in['route_short_name'] + '_' + bsk1_out['route_short_name'],
-             'frequency_start': self.ssi_integration_item['Fc_in'] - self.bw / 2,
-             'frequency_out': self.ssi_integration_item['Fc_out'] - self.bw / 2,
-             'bw': self.bw,
-             'power_level': self.lvl,
+             'route_long_name': bsk1_in['route_long_name'] + ' ' + bsk1_out['route_long_name'] + ' BSK2_' + str(
+                 self.bsk2_id) + ' BSK3_' + str(self.bsk3_id),
+             'route_short_name': bsk1_in['route_short_name'] + '_' + bsk1_out['route_short_name'] + ' BSK2_' + str(
+                 self.bsk2_id) + ' BSK3_' + str(self.bsk3_id),
              'config_name': bsk1_in['config_name'],
-             'power_in': self.power_in,
              'cnv_cif': bsk1_in['cnv_cif'],
              'cnv_ska': bsk1_in['cnv_ska'],
              'cnv_kka': bsk1_in['cnv_kka'],
@@ -103,4 +105,5 @@ class Merger(object):
         z["frequency_out"] = self.ssi_integration_item['Fc_out'] - self.bw / 2
         z['bw'] = self.bw
         z["route_short_name"] = z["route_short_name"] + ' BSK2_' + str(self.bsk2_id) + ' BSK3_' + str(self.bsk3_id)
+        z['route_long_name'] = z['route_long_name'] + ' BSK2_' + str(self.bsk2_id) + ' BSK3_' + str(self.bsk3_id),
         return z
