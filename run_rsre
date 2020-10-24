@@ -1,0 +1,7 @@
+#!/bin/bash
+python3 main.py -stage 2 -debug 0
+
+Of="$(date +%Y%m%d)_$(date +%T)_RSRE.zip"
+
+zip -r $Of ./servicedata/output
+rm -R ./servicedata/output
