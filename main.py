@@ -4,6 +4,7 @@ from enum import Enum
 
 import devices.ssi as ssi
 from utils import writers
+from utils.merger import Merger
 
 
 def process_stage(selector):
@@ -75,47 +76,21 @@ with open(file_name, "r") as read_file:
     data = json.load(read_file)
 
 SSIList = []
-counter = 1
-in_batch: {}
-out_batch: {}
 
+with open('servicedata/data/INTEGRATION/ete_complex_mes_.json', "r") as read_file:
+    integration_data = json.load(read_file)
 
-def batch_combine(in_batch, out_batch):
-    merged = {"id": int(in_batch.pop("id")[:3])}
-    for item in in_batch:
-        if item in ["frequency_start",
-                    "power_in",
-                    "cnv_cif",
-                    "cnv_ska",
-                    "cnv_ifs",
-                    "bw"
-                    ]:
-            merged[item] = in_batch[item]
-        elif (item in ["twta_tas",
-                       "twta_mda",
-                       "frequency_out"]):
-            merged[item] = out_batch[item]
-        else:
-            if type(in_batch[item]) == dict:
-                merged[item] = {**in_batch[item], **out_batch[item]}
-            else:
-                merged[item] = in_batch[item] + out_batch[item]
-    return merged
-
-
-for ssiDef in data:
-    if type(ssiDef["id"]) == str:
-        if "in" in ssiDef["id"]:
-            in_batch = ssiDef
-            continue
-        else:
-            out_batch = ssiDef
-            m = batch_combine(in_batch, out_batch)
-            ssiItem = ssi.SSI(m, stage_map[stage]["main_cg_name"])
-    else:
+if not (stage == 'INTEGRATION'):
+    for ssiDef in data:
         ssiItem = ssi.SSI(ssiDef, stage_map[stage]["main_cg_name"])
-    SSIList.append(ssiItem)
-    counter += 1
+        SSIList.append(ssiItem)
+else:
+    for ssiDef in integration_data:
+        with open(file_name, "r") as read_file:
+            data = json.load(read_file)
+        merger = Merger(ssi_bsk1=data, ssi_integration=ssiDef)
+        ssiItem = ssi.SSI(merger.merge(), stage_map[stage]["main_cg_name"])
+        SSIList.append(ssiItem)
 
 isUnicode = isDebug
 

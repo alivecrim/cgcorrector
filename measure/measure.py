@@ -102,8 +102,11 @@ class Measure:
         self._powerIn = self.config['power_in']
         self._powerIn_coma = str(self._powerIn).replace('.', ',')
         self.bw = int(self.config['bw'])
-        self.frequencyInCenter = int(self.config['calc_set_config']['frequency_start'] + (self.bw / 2))
-        self.frequencyOutCenter = abs((self.frequencyInCenter - ssi.get_outFreq()))
+        # self.frequencyInCenter = int(self.config['calc_set_config']['frequency_start'] + (self.bw / 2))
+        self.frequencyInCenter = int(self.config['frequency_start']) + (self.bw / 2)
+        # self.frequencyOutCenter = abs((self.frequencyInCenter - ssi.get_outFreq()))
+        self.frequencyOutCenter = config["frequency_out"] + self.bw / 2 if not (
+                    config["frequency_out"] is None) else abs((self.frequencyInCenter - ssi.get_outFreq()))
         self.powerLevel = self.config['power_level']
         self.calibrationFileNameMain = self._getCalibrationFileName()
         self.nameOfCg = nameOfCg
@@ -124,7 +127,7 @@ class Measure:
             self.config['id'] >= 187: "Input_section_5\\",
             self.config['id'] >= 300: "RSRE_1\\",
             self.config['id'] >= 500: "ETE\\",
-            self.config['id'] >= 800: "INTEG\\",
+            self.config['id'] >= 1000: "ETE_X\\",
         }
         cm = cable_maker
         if self.config['id'] == 171:
@@ -153,7 +156,7 @@ class Measure:
             CSA_dict[config_id]
         except:
             return self.calibrationFileNameMain.replace('@MEAS@', measureName) + suf
-        return 'ETE\\' + CSA_dict[config_id] + measureName
+        return 'ETE_X\\' + CSA_dict[config_id] + measureName
 
     def _get_dtp_config_string(self):
         dtp_config = self.config["dtp"]

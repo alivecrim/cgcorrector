@@ -91,9 +91,10 @@ class SSI:
         self.nameForConfigDevice = "763_БСК1_КНФ_" + str(self.config_id)
         self._fillData()
         num_prefix = {
-            len(str(self.config_id)) == 1: '00',
-            len(str(self.config_id)) == 2: '0',
-            len(str(self.config_id)) == 3: '',
+            len(str(self.config_id)) == 1: '000',
+            len(str(self.config_id)) == 2: '00',
+            len(str(self.config_id)) == 3: '0',
+            len(str(self.config_id)) == 4: '',
         }[True]
         get_num = num_prefix + str(self.config_id)
 
