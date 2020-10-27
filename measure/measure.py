@@ -103,10 +103,13 @@ class Measure:
         self._powerIn_coma = str(self._powerIn).replace('.', ',')
         self.bw = int(self.config['bw'])
         # self.frequencyInCenter = int(self.config['calc_set_config']['frequency_start'] + (self.bw / 2))
-        self.frequencyInCenter = int(self.config['frequency_start']) + (self.bw / 2)
+        if 'KPA_FIN' in self.config.keys():
+            self.frequencyInCenter = int(self.config['KPA_FIN'])
+        else:
+            self.frequencyInCenter = int(self.config['frequency_start']) + (self.bw / 2)
         # self.frequencyOutCenter = abs((self.frequencyInCenter - ssi.get_outFreq()))
         self.frequencyOutCenter = config["frequency_out"] + self.bw / 2 if not (
-                    config["frequency_out"] is None) else abs((self.frequencyInCenter - ssi.get_outFreq()))
+                config["frequency_out"] is None) else abs((self.frequencyInCenter - ssi.get_outFreq()))
         self.powerLevel = self.config['power_level']
         self.calibrationFileNameMain = self._getCalibrationFileName()
         self.nameOfCg = nameOfCg
