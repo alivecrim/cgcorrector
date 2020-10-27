@@ -74,8 +74,6 @@ class Merger(object):
              'power_in': self.power_in,
              'power_level': self.lvl,
              'bw': self.bw,
-             # 'frequency_out': self.ssi_integration_item['Fc_out'] - self.bw / 2,
-             # 'frequency_start': self.ssi_integration_item['Fc_in'] - self.bw / 2,
              'frequency_start': bsk1_in['frequency_start'],
              'frequency_out': bsk1_out['frequency_out'],
              'KPA_FIN': self.ssi_integration_item['Fc_in'],

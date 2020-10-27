@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc34aa6a-c8c6-4cf6-bce1-68aa9645c990" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/servicedata/data/INTEGRATION/ete_complex_mes_old.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/configs/500+.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/configs/config_routes.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/configs/ete_complex_mes_.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/merge_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/measure/measure.py" beforeDir="false" afterPath="$PROJECT_DIR$/measure/measure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/servicedata/data/INTEGRATION/ete_complex_mes_.json" beforeDir="false" afterPath="$PROJECT_DIR$/servicedata/data/INTEGRATION/ete_complex_mes_.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/merger.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/merger.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +211,7 @@
       <workItem from="1603518006220" duration="6511000" />
       <workItem from="1603590577497" duration="4707000" />
       <workItem from="1603704190893" duration="578000" />
-      <workItem from="1603792826099" duration="4624000" />
+      <workItem from="1603792826099" duration="4773000" />
     </task>
     <task id="LOCAL-00001" summary="Все готово">
       <created>1582079186016</created>
@@ -369,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603559314270</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Теперь, если в заявке присутствует ключ KPA_FIN, то он используется для настройки входной частоты КПА, в противном случае frequency_start">
+      <created>1603797518252</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1603797518252</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +410,8 @@
     <MESSAGE value="Добавлен выбор текущего режима испытаний" />
     <MESSAGE value="интеграция окончена" />
     <MESSAGE value="интеграция оконченаd" />
-    <option name="LAST_COMMIT_MESSAGE" value="интеграция оконченаd" />
+    <MESSAGE value="Теперь, если в заявке присутствует ключ KPA_FIN, то он используется для настройки входной частоты КПА, в противном случае frequency_start" />
+    <option name="LAST_COMMIT_MESSAGE" value="Теперь, если в заявке присутствует ключ KPA_FIN, то он используется для настройки входной частоты КПА, в противном случае frequency_start" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -436,10 +435,11 @@
       <screen x="56" y="27" width="1864" height="1053" />
     </state>
     <state x="232" y="260" width="1598" height="535" key="#xdebugger.XInspectDialog/56.27.1864.1053/1920.0.1920.1080@56.27.1864.1053" timestamp="1598869610345" />
-    <state x="485" y="109" width="912" height="911" key="CommitChangelistDialog2" timestamp="1603559314174">
-      <screen x="0" y="25" width="1920" height="1175" />
+    <state x="2405" y="77" width="912" height="911" key="CommitChangelistDialog2" timestamp="1603797518049">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="485" y="109" key="CommitChangelistDialog2/0.25.1920.1175@0.25.1920.1175" timestamp="1603559314174" />
+    <state x="2405" y="77" key="CommitChangelistDialog2/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603797518049" />
     <state x="527" y="101" width="912" height="911" key="CommitChangelistDialog2/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602241459968" />
     <state width="1431" height="478" key="DebuggerActiveHint" timestamp="1603793173971">
       <screen x="1920" y="0" width="1920" height="1080" />
@@ -531,10 +531,11 @@
       <screen x="56" y="26" width="1864" height="1054" />
     </state>
     <state x="477" y="188" width="1022" height="737" key="SettingsEditor/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602586259589" />
-    <state x="543" y="318" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603559317857">
-      <screen x="0" y="25" width="1920" height="1175" />
+    <state x="2463" y="269" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603797528011">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="543" y="318" key="Vcs.Push.Dialog.v2/0.25.1920.1175@0.25.1920.1175" timestamp="1603559317857" />
+    <state x="2463" y="269" key="Vcs.Push.Dialog.v2/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603797528011" />
     <state x="583" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/56.26.1864.1054/1920.0.1920.1080@56.26.1864.1054" timestamp="1602241492085" />
     <state width="932" height="526" key="XDebugger.FullValuePopup" timestamp="1598869608321">
       <screen x="56" y="27" width="1864" height="1053" />
