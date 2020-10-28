@@ -298,7 +298,12 @@ class SSI:
 
         # Call CG for switch
         cg.call_(self.nameForSwitch)
-
+        cg.menu([
+            'Обновить конфигурацию оборудования',
+            'Оставить текущую',
+        ])
+        cg.select_()
+        cg.select_var(1)
         # Call CG for device On
         if self._isDevice():
             cg.call_(self.nameForDevice)
@@ -307,7 +312,8 @@ class SSI:
         if self._isExistConfigDevice():
             cg.call_(self.nameForConfigDevice)
             # cg.call_(self.nameForRfOnOff)
-
+        cg.select_var(2)
+        cg.select_end()
         # Call CG for measures
         cg.call_(self.nameForMeasure)
 
