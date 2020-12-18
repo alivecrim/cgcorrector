@@ -10,6 +10,7 @@ def clear_output():
     config_path = 'КОНФИГУРАЦИЯ/'
     plan_path = 'ПЛАНЫ/'
     measure_path = 'ИЗМЕРЕНИЯ/'
+    outgas_path = 'ДЕГАЗАЦИЯ/'
     try:
         for i in os.listdir(output_path):
             try:
@@ -31,6 +32,7 @@ def createDirs():
     switch_path = 'ПРК/'
     device_path = 'ОБОРУД/'
     config_path = 'КОНФИГУРАЦИЯ/'
+    outgas_path = 'ДЕГАЗАЦИЯ/'
     plan_path = 'ПЛАНЫ/'
     measure_path = 'ИЗМЕРЕНИЯ/'
     device_path_off = 'ОБОРУД/ОТКЛ/'
@@ -38,6 +40,7 @@ def createDirs():
     try:
         os.mkdir(output_path)
         os.mkdir(output_path + switch_path)
+        os.mkdir(output_path + outgas_path)
         os.mkdir(output_path + device_path)
         os.mkdir(output_path + config_path)
         os.mkdir(output_path + plan_path)
@@ -49,45 +52,56 @@ def createDirs():
         pass
 
 
-def writeCG(s: ssi.SSI, CGType: str, isUnicode=True):
+def writeCG(ssi_object: ssi.SSI, CGType: str, isUnicode=True):
     output_path = './servicedata/output/'
     switch_path = 'ПРК/'
     device_path = 'ОБОРУД/'
     config_path = 'КОНФИГУРАЦИЯ/'
     measure_path = 'ИЗМЕРЕНИЯ/'
+    outgas_path = 'ДЕГАЗАЦИЯ/'
     device_path_off = 'ОБОРУД/ОТКЛ/'
     device_path_rf_onoff = 'ОБОРУД/ВЧ/'
     createDirs()
     if CGType == 'sw':
-        name = s.nameForSwitch
+        name = ssi_object.nameForSwitch
         output_path += switch_path
-        strToWrite = s.getFullCGStrSwitch()
+        strToWrite = ssi_object.getFullCGStrSwitch()
+
+    if CGType == 'outgas_all':
+        name = ssi_object.nameForAll
+        strToWrite = ssi_object.getDegasStr()
+
+    if CGType == 'outgas':
+        name = ssi_object.nameForDegas
+        output_path += outgas_path
+        strToWrite = ssi_object.getDegasItemStr()
+
     if CGType == 'dev':
-        name = s.nameForDevice
+        name = ssi_object.nameForDevice
         output_path += device_path
-        strToWrite = s.getFullCGStrDEV()
+        strToWrite = ssi_object.getFullCGStrDEV()
 
     if CGType == 'dev_off':
-        name = s.nameForDeviceOff
+        name = ssi_object.nameForDeviceOff
         output_path += device_path_off
-        strToWrite = s.getFullCGStrDEV_off()
+        strToWrite = ssi_object.getFullCGStrDEV_off()
 
     if CGType == 'conf':
-        name = s.nameForConfigDevice
+        name = ssi_object.nameForConfigDevice
         output_path += config_path
-        strToWrite = s.getFullCGStrConfigDevice()
+        strToWrite = ssi_object.getFullCGStrConfigDevice()
     if CGType == 'all':
-        name = s.nameForAll
-        strToWrite = s.getFullCGStr()
+        name = ssi_object.nameForAll
+        strToWrite = ssi_object.getFullCGStr()
     if CGType == 'meas':
-        name = s.nameForMeasure
+        name = ssi_object.nameForMeasure
         output_path += measure_path
-        strToWrite = s.getFullCGStrMeasure()
+        strToWrite = ssi_object.getFullCGStrMeasure()
 
     if CGType == 'rf_on_off':
-        name = s.nameForRfOnOff
+        name = ssi_object.nameForRfOnOff
         output_path += device_path_rf_onoff
-        strToWrite = s.getCGStrRfOnOff()
+        strToWrite = ssi_object.getCGStrRfOnOff()
 
     if strToWrite is not None:
         with open(output_path + name + '.ci', 'wb') as writeFile:

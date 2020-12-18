@@ -62,6 +62,24 @@ stage_map = {
         "file_name_json": "servicedata/data/INTEGRATION/config_routes.json",
         "cg_prefix": "INT",
         "name_proc": "INT"
+    },
+    "H100": {
+        "main_cg_name": "H100_",
+        "file_name_json": "servicedata/data/H100/low_level.json",
+        "cg_prefix": "H100",
+        "name_proc": "H100"
+    },
+    "TVAC_C": {
+        "main_cg_name": "TVAC_C_",
+        "file_name_json": "servicedata/ПМ3.5/ЭТВИ_С-диапазон/config_tvac_C.json",
+        "cg_prefix": "TVAC_C_",
+        "name_proc": "TVAC_C_"
+    },
+    "TVAC_OUTGAS": {
+        "main_cg_name": "TVAC_OUTGAS_",
+        "file_name_json": "servicedata/ПМ3.5/ЭТВИ_дегазация/config_routes_tvac_degassing.json",
+        "cg_prefix": "TVAC_OUTGAS_",
+        "name_proc": "TVAC_OUTGAS_"
     }
 }
 

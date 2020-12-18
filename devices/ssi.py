@@ -103,8 +103,10 @@ class SSI:
         self.device_list_dict['conf_num'] = get_num
 
         self.nameForMeasure = "763_БСК1_ИЗМЕР_" + get_num
+        self.nameForDegas = "763_БСК1_ДЕГАЗ_" + get_num
         self.nameForRfOnOff = "763_БСК1_ВЧ_ВКЛ_ОТКЛ_" + get_num
         self.measure = Measure(self.config, self.nameForMeasure, self)
+        self.outgas_object = Outgas(self.nameForDegas)
 
     def _short_name_modify(self, sh_name: str):
 
