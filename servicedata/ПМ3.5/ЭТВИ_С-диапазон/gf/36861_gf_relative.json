@@ -1,0 +1,612 @@
+{
+  "id": 36861,
+  "query_route": [
+    "WIC6",
+    "WLNA3-J06",
+    "C067",
+    "W3CN5",
+    "WDTP1-J58",
+    "WDTP1-J29",
+    "W4CN3-J22",
+    "WF15",
+    "W5CN2",
+    "WIM1-O1",
+    "WTW2A",
+    "WOM2-J01",
+    "WOC1"
+  ],
+  "route": [
+    [
+      "WIC6",
+      "J1",
+      "J2"
+    ],
+    [
+      "WG6",
+      "A",
+      "B"
+    ],
+    [
+      "WF6",
+      "J01",
+      "J02"
+    ],
+    [
+      "040",
+      "A",
+      "B"
+    ],
+    [
+      "WST4",
+      "J1",
+      "J2"
+    ],
+    [
+      "042",
+      "A",
+      "B"
+    ],
+    [
+      "WLNA3",
+      "J05",
+      "J06"
+    ],
+    [
+      "045",
+      "A",
+      "B"
+    ],
+    [
+      "WST8",
+      "J1",
+      "J2"
+    ],
+    [
+      "051",
+      "A",
+      "B"
+    ],
+    [
+      "WISOK6",
+      "1",
+      "2"
+    ],
+    [
+      "052",
+      "A",
+      "B"
+    ],
+    [
+      "WD6",
+      "J1",
+      "J3"
+    ],
+    [
+      "053",
+      "A",
+      "B"
+    ],
+    [
+      "WISOK17",
+      "1",
+      "2"
+    ],
+    [
+      "167",
+      "A",
+      "B"
+    ],
+    [
+      "WSC11",
+      "J3",
+      "J2"
+    ],
+    [
+      "170",
+      "A",
+      "B"
+    ],
+    [
+      "WST11",
+      "J1",
+      "J3"
+    ],
+    [
+      "WU43.1",
+      "J2",
+      "J1"
+    ],
+    [
+      "067",
+      "A",
+      "B"
+    ],
+    [
+      "WU43.2",
+      "J1",
+      "J2"
+    ],
+    [
+      "WST17",
+      "J3",
+      "J2"
+    ],
+    [
+      "394",
+      "A",
+      "B"
+    ],
+    [
+      "WST43",
+      "J1",
+      "J3"
+    ],
+    [
+      "197",
+      "A",
+      "B"
+    ],
+    [
+      "WST42",
+      "J4",
+      "J2"
+    ],
+    [
+      "182",
+      "A",
+      "B"
+    ],
+    [
+      "W3CN5",
+      "J01",
+      "J02"
+    ],
+    [
+      "183",
+      "A",
+      "B"
+    ],
+    [
+      "WST51",
+      "J1",
+      "J2"
+    ],
+    [
+      "214",
+      "A",
+      "B"
+    ],
+    [
+      "WDTP1",
+      "J58",
+      "J29"
+    ],
+    [
+      "223",
+      "A",
+      "B"
+    ],
+    [
+      "WST58",
+      "J1",
+      "J2"
+    ],
+    [
+      "236",
+      "A",
+      "B"
+    ],
+    [
+      "WU60",
+      "J1",
+      "J2"
+    ],
+    [
+      "W4CN3",
+      "J21",
+      "J22"
+    ],
+    [
+      "237",
+      "A",
+      "B"
+    ],
+    [
+      "WST63",
+      "J1",
+      "J2"
+    ],
+    [
+      "249",
+      "A",
+      "B"
+    ],
+    [
+      "WF15",
+      "J1",
+      "J2"
+    ],
+    [
+      "250",
+      "A",
+      "B"
+    ],
+    [
+      "WISOK19",
+      "1",
+      "2"
+    ],
+    [
+      "251",
+      "A",
+      "B"
+    ],
+    [
+      "WD7",
+      "1",
+      "3"
+    ],
+    [
+      "252",
+      "A",
+      "B"
+    ],
+    [
+      "WISOK23",
+      "1",
+      "2"
+    ],
+    [
+      "253",
+      "A",
+      "B"
+    ],
+    [
+      "WU66",
+      "J1",
+      "J2"
+    ],
+    [
+      "WST67",
+      "J1",
+      "J2"
+    ],
+    [
+      "294",
+      "A",
+      "B"
+    ],
+    [
+      "W5CN2",
+      "J01",
+      "J02"
+    ],
+    [
+      "300",
+      "A",
+      "B"
+    ],
+    [
+      "WST71",
+      "J1",
+      "J2"
+    ],
+    [
+      "311",
+      "A",
+      "B"
+    ],
+    [
+      "WISOK39",
+      "1",
+      "2"
+    ],
+    [
+      "312",
+      "A",
+      "B"
+    ],
+    [
+      "WU71",
+      "J1",
+      "J2"
+    ],
+    [
+      "WD15",
+      "J1",
+      "J3"
+    ],
+    [
+      "313",
+      "A",
+      "B"
+    ],
+    [
+      "WISOK41",
+      "1",
+      "2"
+    ],
+    [
+      "WU75",
+      "J2",
+      "J1"
+    ],
+    [
+      "314",
+      "A",
+      "B"
+    ],
+    [
+      "WIM1",
+      "I1",
+      "O1"
+    ],
+    [
+      "WU82",
+      "J2",
+      "J1"
+    ],
+    [
+      "338",
+      "A",
+      "B"
+    ],
+    [
+      "WST76",
+      "J1",
+      "J2"
+    ],
+    [
+      "349",
+      "A",
+      "B"
+    ],
+    [
+      "WU89",
+      "J1",
+      "J2"
+    ],
+    [
+      "WCPA2",
+      "J01A",
+      "J02A"
+    ],
+    [
+      "2AT",
+      "A",
+      "B"
+    ],
+    [
+      "WU2A",
+      "J1",
+      "J2"
+    ],
+    [
+      "WTW2A",
+      "Input",
+      "Output"
+    ],
+    [
+      "WG13.1",
+      "A",
+      "B"
+    ],
+    [
+      "WG13.2",
+      "A",
+      "B"
+    ],
+    [
+      "WG13.3",
+      "A",
+      "B"
+    ],
+    [
+      "WISO3",
+      "J01",
+      "J02"
+    ],
+    [
+      "WG14",
+      "A",
+      "B"
+    ],
+    [
+      "WSR3",
+      "J4",
+      "J2"
+    ],
+    [
+      "WG15.1",
+      "A",
+      "B"
+    ],
+    [
+      "WG15.2",
+      "A",
+      "B"
+    ],
+    [
+      "WG15.3",
+      "A",
+      "B"
+    ],
+    [
+      "WG15.4",
+      "A",
+      "B"
+    ],
+    [
+      "WOM2",
+      "J01",
+      "J08"
+    ],
+    [
+      "WG37.1",
+      "A",
+      "B"
+    ],
+    [
+      "WG37.2",
+      "A",
+      "B"
+    ],
+    [
+      "WG37.3",
+      "A",
+      "B"
+    ],
+    [
+      "WG37.4",
+      "A",
+      "B"
+    ],
+    [
+      "WOC1",
+      "1",
+      "2"
+    ]
+  ],
+  "route_long_name": "WIC6-J1-J2 WG6-A-B WF6-J01-J02 040-A-B WST4-J1-J2 042-A-B WLNA3-J05-J06 045-A-B WST8-J1-J2 051-A-B WISOK6-1-2 052-A-B WD6-J1-J3 053-A-B WISOK17-1-2 167-A-B WSC11-J3-J2 170-A-B WST11-J1-J3 WU43.1-J2-J1 067-A-B WU43.2-J1-J2 WST17-J3-J2 394-A-B WST43-J1-J3 197-A-B WST42-J4-J2 182-A-B W3CN5-J01-J02 183-A-B WST51-J1-J2 214-A-B WDTP1-J58-J29 223-A-B WST58-J1-J2 236-A-B WU60-J1-J2 W4CN3-J21-J22 237-A-B WST63-J1-J2 249-A-B WF15-J1-J2 250-A-B WISOK19-1-2 251-A-B WD7-1-3 252-A-B WISOK23-1-2 253-A-B WU66-J1-J2 WST67-J1-J2 294-A-B W5CN2-J01-J02 300-A-B WST71-J1-J2 311-A-B WISOK39-1-2 312-A-B WU71-J1-J2 WD15-J1-J3 313-A-B WISOK41-1-2 WU75-J2-J1 314-A-B WIM1-I1-O1 WU82-J2-J1 338-A-B WST76-J1-J2 349-A-B WU89-J1-J2 WCPA2-J01A-J02A 2AT-A-B WU2A-J1-J2 WTW2A-Input-Output WG13.1-A-B WG13.2-A-B WG13.3-A-B WISO3-J01-J02 WG14-A-B WSR3-J4-J2 WG15.1-A-B WG15.2-A-B WG15.3-A-B WG15.4-A-B WOM2-J01-J08 WG37.1-A-B WG37.2-A-B WG37.3-A-B WG37.4-A-B WOC1-1-2",
+  "route_short_name": "WIC6_WLNA3-J06_C067_W3CN5_WDTP1-J58_WDTP1-J29_W4CN3-J22_WF15_W5CN2_WIM1-O1_WTW2A_WOM2-J01_WOC1",
+  "config_name": "5725.0_80.0_-45.0H_CIF-5050.0G30.0_SKA17980_KKA0_MLO10_\nDTP={'TC_N': 1, 'TC_R': 0, 'G_N': 1, 'G_R': 0, 'B1': 1, 'B2': 1, 'B3': 0, 'B4': 0, 'INV': 0, 'ALC': 0, 'G_NUM': -26, 'ALC_LEVEL': -26, 'LO': -285}",
+  "power_in": -45.0,
+  "power_level": "H",
+  "frequency_start": 5725.0,
+  "bw": 80.0,
+  "cnv_cif": {
+    "LO": -5050.0,
+    "G": 30.0
+  },
+  "cnv_ska": {
+    "LO": 17980
+  },
+  "cnv_kka": {
+    "LO": 0
+  },
+  "dtp_conf": 1,
+  "mlo": {
+    "N": 1,
+    "R": 0
+  },
+  "dtp": {
+    "TC_N": 1,
+    "TC_R": 0,
+    "G_N": 1,
+    "G_R": 0,
+    "B1": 1,
+    "B2": 1,
+    "B3": 0,
+    "B4": 0,
+    "INV": 0,
+    "ALC": 0,
+    "G_NUM": -26,
+    "ALC_LEVEL": -26,
+    "LO": -285
+  },
+  "twta_tas": {
+    "status": 1,
+    "FCA": 34,
+    "GCA": 35,
+    "SCA": 41,
+    "FGM": 1
+  },
+  "twta_mda": {
+    "status": 0,
+    "FCA": 0,
+    "GCA": 0,
+    "SCA": 0,
+    "FGM": 1
+  },
+  "channel": "Ch1",
+  "channel_type": "\u0424\u041b\u0421",
+  "channel_band": "C-band",
+  "frequency_out": 20215.0,
+  "global_lo": -14490.0,
+  "cnv_ifs": {
+    "LO": 1845
+  },
+  "cnv_kuc": {
+    "LO": 0
+  },
+  "cnv_lc": {
+    "LO": 0
+  },
+  "query_route_ports": [
+    [
+      "WIC6",
+      "J1"
+    ],
+    [
+      "WLNA3",
+      "J06"
+    ],
+    [
+      "067",
+      "B"
+    ],
+    [
+      "W3CN5",
+      "J02"
+    ],
+    [
+      "WDTP1",
+      "J58"
+    ],
+    [
+      "WDTP1",
+      "J29"
+    ],
+    [
+      "W4CN3",
+      "J22"
+    ],
+    [
+      "WF15",
+      "J2"
+    ],
+    [
+      "W5CN2",
+      "J02"
+    ],
+    [
+      "WIM1",
+      "O1"
+    ],
+    [
+      "WTW2A",
+      "Output"
+    ],
+    [
+      "WOM2",
+      "J01"
+    ],
+    [
+      "WOC1",
+      "2"
+    ]
+  ],
+  "calc_set_config": {
+    "CNVCIF": {
+      "LO": -5050.0,
+      "G": 30.0
+    },
+    "CNVSK": {
+      "LO": 17980
+    },
+    "CNVKKA": {},
+    "DTP": {
+      "INV": 0,
+      "G": -26,
+      "LO": -285,
+      "ALC": 0,
+      "ALC_LEVEL": -26
+    },
+    "frequency_start": 5725.0,
+    "bw": 80.0,
+    "power_in": -45.0
+  },
+  "y_title": "<b>\u041d\u0410\u0427\u0425 \u0434\u043b\u044f \u043f\u043e\u043b\u043e\u0441\u044b \u0441\u0432\u0438\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f {bw} \u041c\u0413\u0446, \u0434\u0411<b>",
+  "x_title": "<b>\u0427\u0430\u0441\u0442\u043e\u0442\u0430, \u041c\u0413\u0446</b>",
+  "title": "<span style=\"color:#21007F;font-size:18px;\"><b>36861#5725.0_80.0_-45.0H_CIF-5050.0G30.0_SKA17980_KKA0_MLO10_\nDTP={'TC_N': 1, 'TC_R': 0, 'G_N': 1, 'G_R': 0, 'B1': 1, 'B2': 1, 'B3': 0, 'B4': 0, 'INV': 0, 'ALC': 0, 'G_NUM': -26, 'ALC_LEVEL': -26, 'LO': -285}<br>{'TC_N': 1, 'TC_R': 0, 'G_N': 1, 'G_R': 0, 'B1': 1, 'B2': 1, 'B3': 0, 'B4': 0, 'INV': 0, 'ALC': 0, 'G_NUM': -26, 'ALC_LEVEL': -26, 'LO': -285}</b></span><br><span style=\"color:red;font-size:18px;\">WIC6-J1-J2</span> WG6-A-B WF6-J01-J02 040-A-B WST4-J1-J2 042-A-B <span style=\"color:red;font-size:18px;\">WLNA3-J05-J06</span> 045-A-B WST8-J1-J2 051-A-B WISOK6-1-2 052-A-B WD6-J1-J3 053-A-B WISOK17-1-2 167-A-B WSC11-J3-J2<br> 170-A-B WST11-J1-J3 <span style=\"color:red;font-size:18px;\">WU43.1-J2-J1</span> 067-A-B <span style=\"color:red;font-size:18px;\">WU43.2-J1-J2</span> WST17-J3-J2 394-A-B WST43-J1-J3 197-A-B WST42-J4-J2 182-A-B <span style=\"color:red;font-size:18px;\">W3CN5-J01-J02</span> 183-A-B WST51-J1-J2 214-A-B <span style=\"color:red;font-size:18px;\">WDTP1-J58-J29</span><br> 223-A-B WST58-J1-J2 236-A-B WU60-J1-J2 <span style=\"color:red;font-size:18px;\">W4CN3-J21-J22</span> 237-A-B WST63-J1-J2 249-A-B WF15-J1-J2 250-A-B WISOK19-1-2 251-A-B WD7-1-3 252-A-B WISOK23-1-2 253-A-B<br> WU66-J1-J2 WST67-J1-J2 294-A-B <span style=\"color:red;font-size:18px;\">W5CN2-J01-J02</span> 300-A-B WST71-J1-J2 311-A-B WISOK39-1-2 312-A-B WU71-J1-J2 WD15-J1-J3 313-A-B WISOK41-1-2 WU75-J2-J1 314-A-B <span style=\"color:red;font-size:18px;\">WIM1-I1-O1</span><br> WU82-J2-J1 338-A-B WST76-J1-J2 349-A-B WU89-J1-J2 WCPA2-J01A-J02A 2AT-A-B WU2A-J1-J2 <span style=\"color:red;font-size:18px;\">WTW2A-Input-Output</span> WG13.1-A-B WG13.2-A-B WG13.3-A-B WISO3-J01-J02 WG14-A-B WSR3-J4-J2 WG15.1-A-B<br> WG15.2-A-B WG15.3-A-B WG15.4-A-B <span style=\"color:red;font-size:18px;\">WOM2-J01-J08</span> WG37.1-A-B WG37.2-A-B WG37.3-A-B WG37.4-A-B <span style=\"color:red;font-size:18px;\">WOC1-1-2</span>"
+}

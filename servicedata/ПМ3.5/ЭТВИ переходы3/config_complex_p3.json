@@ -1,0 +1,18 @@
+[
+  {
+    "id": 4000,
+    "level": "L",
+    "band_letter": "Ka",
+    "in": "AR14",
+    "out": "WOC1",
+    "id_bsk1": "801",
+    "id_bsk2": 0,
+    "id_bsk3": 1.21,
+    "Fc_in": 28000,
+    "Fc_out": 20785,
+    "BW": 234,
+    "Pin": -77.5,
+    "ch_out": "Ch5",
+    "TWT": "WTW3B"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 4002,
+    "level": "L",
+    "band_letter": "Ka",
+    "in": "AR12",
+    "out": "WOC3",
+    "id_bsk1": "802",
+    "id_bsk2": 0,
+    "id_bsk3": 1.23,
+    "Fc_in": 29550,
+    "Fc_out": 32625,
+    "BW": 234,
+    "Pin": -77.5,
+    "ch_out": "Ch5M",
+    "TWT": "WTW3M"
+  }
+]
