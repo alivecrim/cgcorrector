@@ -1,5 +1,7 @@
 import os
+from typing import List
 
+from cg_creator.cg_form import CycleGramGenerator
 from devices import ssi
 
 
@@ -52,6 +54,69 @@ def createDirs():
         pass
 
 
+def _rf_on(cg, ssi):
+    cg.comment("Включение ВЧ на текущей лампе")
+    try:
+        if ssi.TWT_list[0].type == 'mda':
+            cg.call_("763_БСК1_УЛБВ_Ka_ВЧ", [ssi.TWT_list[0].num, 2])
+        elif ssi.TWT_list[0].type == 'tas':
+            cg.call_("763_БСК1_УЛБВ_K_ВЧ", [ssi.TWT_list[0].num, ssi.TWT_list[0].getAB(), 2])
+    except:
+        print('stop')
+
+
+def _rf_off(cg, ssi):
+    try:
+        cg.comment("Отключение ВЧ на текущей лампе")
+        if ssi.TWT_list[0].type == 'mda':
+            cg.call_("763_БСК1_УЛБВ_Ka_ВЧ", [ssi.TWT_list[0].num, 1])
+        elif ssi.TWT_list[0].type == 'tas':
+            cg.call_("763_БСК1_УЛБВ_K_ВЧ", [ssi.TWT_list[0].num, ssi.TWT_list[0].getAB(), 1])
+    except:
+        print('stop')
+
+
+def writeTransitionCG(ssi_objects: List[ssi.SSI], name: str, isUnicode=True):
+    output_path = './servicedata/output/'
+    cg = CycleGramGenerator(0)
+    cg.program(name)
+    menuList = []
+    for s in ssi_objects:
+        menuList.append("Включить конфигурацию " + str(s.config_id))
+    for s in ssi_objects:
+        menuList.append("Отключить конфигурацию " + str(s.config_id))
+    cg.repeat(1, 32000)
+    cg.menu(menuList)
+    cg.select_()
+    idx = 0
+    for s in ssi_objects:
+        idx += 1
+        cg.select_var(idx)
+        cg.call_(s.nameForAll)
+        cg.message("Включить ВЧ на УЛБВ?")
+        _rf_on(cg, s)
+    for s in ssi_objects:
+        idx += 1
+        cg.select_var(idx)
+        _rf_off(cg, s)
+        cg.call_(s.nameForDeviceOff)
+    cg.select_end()
+    cg.program_end()
+
+    strToWrite = cg.all_data
+    if strToWrite is not None:
+        with open(output_path + name + '.ci', 'wb') as writeFile:
+            if isUnicode:
+                strToWrite = strToWrite.encode()
+                writeFile.write(strToWrite)
+            else:
+                ss = strToWrite.encode(encoding='cp1251')
+                ss = ss.replace(b'READY', b'\x00')
+                # ss = ss.replace(b'READY', b'')
+                ss = ss.replace(b'\n', b'\r\n')
+                writeFile.write(ss)
+
+
 def writeCG(ssi_object: ssi.SSI, CGType: str, isUnicode=True):
     output_path = './servicedata/output/'
     switch_path = 'ПРК/'
@@ -93,6 +158,11 @@ def writeCG(ssi_object: ssi.SSI, CGType: str, isUnicode=True):
     if CGType == 'all':
         name = ssi_object.nameForAll
         strToWrite = ssi_object.getFullCGStr()
+
+    if CGType == 'singleTransition':
+        name = ssi_object.nameForAll
+        strToWrite = ssi_object.getSigleTransitionStr()
+
     if CGType == 'meas':
         name = ssi_object.nameForMeasure
         output_path += measure_path

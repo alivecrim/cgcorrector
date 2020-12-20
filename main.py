@@ -38,6 +38,7 @@ class Stage(Enum):
     INTEGRATION = "INTEGRATION"
 
 
+
 stage_map = {
     "INPUT_SECTION": {
         "file_name_json": "servicedata/data/config_routes.json",
@@ -80,7 +81,38 @@ stage_map = {
         "file_name_json": "servicedata/ПМ3.5/ЭТВИ_дегазация/config_routes_tvac_degassing.json",
         "cg_prefix": "TVAC_OUTGAS_",
         "name_proc": "TVAC_OUTGAS_"
-    }
+    },
+
+    "TVAC_DIGITALTEST": {
+        "main_cg_name": "TVAC_DIGITALTEST_",
+        "file_name_json": "servicedata/ПМ3.5/ЭТВИ_цифровые_проверки/config_routes_ete_tvac_d.json",
+        "cg_prefix": "TVAC_DIGITALTEST_",
+        "name_proc": "TVAC_DIGITALTEST_"
+    },
+    "TVAC_TRANS1": {
+        "main_cg_name": "TVAC_TRANS1_",
+        "file_name_json": "servicedata/ПМ3.5/ЭТВИ переходы1/config_routes_p1.json",
+        "cg_prefix": "TVAC_TRANS1_",
+        "name_proc": "TVAC_TRANS1_"
+    },
+    "TVAC_TRANS2": {
+        "main_cg_name": "TVAC_TRANS2_",
+        "file_name_json": "servicedata/ПМ3.5/ЭТВИ переходы2/config_routes_p2.json",
+        "cg_prefix": "TVAC_TRANS2_",
+        "name_proc": "TVAC_TRANS2_"
+    },
+    "TVAC_TRANS3": {
+        "main_cg_name": "TVAC_TRANS3_",
+        "file_name_json": "servicedata/ПМ3.5/ЭТВИ переходы3/config_routes_p3.json",
+        "cg_prefix": "TVAC_TRANS3_",
+        "name_proc": "TVAC_TRANS3_"
+    },
+    "TVAC_TRANS4": {
+        "main_cg_name": "TVAC_TRANS4_",
+        "file_name_json": "servicedata/ПМ3.5/ЭТВИ переходы4/config_routes_p4.json",
+        "cg_prefix": "TVAC_TRANS4_",
+        "name_proc": "TVAC_TRANS4_"
+    },
 }
 
 stage = process_stage('-stage')

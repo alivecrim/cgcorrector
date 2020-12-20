@@ -1,8 +1,3 @@
-#  Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-#  Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
-#  Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
-#  Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
-#  Vestibulum commodo. Ut rhoncus gravida arcu.
 from cg_creator.cg_form import CycleGramGenerator
 from devices.twt import TWT
 
@@ -61,7 +56,7 @@ class Outgas:
         cg = CycleGramGenerator(0)
         cg.program(self.cgName)
         cg.comment("Программа дегазации конфигурации " + str(ssi.config_id))
-        cg.message("Установка шага FCA")
+        cg.message("Оператор! Проверь, что лампа в режиме АРУ!")
         self._setStep(twt, 80, 1, cg)
         self._rf_on(cg, ssi)
         self._setStep(twt, 2, 2, cg)

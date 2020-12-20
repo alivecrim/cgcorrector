@@ -8,7 +8,7 @@ class Merger(object):
     def __init__(self, ssi_integration, ssi_bsk1) -> None:
         self.ssi_integration_item = ssi_integration
         self.ssi_bsk = ssi_bsk1
-        self.delta = self.ssi_integration_item["dF"] if type(self.ssi_integration_item["dF"]) == int else 0
+        # self.delta = self.ssi_integration_item["dF"] if type(self.ssi_integration_item["dF"]) == int else 0
         self.config_id = self.ssi_integration_item["id"]
         self.lvl = self.ssi_integration_item["level"]
         self.bsk1_id = self.ssi_integration_item["id_bsk1"]
