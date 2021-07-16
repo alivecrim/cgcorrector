@@ -113,6 +113,12 @@ stage_map = {
         "cg_prefix": "TVAC_TRANS4_",
         "name_proc": "TVAC_TRANS4_"
     },
+    "BEFORE_INTEGRATION": {
+        "main_cg_name": "BI_",
+        "file_name_json": "servicedata/data/BI/5000_configs.json",
+        "cg_prefix": "BI_",
+        "name_proc": "BI_"
+    },
 }
 
 stage = process_stage('-stage')
@@ -144,13 +150,24 @@ else:
 
 isUnicode = isDebug
 
-type_CGs = ['dev', 'dev_off', 'sw', 'conf', 'all', 'meas', 'rf_on_off']
-counter = 0
-for s in SSIList:
-    for type_CG in type_CGs:
-        writers.writeCG(s, type_CG, isUnicode)
-    writers.writePlan(s.getPlan())
-    counter += 1
+    if stage == 'TVAC_DIGITALTEST':
+        type_CGs = ['dev', 'dev_off', 'sw', 'conf', 'digital', 'rf_on_off']
+        counter = 0
+        for s in SSIList:
+            for type_CG in type_CGs:
+                writers.writeCG(s, type_CG, isUnicode)
+            writers.writePlan(s.getPlan())
+            counter += 1
+        exit(0)
 
-for i in range(1, 6):
-    writers.writePlan({'filename': f'763_{cg_prefix}', 'planstr': f'{name_proc} {i} = @763_{cg_prefix}{i}.pla'})
+    type_CGs = ['dev', 'dev_off', 'sw', 'conf', 'all', 'meas', 'rf_on_off']
+    counter = 0
+    for s in SSIList:
+        if s.config_id > 4999:
+            for type_CG in type_CGs:
+                writers.writeCG(s, type_CG, isUnicode)
+            writers.writePlan(s.getPlan())
+            counter += 1
+
+# for i in range(1, 6):
+#     writers.writePlan({'filename': f'763_{cg_prefix}', 'planstr': f'{name_proc} {i} = @763_{cg_prefix}{i}.pla'})

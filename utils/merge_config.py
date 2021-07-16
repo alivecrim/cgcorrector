@@ -10,7 +10,7 @@ from utils.merger import Merger
 init_path = './configs/'
 config_to_merge = [
     '500+.json',
-    ['ete_complex_mes_.json', 'config_routes.json']
+    ['5000.json', 'config_routes.json']
 ]
 
 big_data = []
@@ -24,9 +24,13 @@ for conf in config_to_merge:
         with open(init_path + conf[0], "r") as read_file:
             integration_data = json.load(read_file)
         for i in integration_data:
-            with open(init_path + conf[1], "r") as read_file:
-                bsk1_data = json.load(read_file)
-            merger = Merger(i, bsk1_data);
+            if (i['id_bsk1'] < 800):
+                with open(init_path + '500+.json', "r") as read_file:
+                    bsk1_data = json.load(read_file)
+            else:
+                with open(init_path + conf[1], "r") as read_file:
+                    bsk1_data = json.load(read_file)
+            merger = Merger(i, bsk1_data)
             data_item.append(merger.merge())
-with open('config_routes_full.json', 'w') as outfile:
+with open('5000_configs.json', 'w') as outfile:
     json.dump(data_item, outfile)

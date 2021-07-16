@@ -52,17 +52,28 @@ class Outgas:
             cg.pause(1)
 
     def getOutgasItem(self, ssi):
+        minutes = [5 * 60, 5 * 60, 20 * 60, 20 * 60, 30 * 60, 30 * 60]
+        AB_test = {'A': 1, 'B': 2, '': 3}
         twt = ssi.TWT_list[0]
         cg = CycleGramGenerator(0)
         cg.program(self.cgName)
+        cg.call_('763_БСК1_ОПРЕД_УЛБВ', [ssi.TWT_list[0].num, AB_test[ssi.TWT_list[0]._ab]])
         cg.comment("Программа дегазации конфигурации " + str(ssi.config_id))
         cg.message("Оператор! Проверь, что лампа в режиме АРУ!")
         self._setStep(twt, 80, 1, cg)
+
         self._rf_on(cg, ssi)
-        self._setStep(twt, 2, 2, cg)
-        cg.pause(90)
-        self._setStep(twt, 15, 2, cg)
-        cg.pause(90)
+        for (idx, m) in enumerate(minutes):
+            cg.message("Приступить к шагу дегазации " + str(idx + 1) + "?")
+            # self._setStep(twt, step_type=2, step=1, cgg=cg)
+            cg.call_("763_БСК1_УЛБВ_ЗАПРОС_ШАГА")
+            cg.pause(m)
+            cg.message("Перейти на следующий шаг?")
+        cg.message("Дегазация завершена! Режим OVERDRIVE")
+        cg.call_("763_БСК1_УЛБВ_ЗАПРОС_ШАГА")
+
+        cg.message("Отключить ВЧ на УЛБВ?")
+        self._rf_off(cg, ssi)
         cg.program_end()
 
         return cg.all_data

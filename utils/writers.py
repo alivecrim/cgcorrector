@@ -136,6 +136,10 @@ def writeCG(ssi_object: ssi.SSI, CGType: str, isUnicode=True):
         name = ssi_object.nameForAll
         strToWrite = ssi_object.getDegasStr()
 
+    if CGType == 'digital':
+        name = ssi_object.nameForAll
+        strToWrite = ssi_object.getDigitalStr()
+
     if CGType == 'outgas':
         name = ssi_object.nameForDegas
         output_path += outgas_path

@@ -159,6 +159,7 @@ class SSI:
                 self._fill_cn(r, self.config)
             if re.findall(r'WDTP1', r[0]):
                 self._fill_dtp(r, self.config)
+
             if re.findall(r'WTW', r[0]):
                 self._fill_twt(r, self.config)
             # if re.findall(r'WTW1M', r[0]):
@@ -329,7 +330,8 @@ class SSI:
         self.fullDeviceList.extend(self.switch_List)
         self.fullDeviceList.extend(self.LNA_list)
         self.fullDeviceList.extend(self.CN_list)
-        self.fullDeviceList.append(self.Mlo)
+        if self.Mlo != None:
+            self.fullDeviceList.append(self.Mlo)
         self.fullDeviceList.extend(self.TWT_list)
 
         if self.dtp is not None:

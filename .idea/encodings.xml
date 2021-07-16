@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/servicedata/data/INTEGRATION/5000.json" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/servicedata/output/КОНФИГУРАЦИЯ/763_БСК1_КНФ_301.ci" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/servicedata/output/ПЛАНЫ/763_ETE.pla" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/utils/M_KPI_PAR_R15167.ci" charset="UTF-8" />
